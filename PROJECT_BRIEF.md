@@ -8,7 +8,7 @@ This file is the implementation contract for humans and coding agents. Do not ch
 
 ## Current repository state
 
-The repository has no initial commit yet. The organizer-supplied constraint, Python tests, reference notes, participant guide, and submission documentation were imported unchanged from the official repository on 2026-10-03.
+The repository has an initial organizer-resource commit. The organizer-supplied constraint, Python tests, reference notes, participant guide, and submission documentation were imported unchanged from the official repository on 2026-10-03. The first UART milestone now has separate RX, TX, and packet-controller modules, unit and top-level testbenches, and a locally verified Gowin build flow. It returns fixed NONE actions; the trading strategy is not implemented yet. Board/tool observations and verification limits are recorded in `docs/board_bringup.md`.
 
 Preserved organizer copies are located at:
 
@@ -411,15 +411,15 @@ The project is complete only when all of the following are true:
 Update this section at the end of each meaningful work session:
 
 ```text
-Last known-good commit: none yet
-Last matching bitstream: none
-Board detected: no
-COM port: none detected
-Simulation status: not started
+Last known-good commit: none for HDL/hardware; initial organizer resources are committed
+Last matching bitstream: .build/gowin_uart/uart_milestone/impl/pnr/uart_milestone.fs (uncommitted UART scaffold; never programmed)
+Board detected: yes; USB VID_0403/PID_6010 and JTAG GW2AR family ID 0x0000081B at location 561
+COM port: COM3 and COM4 detected; COM4 is the likely UART port, not yet serial-tested
+Simulation status: RX/TX/top testbenches written, not run (no simulator found); Gowin synthesis and PnR pass
 Quick UART test: available locally / not run
 Robust UART test: available locally / not run
-Known blockers: Gowin tools absent; board not detected
-Next smallest task: review and commit the imported organizer assets, then install/locate the FPGA toolchain
+Known blockers: no simulator or pyserial found; strategy not implemented; clock-routing warning PR1014; physical UART unverified and programming requires explicit authorization
+Next smallest task: review the UART scaffold, run simulations with an approved simulator, then explicitly authorize SRAM programming and record a milestone packet test
 ```
 
 ## Common failure modes
