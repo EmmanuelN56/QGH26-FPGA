@@ -1,0 +1,42 @@
+{
+  "all_passed": true,
+  "changed_file_whitespace_checks": [
+    {
+      "file": "PROJECT_BRIEF.md",
+      "whitespace_passed": true
+    },
+    {
+      "file": "docs/grading_report.md",
+      "whitespace_passed": true
+    },
+    {
+      "file": "docs/lut_optimization_study.md",
+      "whitespace_passed": true
+    },
+    {
+      "file": "docs/human_review.md",
+      "whitespace_passed": true
+    },
+    {
+      "file": "docs/official/SCORING_AND_RANKING_CLARIFICATION.md",
+      "whitespace_passed": true
+    },
+    {
+      "file": "scripts/22_robust_uart_test_fullrange.py",
+      "whitespace_passed": true
+    },
+    {
+      "file": "scripts/verify_fullrange_candidates.py",
+      "whitespace_passed": true
+    },
+    {
+      "file": "scripts/publish_lut_candidate_branches.ps1",
+      "whitespace_passed": true
+    }
+  ],
+  "organizer_attachment_bytes_unchanged": true,
+  "all_17_archived_source_and_bitstream_hashes_match": true,
+  "prior_organizer_tests_unchanged": true,
+  "git_history_and_index_unchanged": true,
+  "no_physical_board_testing": true
+}

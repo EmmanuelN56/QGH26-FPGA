@@ -1,0 +1,4 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\fullrange_20261003_ranking\carry_uart_pointer\actual_uart.vvp +COUNT=200 +VECTORS=C:\Users\Lenovo\Downloads\QuizletFPGA\results\fullrange_20261003_ranking\actual_uart_packets.mem
+LATENCY gap_cycles=0 turnaround_ns=259.266..259.266 roundtrip_ns=1397662.015..1397662.190
+PASS top_sessions_tb: 200 packets / 1600 bytes, gaps, no early/extra replies
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_uart_pointer\verification_source\testbench\top_sessions_tb.v:125: $finish called at 284940389353 (1ps)

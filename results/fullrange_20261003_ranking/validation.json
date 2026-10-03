@@ -1,0 +1,149 @@
+{
+  "scope": "RTL simulation only; no board programming or serial access",
+  "all_passed": true,
+  "candidates": [
+    {
+      "candidate": "context_ram",
+      "bitstream_sha256": "825bf4d70b30f3ed7f01a09e725d65304f37f7b26c551289ea06fd13b947ef8d",
+      "resources": {
+        "synthesis_logic": 312,
+        "synthesis_registers": 179,
+        "synthesis_logic_row": "Logic 312(272 LUT, 40 ALU) / 20736 2%",
+        "synthesis_register_row": "Register 179 / 15750 2%",
+        "routed_logic": 316,
+        "routed_registers": 179,
+        "synthesis_report": "results\\area_20261003T192105403559Z\\context_ram\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+        "routed_report": "results\\area_20261003T192105403559Z\\context_ram\\reports\\pnr\\trade_core.rpt.txt"
+      },
+      "checks": [
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb_actual_27MHz_115200",
+          "packets": 200,
+          "passed": true
+        }
+      ],
+      "physical_validation": false,
+      "all_passed": true
+    },
+    {
+      "candidate": "carry_uart_pointer",
+      "bitstream_sha256": "ea5279614794fc79c7f3632b429584b29a3cb7c0fdb80811f3e4b95ef2cb8d4a",
+      "resources": {
+        "synthesis_logic": 354,
+        "synthesis_registers": 222,
+        "synthesis_logic_row": "Logic 354(234 LUT, 72 ALU, 8 RAM16) / 20736 2%",
+        "synthesis_register_row": "Register 222 / 15750 2%",
+        "routed_logic": 360,
+        "routed_registers": 222,
+        "synthesis_report": "results\\area_20261003T192105403559Z\\carry_uart_pointer\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+        "routed_report": "results\\area_20261003T192105403559Z\\carry_uart_pointer\\reports\\pnr\\trade_core.rpt.txt"
+      },
+      "checks": [
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb_actual_27MHz_115200",
+          "packets": 200,
+          "passed": true
+        }
+      ],
+      "physical_validation": false,
+      "all_passed": true
+    },
+    {
+      "candidate": "carry_direct_equality",
+      "bitstream_sha256": "f33a5f114d87616951c13435718ed73c124a23b2a02452ec93f26593e1278bf8",
+      "resources": {
+        "synthesis_logic": 382,
+        "synthesis_registers": 222,
+        "synthesis_logic_row": "Logic 382(230 LUT, 104 ALU, 8 RAM16) / 20736 2%",
+        "synthesis_register_row": "Register 222 / 15750 2%",
+        "routed_logic": 392,
+        "routed_registers": 222,
+        "synthesis_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+        "routed_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\pnr\\trade_core.rpt.txt"
+      },
+      "checks": [
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "trade_pair_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "qualification_sequence",
+          "packets": 400,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb",
+          "corpus": "fullrange_edges",
+          "packets": 3776,
+          "passed": true
+        },
+        {
+          "bench": "top_sessions_tb_actual_27MHz_115200",
+          "packets": 200,
+          "passed": true
+        }
+      ],
+      "physical_validation": false,
+      "all_passed": true
+    }
+  ],
+  "qualified_on_official_judge_run": false,
+  "hidden_seed_tested": false
+}

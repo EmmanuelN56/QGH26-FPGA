@@ -1,0 +1,193 @@
+{
+  "metric": "Direct Logic row; do not sum hierarchy cells",
+  "provisional_synthesis_order": [
+    {
+      "candidate": "context_ram",
+      "synthesis_logic": 312,
+      "synthesis_registers": 179,
+      "synthesis_logic_row": "Logic 312(272 LUT, 40 ALU) / 20736 2%",
+      "synthesis_register_row": "Register 179 / 15750 2%",
+      "routed_logic": 316,
+      "routed_registers": 179,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\context_ram\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\context_ram\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "carry_uart_pointer",
+      "synthesis_logic": 354,
+      "synthesis_registers": 222,
+      "synthesis_logic_row": "Logic 354(234 LUT, 72 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 222 / 15750 2%",
+      "routed_logic": 360,
+      "routed_registers": 222,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\carry_uart_pointer\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\carry_uart_pointer\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "carry_uart",
+      "synthesis_logic": 360,
+      "synthesis_registers": 226,
+      "synthesis_logic_row": "Logic 360(236 LUT, 76 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 226 / 15750 2%",
+      "routed_logic": 367,
+      "routed_registers": 226,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\carry_uart\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\carry_uart\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "shared_block_ram",
+      "synthesis_logic": 360,
+      "synthesis_registers": 228,
+      "synthesis_logic_row": "Logic 360(316 LUT, 44 ALU) / 20736 2%",
+      "synthesis_register_row": "Register 228 / 15750 2%",
+      "routed_logic": 363,
+      "routed_registers": 228,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\shared_block_ram\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\shared_block_ram\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "memory_previous",
+      "synthesis_logic": 365,
+      "synthesis_registers": 193,
+      "synthesis_logic_row": "Logic 365(245 LUT, 72 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 193 / 15750 2%",
+      "routed_logic": 371,
+      "routed_registers": 193,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\memory_previous\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\memory_previous\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "shared_carry_compare",
+      "synthesis_logic": 372,
+      "synthesis_registers": 227,
+      "synthesis_logic_row": "Logic 372(248 LUT, 76 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 227 / 15750 2%",
+      "routed_logic": 379,
+      "routed_registers": 227,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\shared_carry_compare\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\shared_carry_compare\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "carry_flags_only",
+      "synthesis_logic": 381,
+      "synthesis_registers": 222,
+      "synthesis_logic_row": "Logic 381(231 LUT, 102 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 222 / 15750 2%",
+      "routed_logic": 391,
+      "routed_registers": 222,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\carry_flags_only\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\carry_flags_only\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "carry_direct_equality",
+      "synthesis_logic": 382,
+      "synthesis_registers": 222,
+      "synthesis_logic_row": "Logic 382(230 LUT, 104 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 222 / 15750 2%",
+      "routed_logic": 392,
+      "routed_registers": 222,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "shared_uart_shift",
+      "synthesis_logic": 389,
+      "synthesis_registers": 226,
+      "synthesis_logic_row": "Logic 389(297 LUT, 44 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 226 / 15750 2%",
+      "routed_logic": 392,
+      "routed_registers": 226,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\shared_uart_shift\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\shared_uart_shift\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "shared_parallel",
+      "synthesis_logic": 394,
+      "synthesis_registers": 227,
+      "synthesis_logic_row": "Logic 394(302 LUT, 44 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 227 / 15750 2%",
+      "routed_logic": 397,
+      "routed_registers": 227,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\shared_parallel\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\shared_parallel\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "shared_response_mux",
+      "synthesis_logic": 403,
+      "synthesis_registers": 227,
+      "synthesis_logic_row": "Logic 403(311 LUT, 44 ALU, 8 RAM16) / 20736 2%",
+      "synthesis_register_row": "Register 227 / 15750 2%",
+      "routed_logic": 406,
+      "routed_registers": 227,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\shared_response_mux\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\shared_response_mux\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "compact_logical_v2",
+      "synthesis_logic": 506,
+      "synthesis_registers": 226,
+      "synthesis_logic_row": "Logic 506(306 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 226 / 15750 2%",
+      "routed_logic": 520,
+      "routed_registers": 226,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\compact_logical_v2\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\compact_logical_v2\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "response_mux",
+      "synthesis_logic": 511,
+      "synthesis_registers": 226,
+      "synthesis_logic_row": "Logic 511(311 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 226 / 15750 2%",
+      "routed_logic": 525,
+      "routed_registers": 226,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\response_mux\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\response_mux\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "dual_sequential",
+      "synthesis_logic": 517,
+      "synthesis_registers": 231,
+      "synthesis_logic_row": "Logic 517(317 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 231 / 15750 2%",
+      "routed_logic": 531,
+      "routed_registers": 231,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\dual_sequential\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\dual_sequential\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "logical_clear",
+      "synthesis_logic": 525,
+      "synthesis_registers": 276,
+      "synthesis_logic_row": "Logic 525(325 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 276 / 15750 2%",
+      "routed_logic": 539,
+      "routed_registers": 276,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\logical_clear\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\logical_clear\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "uart_shift",
+      "synthesis_logic": 555,
+      "synthesis_registers": 295,
+      "synthesis_logic_row": "Logic 555(355 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 295 / 15750 2%",
+      "routed_logic": 569,
+      "routed_registers": 295,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\uart_shift\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\uart_shift\\reports\\pnr\\trade_core.rpt.txt"
+    },
+    {
+      "candidate": "compact_packet_v2",
+      "synthesis_logic": 559,
+      "synthesis_registers": 246,
+      "synthesis_logic_row": "Logic 559(359 LUT, 152 ALU, 8 RAM16) / 20736 3%",
+      "synthesis_register_row": "Register 246 / 15750 2%",
+      "routed_logic": 573,
+      "routed_registers": 246,
+      "synthesis_report": "results\\area_20261003T192105403559Z\\compact_packet_v2\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+      "routed_report": "results\\area_20261003T192105403559Z\\compact_packet_v2\\reports\\pnr\\trade_core.rpt.txt"
+    }
+  ],
+  "judge_rebuild_required": true
+}

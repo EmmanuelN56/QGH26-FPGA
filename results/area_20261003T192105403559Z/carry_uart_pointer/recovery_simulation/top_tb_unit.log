@@ -1,0 +1,3 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_uart_pointer\top_tb.vvp
+PASS top_tb: three packets, slot order, partial packet reset, byte gaps
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_uart_pointer\verification_source\testbench\top_tb.v:104: $finish called at 4653213187 (1ps)

@@ -1,0 +1,47 @@
+{
+  "candidate": "carry_direct_equality",
+  "bitstream_sha256": "f33a5f114d87616951c13435718ed73c124a23b2a02452ec93f26593e1278bf8",
+  "resources": {
+    "synthesis_logic": 382,
+    "synthesis_registers": 222,
+    "synthesis_logic_row": "Logic 382(230 LUT, 104 ALU, 8 RAM16) / 20736 2%",
+    "synthesis_register_row": "Register 222 / 15750 2%",
+    "routed_logic": 392,
+    "routed_registers": 222,
+    "synthesis_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\gwsynthesis\\trade_core_syn.rpt.html",
+    "routed_report": "results\\area_20261003T192105403559Z\\carry_direct_equality\\reports\\pnr\\trade_core.rpt.txt"
+  },
+  "checks": [
+    {
+      "bench": "trade_pair_tb",
+      "corpus": "qualification_sequence",
+      "packets": 400,
+      "passed": true
+    },
+    {
+      "bench": "trade_pair_tb",
+      "corpus": "fullrange_edges",
+      "packets": 3776,
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "qualification_sequence",
+      "packets": 400,
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "fullrange_edges",
+      "packets": 3776,
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb_actual_27MHz_115200",
+      "packets": 200,
+      "passed": true
+    }
+  ],
+  "physical_validation": false,
+  "all_passed": true
+}

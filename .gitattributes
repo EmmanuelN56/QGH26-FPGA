@@ -1,0 +1,14 @@
+# Accept Windows line endings while checking actual trailing spaces and tabs.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Keep checksum-tracked files byte-for-byte identical across Windows checkouts.
+*.v -text
+*.tcl -text
+*.sdc -text
+*.cst -text
+*.fs -text
+*.mem -text
+*.json -text
+*.py -text
+# Preserve archived tool output, including its original whitespace.
+results/** -text -whitespace

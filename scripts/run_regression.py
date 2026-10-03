@@ -15,7 +15,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--board-packets", type=int, default=221,
                         help="Board-default UART timing: quick + two robust sessions")
+    parser.add_argument("--simulation-timeout", type=int, default=300,
+                        help="Wall-clock limit in seconds for each HDL simulation")
     args = parser.parse_args()
+    if args.simulation_timeout < 1:
+        parser.error("simulation-timeout must be positive")
     result_dir = ROOT / "results"
     result_dir.mkdir(exist_ok=True)
     (result_dir / "software_validation.json").write_text(json.dumps({
@@ -38,11 +42,11 @@ def main():
         sys.exit("Model checks passed; HDL simulation requires installed Icarus Verilog (ask before installing).")
     logs, checks = [], []
 
-    def run(command):
+    def run(command, timeout=300):
         display = " ".join(str(p) for p in command)
         print(display, flush=True)
         proc = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE,
-                              stderr=subprocess.STDOUT, timeout=300)
+                              stderr=subprocess.STDOUT, timeout=timeout)
         logs.append(display + "\n" + proc.stdout)
         (result_dir / "simulation.log").write_text("\n".join(logs))
         print(proc.stdout, end="", flush=True)
@@ -69,7 +73,8 @@ def main():
             vector_path = str(subset.relative_to(ROOT))
         transcript = run([runtime, str(output), *extra,
                           f"+VECTORS={vector_path}",
-                          "+STATES=testbench/vectors/states.mem"])
+                          "+STATES=testbench/vectors/states.mem"],
+                         timeout=args.simulation_timeout)
         if "PASS " not in transcript:
             raise RuntimeError(f"No PASS marker from {name}")
         checks.append({"test": name, "board_timing": bool(defines) or name in ("uart_rx_tb", "uart_tx_tb", "top_tb"), "result": transcript.strip()})

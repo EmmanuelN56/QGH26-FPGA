@@ -1,0 +1,3 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\fullrange_20261003_ranking\context_ram\trade_pair_tb.vvp +COUNT=3776 +VECTORS=C:\Users\Lenovo\Downloads\QuizletFPGA\results\fullrange_20261003_ranking\fullrange_edges_packets.mem +STATES=C:\Users\Lenovo\Downloads\QuizletFPGA\results\fullrange_20261003_ranking\fullrange_edges_states.mem
+PASS trade_pair_tb: 3776 packets, both item states, clear priority, valid pulse
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\verification_source\testbench\trade_pair_tb.v:44: $finish called at 906650000 (1ps)

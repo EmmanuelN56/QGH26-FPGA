@@ -1,0 +1,10 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.exe -g2012 -Wall -s trade_pair_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\fullrange_20261003_ranking\context_ram\trade_pair_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\verification_source\testbench\trade_pair_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\trade_engine.v:57
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\context_ram\source\src\uart_tx.v:1

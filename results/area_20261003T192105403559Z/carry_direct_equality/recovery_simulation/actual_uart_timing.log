@@ -1,0 +1,4 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_direct_equality\top_sessions_tb_board.vvp +COUNT=3 +VECTORS=C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_direct_equality\actual_uart_packets.mem
+LATENCY gap_cycles=0 turnaround_ns=259.266..259.266 roundtrip_ns=1397662.015..1397662.190
+PASS top_sessions_tb: 3 packets / 24 bytes, gaps, no early/extra replies
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_direct_equality\verification_source\testbench\top_sessions_tb.v:125: $finish called at 4470763999 (1ps)

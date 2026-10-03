@@ -1,0 +1,128 @@
+{
+  "name": "carry_direct_equality",
+  "status": "recovered_build_and_fresh_simulations_passed_awaiting_physical_validation",
+  "native_root": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\GatorFPGA\\area_20261003T192105403559Z\\carry_direct_equality",
+  "physical_validation": false,
+  "physical_latency": null,
+  "simulation": [
+    {
+      "test": "uart_rx_tb",
+      "case": "unit",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\uart_rx_tb.vvp\nPASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)"
+    },
+    {
+      "test": "uart_tx_tb",
+      "case": "unit",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\uart_tx_tb.vvp\nPASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)"
+    },
+    {
+      "test": "top_tb",
+      "case": "unit",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_tb.vvp\nPASS top_tb: three packets, slot order, partial packet reset, byte gaps\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_tb.v:104: $finish called at 4653213187 (1ps)"
+    },
+    {
+      "test": "trade_pair_tb",
+      "case": "original",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\trade_pair_tb.vvp +COUNT=1509 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\vectors\\packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\vectors\\states.mem\nPASS trade_pair_tb: 1509 packets, both item states, clear priority, valid pulse\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\trade_pair_tb.v:44: $finish called at 60540000 (1ps)"
+    },
+    {
+      "test": "trade_pair_tb",
+      "case": "batch_0",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\trade_pair_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_0_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_0_states.mem\nPASS trade_pair_tb: 4096 packets, both item states, clear priority, valid pulse\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\trade_pair_tb.v:44: $finish called at 163950000 (1ps)"
+    },
+    {
+      "test": "trade_pair_tb",
+      "case": "batch_1",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\trade_pair_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_1_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_1_states.mem\nPASS trade_pair_tb: 4096 packets, both item states, clear priority, valid pulse\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\trade_pair_tb.v:44: $finish called at 163950000 (1ps)"
+    },
+    {
+      "test": "trade_pair_tb",
+      "case": "batch_2",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\trade_pair_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_2_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_2_states.mem\nPASS trade_pair_tb: 4096 packets, both item states, clear priority, valid pulse\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\trade_pair_tb.v:44: $finish called at 163950000 (1ps)"
+    },
+    {
+      "test": "trade_pair_tb",
+      "case": "batch_3",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\trade_pair_tb.vvp +COUNT=1220 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_3_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_3_states.mem\nPASS trade_pair_tb: 1220 packets, both item states, clear priority, valid pulse\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\trade_pair_tb.v:44: $finish called at 48900000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "case": "original",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb.vvp +COUNT=1509 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\vectors\\packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\vectors\\states.mem\nLATENCY gap_cycles=0 turnaround_ns=7000.000..7000.000 roundtrip_ns=1641000.000..1641500.000\nPASS top_sessions_tb: 1509 packets / 12072 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 2521769500000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "case": "batch_0",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_0_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_0_states.mem\nLATENCY gap_cycles=0 turnaround_ns=7000.000..7000.000 roundtrip_ns=1641000.000..1641500.000\nPASS top_sessions_tb: 4096 packets / 32768 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 6844646500000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "case": "batch_1",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_1_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_1_states.mem\nLATENCY gap_cycles=0 turnaround_ns=7000.000..7000.000 roundtrip_ns=1641000.000..1641500.000\nPASS top_sessions_tb: 4096 packets / 32768 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 6844646500000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "case": "batch_2",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb.vvp +COUNT=4096 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_2_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_2_states.mem\nLATENCY gap_cycles=0 turnaround_ns=7000.000..7000.000 roundtrip_ns=1641000.000..1641500.000\nPASS top_sessions_tb: 4096 packets / 32768 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 6844646500000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "case": "batch_3",
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb.vvp +COUNT=1220 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_3_packets.mem +STATES=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\expanded_vectors\\batch_3_states.mem\nLATENCY gap_cycles=0 turnaround_ns=7000.000..7000.000 roundtrip_ns=1641000.000..1641500.000\nPASS top_sessions_tb: 1220 packets / 9760 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 2038850500000 (1ps)"
+    },
+    {
+      "test": "actual_27MHz_115200_baud",
+      "packets": 3,
+      "result": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\iverilog\\bin\\vvp.exe C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\top_sessions_tb_board.vvp +COUNT=3 +VECTORS=C:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\.build\\recovered_candidate_sim\\carry_direct_equality\\actual_uart_packets.mem\nLATENCY gap_cycles=0 turnaround_ns=259.266..259.266 roundtrip_ns=1397662.015..1397662.190\nPASS top_sessions_tb: 3 packets / 24 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\results\\area_20261003T192105403559Z\\carry_direct_equality\\verification_source\\testbench\\top_sessions_tb.v:125: $finish called at 4470763999 (1ps)"
+    }
+  ],
+  "tool": "Gowin V1.9.11.03 Education",
+  "tool_identity_source": "PnR report <Tool Version>",
+  "synthesis": {
+    "LUT": 230,
+    "LUT2": 21,
+    "LUT3": 117,
+    "LUT4": 92,
+    "registers": 222,
+    "BSRAM": 0,
+    "SSRAM": 8
+  },
+  "pnr": {
+    "fmax_mhz": 75.331,
+    "worst_setup_slack_ns": 23.762,
+    "worst_hold_slack_ns": 0.323,
+    "setup_violations": 0,
+    "hold_violations": 0
+  },
+  "pins": {
+    "sys_clk": 4,
+    "reset_btn": 87,
+    "uart_rx_i": 70,
+    "uart_tx_o": 69,
+    "led0_n": 15,
+    "led1_n": 16
+  },
+  "warnings": [
+    "WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew"
+  ],
+  "zero_ssram_source": null,
+  "target": "GW2AR-LV18QN88C8/I7",
+  "device_version": "C",
+  "top": "top",
+  "source_sha256": {
+    "src/top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src/uart_rx.v": "d51c13c567f9c50c1b49672dba9f13d54089ba336b7d4cff2f36e2a97830ce12",
+    "src/uart_tx.v": "b500af1a7ff1097356561eb5022c526d2fbbe50da2d374999568a88bfbc10928",
+    "src/packet_controller.v": "01aa48ddb7c2f2fd5a3e6ee8c892aeb856dec31e52919ad951a19f1ba5e985ef",
+    "src/trade_engine.v": "bc256fd96b7062d5c289cf2b995dd2383da6198b8aaf81ff0df3954e277415cb",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459"
+  },
+  "bitstream_sha256": "f33a5f114d87616951c13435718ed73c124a23b2a02452ec93f26593e1278bf8",
+  "recovery": {
+    "source": "surviving_native_build",
+    "original_simulation_log_files_recovered": false,
+    "fresh_validation": "recovery_simulation/validation.json"
+  }
+}
