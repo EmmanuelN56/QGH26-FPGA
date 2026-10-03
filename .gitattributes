@@ -1,0 +1,2 @@
+# Preserve exact corpus bytes so SHA-256 hashes survive Git checkout.
+tests/vectors/stress/* -text

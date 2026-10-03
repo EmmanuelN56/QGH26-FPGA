@@ -1,0 +1,16 @@
+{
+  "source_revision": null,
+  "bitstream_sha256": null,
+  "resource_report": null,
+  "timing_report": null,
+  "board_capture": null,
+  "capture_kind": null,
+  "luts": null,
+  "registers": null,
+  "bsram_blocks": null,
+  "timing_slack_ns": null,
+  "latency_us": {
+    "mean": null,
+    "p99": null
+  }
+}

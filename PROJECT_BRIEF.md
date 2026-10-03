@@ -416,6 +416,8 @@ Last matching bitstream: .build/gowin_uart/uart_milestone/impl/pnr/uart_mileston
 Board detected: yes; USB VID_0403/PID_6010 and JTAG GW2AR family ID 0x0000081B at location 561
 COM port: COM3 and COM4 detected; COM4 is the likely UART port, not yet serial-tested
 Simulation status: RX/TX/top testbenches written, not run (no simulator found); Gowin synthesis and PnR pass
+Extended software tests: 32 offline unit tests pass; 118,212 golden packets across 758 sessions in tests/vectors/stress agree with both organizer references and two local models; see tests/README.md
+Extended MVP/resource/latency validation: not run; golden vectors and offline verification tools only, no MVP available for this session
 Quick UART test: available locally / not run
 Robust UART test: available locally / not run
 Known blockers: no simulator or pyserial found; strategy not implemented; clock-routing warning PR1014; physical UART unverified and programming requires explicit authorization
