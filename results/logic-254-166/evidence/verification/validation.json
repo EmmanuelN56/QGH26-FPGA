@@ -1,0 +1,87 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "bench": "pair_checked_tb",
+      "corpus": "qualification_sequence",
+      "packets": 400,
+      "result": [
+        "PASS pair_checked_tb: 400 packets, histories, sums, RAM latency, single update/pulse; cycles=74..74",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\pair_checked_tb.v:142: $finish called at 304080000 (1ps)"
+      ]
+    },
+    {
+      "bench": "pair_checked_tb",
+      "corpus": "fullrange_edges",
+      "packets": 3776,
+      "result": [
+        "PASS pair_checked_tb: 3776 packets, histories, sums, RAM latency, single update/pulse; cycles=74..74",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\pair_checked_tb.v:142: $finish called at 2870180000 (1ps)"
+      ]
+    },
+    {
+      "bench": "pair_checked_tb",
+      "corpus": "original",
+      "packets": 1509,
+      "result": [
+        "PASS pair_checked_tb: 1509 packets, histories, sums, RAM latency, single update/pulse; cycles=74..74",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\pair_checked_tb.v:142: $finish called at 1147030000 (1ps)"
+      ]
+    },
+    {
+      "bench": "pair_checked_tb",
+      "corpus": "expanded",
+      "packets": 3100,
+      "result": [
+        "PASS pair_checked_tb: 3100 packets, histories, sums, RAM latency, single update/pulse; cycles=74..74",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\pair_checked_tb.v:142: $finish called at 2356480000 (1ps)"
+      ]
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "qualification_sequence",
+      "packets": 400,
+      "result": [
+        "PASS top_sessions_tb: 400 packets / 3200 bytes, gaps, no early/extra replies",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\top_sessions_tb.v:125: $finish called at 697430500000 (1ps)"
+      ]
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "fullrange_edges",
+      "packets": 3776,
+      "result": [
+        "PASS top_sessions_tb: 3776 packets / 30208 bytes, gaps, no early/extra replies",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\top_sessions_tb.v:125: $finish called at 6581798500000 (1ps)"
+      ]
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "original",
+      "packets": 1509,
+      "result": [
+        "PASS top_sessions_tb: 1509 packets / 12072 bytes, gaps, no early/extra replies",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\top_sessions_tb.v:125: $finish called at 2630417500000 (1ps)"
+      ]
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "expanded",
+      "packets": 3100,
+      "result": [
+        "PASS top_sessions_tb: 3100 packets / 24800 bytes, gaps, no early/extra replies",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\top_sessions_tb.v:125: $finish called at 5403530500000 (1ps)"
+      ]
+    },
+    {
+      "bench": "top_sessions_actual",
+      "packets": 200,
+      "result": [
+        "LATENCY gap_cycles=0 turnaround_ns=2926.002..2926.002 roundtrip_ns=1400328.751..1400328.926",
+        "PASS top_sessions_tb: 200 packets / 1600 bytes, gaps, no early/extra replies",
+        "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\experiments\\digit_w4_pointer_compact_down_v2\\verification\\top_sessions_tb.v:125: $finish called at 285473736553 (1ps)"
+      ]
+    }
+  ],
+  "physical_validation": false
+}

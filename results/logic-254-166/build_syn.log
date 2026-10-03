@@ -1,0 +1,49 @@
+C:\Gowin\Gowin_V1.9.11.03_Education_x64\IDE\bin\gw_sh.exe C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/launch.tcl
+*** GOWIN Tcl Command Line Console  *** 
+alog error: failed to open log file: 'C:/Users/Duke/AppData/Local/GowinSemi/IDE/cache/sh.log'
+current working directory: C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/.build/gowin_trade/trade_core
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/src/top.v"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/src/uart_rx.v"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/src/uart_tx.v"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/src/packet_controller.v"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/src/trade_engine.v"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/constraints/19_tang_nano_20k.cst"
+add new file: "C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w4_pointer_compact_down_v2/gowin/uart.sdc"
+current device: GW2AR-18C  GW2AR-LV18QN88C8/I7
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\top.v'
+Analyzing Verilog file 'C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\uart_rx.v'
+Analyzing Verilog file 'C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\uart_tx.v'
+Analyzing Verilog file 'C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\packet_controller.v'
+Analyzing Verilog file 'C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v'
+Compiling module 'top'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\top.v":1)
+Compiling module 'uart_rx'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\uart_rx.v":1)
+Compiling module 'packet_controller(TX_GAP_CYCLES=0)'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\packet_controller.v":1)
+Compiling module 'trade_pair'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":80)
+Extracting RAM for identifier 'sum_memory'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":90)
+Extracting RAM for identifier 'previous_memory'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":91)
+Extracting RAM for identifier 'history_memory'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":92)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 3("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":105)
+Compiling module 'digit_cell'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\trade_engine.v":56)
+Compiling module 'uart_tx'("C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\src\uart_tx.v":1)
+NOTE  (EX0101) : Current top module is "top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\.build\gowin_trade\trade_core\impl\gwsynthesis\trade_core.vg" completed
+[100%] Generate report file "C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\.build\gowin_trade\trade_core\impl\gwsynthesis\trade_core_syn.rpt.html" completed
+GowinSynthesis finish

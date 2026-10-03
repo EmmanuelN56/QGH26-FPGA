@@ -1,0 +1,4 @@
+C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\icarus\bin\vvp.exe -M- -M C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\icarus\lib\ivl C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\verification\actual_uart.vvp +COUNT=200 +VECTORS=C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\baseline_verification_final/actual_uart_packets.mem
+LATENCY gap_cycles=0 turnaround_ns=2926.002..2926.002 roundtrip_ns=1400328.751..1400328.926
+PASS top_sessions_tb: 200 packets / 1600 bytes, gaps, no early/extra replies
+C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w4_pointer_compact_down_v2\verification\top_sessions_tb.v:125: $finish called at 285473736553 (1ps)
