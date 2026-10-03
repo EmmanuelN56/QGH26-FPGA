@@ -1,3 +1,5 @@
+Experimental branch codex/lut-234: active src/ and bitstream/trade_core.fs are the 234-LUT candidate. Physical validation is pending. CANDIDATE.md identifies the build; historical release measurements below describe the archived 365-LUT baseline.
+
 Recovery note (2026-10-03): the active repository is `C:/Users/Lenovo/Downloads/QuizletFPGA`. Exact source/build files were restored, but some later physical logs and original simulation logs from Ubuntu are missing. Fresh recovery results are separate. See [recovery inventory](docs/repository_recovery.md).
 
 # Silicon Trade Core — Agent Project Brief

@@ -44,7 +44,8 @@ module uart_tx #(
                 tx_done <= 1'b1;
             end else begin
                 bit_index <= bit_index + 1'b1;
-                uart_tx_o <= frame_bits[bit_index + 1'b1];
+                uart_tx_o <= frame_bits[1];
+                frame_bits <= {1'b1, frame_bits[9:1]};
                 bit_timer <= CLKS_PER_BIT - 1;
             end
         end
