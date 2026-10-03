@@ -1,0 +1,45 @@
+{
+  "physical_validation": true,
+  "scope": "one authorized SRAM programming, organizer quick + three unchanged practice-seed robust sessions",
+  "bitstream_sha256": "e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7",
+  "uart_port": "COM4",
+  "board_debugger_serial": "2025030317",
+  "jtag_location": 561,
+  "reset_or_reprogram_between_sessions": false,
+  "independent_csv_review_passed": true,
+  "runs": [
+    {
+      "run": "robust_1",
+      "received_packets": 100,
+      "independently_verified_packets_including_warmup": 100,
+      "scored_packets_correct": 84,
+      "actions_correct": 168,
+      "timeouts": 0,
+      "mean_latency_ms": 14.076038999999998,
+      "max_latency_ms": 31.265099999999997
+    },
+    {
+      "run": "robust_2",
+      "received_packets": 100,
+      "independently_verified_packets_including_warmup": 100,
+      "scored_packets_correct": 84,
+      "actions_correct": 168,
+      "timeouts": 0,
+      "mean_latency_ms": 13.615527,
+      "max_latency_ms": 23.7965
+    },
+    {
+      "run": "robust_3",
+      "received_packets": 100,
+      "independently_verified_packets_including_warmup": 100,
+      "scored_packets_correct": 84,
+      "actions_correct": 168,
+      "timeouts": 0,
+      "mean_latency_ms": 13.462003000000001,
+      "max_latency_ms": 30.494400000000002
+    }
+  ],
+  "aggregate_mean_latency_ms": 13.717856333333332,
+  "aggregate_max_latency_ms": 31.265099999999997,
+  "limits": "Local Windows PC and published practice seed; official judging uses a different seed and PC. PR1014 remains. Physical tests do not constitute exhaustive clock-skew validation."
+}

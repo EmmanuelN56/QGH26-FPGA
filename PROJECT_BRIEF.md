@@ -8,7 +8,9 @@ This file is the implementation contract for humans and coding agents. Do not ch
 
 ## Current repository state
 
-The repository has an initial organizer-resource commit. The organizer-supplied constraint, Python tests, reference notes, participant guide, and submission documentation were imported unchanged from the official repository on 2026-10-03. The first UART milestone now has separate RX, TX, and packet-controller modules, unit and top-level testbenches, and a locally verified Gowin build flow. It returns fixed NONE actions; the trading strategy is not implemented yet. Board/tool observations and verification limits are recorded in `docs/board_bringup.md`.
+Organizer resources remain unchanged. The trading core now has independent per-item engines, an independent Python model, deterministic regression vectors, and packet integration. Icarus Verilog 12.0 simulations pass: RX/TX/top scaffold tests, 1,509 engine and full-system packets across 15 sessions, and 221 complete transactions at the actual 27 MHz / 115200-baud timing (quick plus two robust sessions). Software evidence is in `results/`.
+
+Trading-core synthesis and PnR now pass natively on Windows with Gowin V1.9.11.03 Education: 412 LUTs, 328 registers, zero B-SRAM, eight SSRAM blocks, routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns and zero reported setup/hold violations. All six routed pins match the unchanged CST. PR1014 remains. Build/source evidence is in `results/build_windows_20261003/`. Authorized SRAM programming and physical quick plus three robust sessions passed; each robust run received 100 packets with 84/84 scored packets, 168/168 actions and zero timeouts. Every CSV row was independently checked. Combined physical mean/max latency is 13.718/31.265 ms on the local PC. Evidence is in `results/board_20261003T064213338565Z/`; the matching tested file is `bitstream/trade_core.fs`. The previous UART-only Windows build at `edc3fae` reported 177 LUTs, 166 registers, zero B-SRAM, and PR1014; those measurements do not describe the new strategy. The current trading core has been programmed in volatile SRAM with saved evidence. See `docs/board_bringup.md` for environment detection and release blockers.
 
 Preserved organizer copies are located at:
 
@@ -373,7 +375,7 @@ Reducing below 542 LUTs does not produce more than 15 LUT points. The UART/USB p
 - Final optimization decisions
 - README and release checklist
 
-Use feature branches and pull requests. Assign a single temporary owner to shared files during each integration session.
+Humans own branch and history actions. Assign a single temporary owner to shared files during each integration session; coding work stops after edits, tests, and review commands.
 
 ## Git authorship and agent restrictions
 
@@ -411,15 +413,18 @@ The project is complete only when all of the following are true:
 Update this section at the end of each meaningful work session:
 
 ```text
-Last known-good commit: none for HDL/hardware; initial organizer resources are committed
-Last matching bitstream: .build/gowin_uart/uart_milestone/impl/pnr/uart_milestone.fs (uncommitted UART scaffold; never programmed)
-Board detected: yes; USB VID_0403/PID_6010 and JTAG GW2AR family ID 0x0000081B at location 561
-COM port: COM3 and COM4 detected; COM4 is the likely UART port, not yet serial-tested
-Simulation status: RX/TX/top testbenches written, not run (no simulator found); Gowin synthesis and PnR pass
-Quick UART test: available locally / not run
-Robust UART test: available locally / not run
-Known blockers: no simulator or pyserial found; strategy not implemented; clock-routing warning PR1014; physical UART unverified and programming requires explicit authorization
-Next smallest task: review the UART scaffold, run simulations with an approved simulator, then explicitly authorize SRAM programming and record a milestone packet test
+Last known-good commit: edc3fae is the historical UART scaffold; current trading source is uncommitted and simulation-validated
+Last matching bitstream: bitstream/trade_core.fs; SHA-256 e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7; programmed in SRAM and passed physical tests; awaiting human Git/submission freeze
+Board detected: native Windows USB Debugger A; VID_0403/PID_6010 serial 2025030317; JTAG location 561 reads GW2AR-family ID 0x0000081B
+COM port: current COM3 (interface A) and COM4 (interface B); COM4 passed the physical quick test and three robust sessions
+Simulation status: native Windows Icarus 12.0 passes RX 260 bytes, TX 256 bytes, original top 3 packets, engine + accelerated top 1509 packets / 15 sessions, board-default top 221 packets
+Reference model: byte-exact agreement with both organizer classes; organizer files unchanged; transferred source hashes verified
+Synthesis/PnR status: PASS, Gowin V1.9.11.03 Education Windows; exact part/version; 412 LUTs (49 LUT2/123 LUT3/240 LUT4), 328 registers, 0 B-SRAM, 8 SSRAM; source snapshot matches workspace
+Quick UART test: physical PASS on COM4; saved console/programming evidence
+Robust UART test: physical PASS three consecutive practice-seed runs without reset/reprogram; 84/84 scored packets and 168/168 actions each; all 300 CSV rows independently verified
+Timing / physical latency: routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns, zero reported setup/hold violations; physical robust aggregate mean/max 13.718/31.265 ms on local Windows PC
+Known blockers: human team/asset/submission metadata, human Git review/commit/push and public repository/Devpost freeze; PR1014 remains documented, physical local tests passed
+Next smallest task: humans fill submission metadata, review/stage/commit/push the source, evidence and matching tested bitstream, then record full final SHA on Devpost
 ```
 
 ## Common failure modes

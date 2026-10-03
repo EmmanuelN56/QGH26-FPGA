@@ -1,0 +1,80 @@
+{
+  "scope": "synthesis and place-and-route only",
+  "physical_validation": false,
+  "programming_performed": false,
+  "tool": "Gowin V1.9.11.03 Education Windows x64",
+  "target": "GW2AR-LV18QN88C8/I7",
+  "device_version": "C",
+  "top": "top",
+  "native_build_root": "C:\\Users\\Lenovo\\AppData\\Local\\GatorFPGA\\trade_build_20261003",
+  "source_sha256": {
+    "src/top.v": "57e8fe732e97f8391ecd2586c4a183fe760e1ab1026a2a2a9de10c1901ab73b1",
+    "src/uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
+    "src/uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
+    "src/packet_controller.v": "578e25b58988e213bbb6a51150afa448e3d25297aeeba636f53caaf39d333805",
+    "src/trade_engine.v": "8f14d57bea13dd2b8ecf04a27290be191f7e226597bcd9460c9fc835c9934d36",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "gowin/build_uart.tcl": "790173648b6b45f5ae025d17736068f83d35d6f7559b8ae0f327e14634a198c4"
+  },
+  "source_matches_workspace": true,
+  "bitstream_path": ".build\\gowin_trade\\trade_core\\impl\\pnr\\trade_core.fs",
+  "bitstream_sha256": "e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7",
+  "synthesis": {
+    "LUT": 412,
+    "LUT2": 49,
+    "LUT3": 123,
+    "LUT4": 240,
+    "registers": 328,
+    "ALU": 152,
+    "SSRAM_RAM16S4": 8,
+    "BSRAM": 0,
+    "latches": 0
+  },
+  "pnr": {
+    "LUT": 412,
+    "ALU": 166,
+    "registers": 328,
+    "SSRAM": 8,
+    "fmax_mhz": 77.985,
+    "worst_setup_slack_ns": 24.214,
+    "worst_hold_slack_ns": 0.425,
+    "setup_violations": 0,
+    "hold_violations": 0
+  },
+  "pins": {
+    "sys_clk": 4,
+    "reset_btn": 87,
+    "uart_rx_i": 70,
+    "uart_tx_o": 69,
+    "led0_n": 15,
+    "led1_n": 16
+  },
+  "warnings": [
+    "PR1014: generic routing to sys_clk_d clock resources; excess delay/skew risk remains; supplied clock pin preserved."
+  ],
+  "timing_limits": "Internal clock timing only; asynchronous UART/reset input delays and physical clock behavior not validated.",
+  "report_sha256": {
+    "build.log": "e5a92e3ca95e6e59d4f0bcd0c9ed723b690e5b83cf016ea1ebd6fbd0aeca3261",
+    "reports\\gwsynthesis\\trade_core_syn_resource.html": "7597e8e51b706aed9440f63abdd0c6e4da7d4a420cd0aeffd5450a2f257f9ae1",
+    "reports\\gwsynthesis\\trade_core_syn_rsc.xml": "9a4e9221b54ef78f1e9172986a3bd2926389b997b8e0281cf6482df535573447",
+    "reports\\gwsynthesis\\trade_core_syn.rpt.html": "d31e08d147a7f1b944d96c1b8e05e744878f0888b57c5be8f903196df85d75ad",
+    "reports\\gwsynthesis\\trade_core.log": "fee56160528e20e0ec88a881e50cfd1cc97bcd76290063f3bf37e3a145ebeb0e",
+    "reports\\pnr\\trade_core.tr.html": "9119facf06383443e3b34f4945652d0a88b0001f608895bcf3d5bf91023743b0",
+    "reports\\pnr\\trade_core_tr_cata.html": "035a5fa6592f789402f499b4da5f4151c7295d00fc42be2aaf4565ca160d4afd",
+    "reports\\pnr\\trade_core.rpt.html": "57d73daf029e5a51b0b7ba5be55651a9fac541e288f1f9bd1fa4160026b86863",
+    "reports\\pnr\\trade_core.rpt.txt": "e1aad6a4710d123711577e4a72718217375eb49e53539a6ec82f8476ceb0e939",
+    "reports\\pnr\\trade_core.power.html": "5f01cd7b753c59a0a96ec37ac23d370e916a616115c976c4955828a4e9d411f3",
+    "reports\\pnr\\trade_core_tr_content.html": "2fa73cac2033781276daa1485b6c923381245a7ed767bd9fc3cd08d90c02f3cb",
+    "reports\\pnr\\trade_core.pin.html": "7b616dc40cd8dc5815af376a1a956c99f744773c2bb34e790230ee13ff905836",
+    "reports\\pnr\\trade_core.log": "73886dd3c5d8081bb8277cb1b2d1acab754591d4212f8367718829fe8385d0fa",
+    "source\\src\\uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
+    "source\\src\\top.v": "57e8fe732e97f8391ecd2586c4a183fe760e1ab1026a2a2a9de10c1901ab73b1",
+    "source\\src\\packet_controller.v": "578e25b58988e213bbb6a51150afa448e3d25297aeeba636f53caaf39d333805",
+    "source\\src\\uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
+    "source\\src\\trade_engine.v": "8f14d57bea13dd2b8ecf04a27290be191f7e226597bcd9460c9fc835c9934d36",
+    "source\\gowin\\build_uart.tcl": "790173648b6b45f5ae025d17736068f83d35d6f7559b8ae0f327e14634a198c4",
+    "source\\gowin\\uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "source\\constraints\\19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e"
+  }
+}

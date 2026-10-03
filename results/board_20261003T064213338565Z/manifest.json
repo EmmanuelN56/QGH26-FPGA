@@ -1,0 +1,64 @@
+{
+  "scope": "physical UART tests on operator-programmed board",
+  "board": "USB-debugger-2025030317",
+  "port": "COM4",
+  "baud": 115200,
+  "programming_mode": "SRAM; programmer_cli operation_index 2, saved programming.log",
+  "bitstream_sha256": "e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7",
+  "base_commit": "edc3faefc46b1bda978a8c38d60e981e667a2671",
+  "worktree_status": "M .gitignore\n M PROJECT_BRIEF.md\n M docs/board_bringup.md\n M gowin/README.md\n M gowin/build_uart.tcl\n M src/packet_controller.v\n?? README.md\n?? bitstream/\n?? results/\n?? scripts/capture_board_tests.py\n?? scripts/generate_vectors.py\n?? scripts/reference_model.py\n?? scripts/run_regression.py\n?? src/trade_engine.v\n?? testbench/top_sessions_tb.v\n?? testbench/trade_engine_tb.v\n?? testbench/vectors/",
+  "source_sha256": {
+    "src\\packet_controller.v": "578e25b58988e213bbb6a51150afa448e3d25297aeeba636f53caaf39d333805",
+    "src\\top.v": "57e8fe732e97f8391ecd2586c4a183fe760e1ab1026a2a2a9de10c1901ab73b1",
+    "src\\trade_engine.v": "8f14d57bea13dd2b8ecf04a27290be191f7e226597bcd9460c9fc835c9934d36",
+    "src\\uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
+    "src\\uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
+    "constraints\\19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin\\build_uart.tcl": "790173648b6b45f5ae025d17736068f83d35d6f7559b8ae0f327e14634a198c4",
+    "gowin\\uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "scripts\\21_quick_uart_test.py": "4a9990ff06d90517f973b7e27bd2e8e59a844d7c4a7270c9591a0ab527a77fb5",
+    "scripts\\22_robust_uart_test.py": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60"
+  },
+  "python": "3.14.5 (main, May 12 2026, 01:14:00)  [MINGW GCC 16.1.0 64 bit (AMD64)]",
+  "reprogram_between_sessions": false,
+  "tests": [
+    {
+      "name": "quick",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "robust_1",
+      "exit_code": 0,
+      "passed": true,
+      "physical_latency_us": {
+        "successful_packets": 100,
+        "mean": 14076.038999999999,
+        "max": 31265.1
+      }
+    },
+    {
+      "name": "robust_2",
+      "exit_code": 0,
+      "passed": true,
+      "physical_latency_us": {
+        "successful_packets": 100,
+        "mean": 13615.527,
+        "max": 23796.5
+      }
+    },
+    {
+      "name": "robust_3",
+      "exit_code": 0,
+      "passed": true,
+      "physical_latency_us": {
+        "successful_packets": 100,
+        "mean": 13462.003,
+        "max": 30494.4
+      }
+    }
+  ],
+  "all_passed": true,
+  "git_metadata_note": "Read-only metadata recovered after UNC safe-directory ownership rejection; no global Git configuration changed.",
+  "programming_evidence": "programming.log"
+}

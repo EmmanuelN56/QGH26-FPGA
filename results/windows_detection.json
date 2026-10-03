@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-10-03T02:27:03.5871902-04:00",
+  "host_name": "DESKTOP-JLOM0UA",
+  "devices": [
+    {
+      "Status": "OK",
+      "Class": "USB",
+      "FriendlyName": "USB Serial Converter B",
+      "InstanceId": "USB\\VID_0403&PID_6010&MI_01\\6&31C95EB0&0&0001"
+    },
+    {
+      "Status": "OK",
+      "Class": "Ports",
+      "FriendlyName": "USB Serial Port (COM3)",
+      "InstanceId": "FTDIBUS\\VID_0403+PID_6010+2025030317A\\0000"
+    },
+    {
+      "Status": "OK",
+      "Class": "Ports",
+      "FriendlyName": "USB Serial Port (COM4)",
+      "InstanceId": "FTDIBUS\\VID_0403+PID_6010+2025030317B\\0000"
+    },
+    {
+      "Status": "OK",
+      "Class": "USB",
+      "FriendlyName": "USB Serial Converter A",
+      "InstanceId": "USB\\VID_0403&PID_6010&MI_00\\6&31C95EB0&0&0000"
+    },
+    {
+      "Status": "OK",
+      "Class": "USB",
+      "FriendlyName": "USB Composite Device",
+      "InstanceId": "USB\\VID_0403&PID_6010\\2025030317"
+    }
+  ],
+  "drivers": [
+    {
+      "DeviceName": "USB Serial Port",
+      "DriverProviderName": "FTDI",
+      "DriverVersion": "2.12.36.20",
+      "InfName": "oem107.inf"
+    },
+    {
+      "DeviceName": "USB Serial Converter B",
+      "DriverProviderName": "FTDI",
+      "DriverVersion": "2.12.36.20",
+      "InfName": "oem106.inf"
+    },
+    {
+      "DeviceName": "USB Serial Port",
+      "DriverProviderName": "FTDI",
+      "DriverVersion": "2.12.36.20",
+      "InfName": "oem107.inf"
+    },
+    {
+      "DeviceName": "USB Serial Converter A",
+      "DriverProviderName": "FTDI",
+      "DriverVersion": "2.12.36.20",
+      "InfName": "oem106.inf"
+    },
+    {
+      "DeviceName": "USB Composite Device",
+      "DriverProviderName": "Microsoft",
+      "DriverVersion": "10.0.26100.9549",
+      "InfName": "usb.inf"
+    }
+  ],
+  "board_identity_basis": "FTDI VID_0403 PID_6010 serial 2025030317 matches documented Nano 20K debugger; FPGA JTAG identity not scanned",
+  "programming_performed": false
+}
