@@ -1,0 +1,26 @@
+{
+  "all_passed": true,
+  "checks": [
+    {
+      "corpus": "qualification_sequence",
+      "packets": 400,
+      "pass": true
+    },
+    {
+      "corpus": "fullrange_edges",
+      "packets": 3776,
+      "pass": true
+    },
+    {
+      "corpus": "original",
+      "packets": 1509,
+      "pass": true
+    },
+    {
+      "corpus": "expanded",
+      "packets": 3100,
+      "pass": true
+    }
+  ],
+  "bench_sha256": "d040cb1ebd3305bc79f1ba60a7a37be41086d32887398c0160fdb13d44a908c1"
+}

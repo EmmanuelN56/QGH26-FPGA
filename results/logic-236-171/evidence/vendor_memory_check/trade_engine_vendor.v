@@ -90,7 +90,7 @@ module trade_pair #(parameter integer W=1)(
     reg [W-1:0] sum_memory[0:2*DEPTH-1] /* synthesis syn_ramstyle="block_ram" */;
     reg [W-1:0] previous_memory[0:2*DEPTH-1] /* synthesis syn_ramstyle="block_ram" */;
     reg [W-1:0] history_memory[0:32*DEPTH-1] /* synthesis syn_ramstyle="block_ram" */;
-    reg [W-1:0] sum_read,previous_read,history_read;
+    wire [W-1:0] sum_read,previous_read,history_read;
     reg [19:0] current_shift;
     reg [3:0] write_pointer;
     reg [4:0] sample_count;
@@ -121,13 +121,36 @@ module trade_pair #(parameter integer W=1)(
     wire [1:0] next_action=(warmup || !full) ? 2'd0 :
         (old_le && carry_next && !equal_next) ? 2'd2 :
         (old_ge && !carry_next) ? 2'd1 : held_actions[item];
+    wire [31:0] sum_do;
+    wire [13:0] sum_primitive_address=sum_address << $clog2(W);
+    SDPB #(.BIT_WIDTH_0(W),.BIT_WIDTH_1(W),.READ_MODE(1'b0),.RESET_MODE("SYNC")) sum_primitive (
+        .DO(sum_do),.DI({{(32-W){1'b0}},value}),
+        .ADA(sum_primitive_address),.ADB(sum_primitive_address),
+        .CLKA(clk),.CLKB(clk),.CEA(!reset && !session_clear && (active && executing && (phase==1 || phase==2))),
+        .CEB(!reset && !session_clear && (active && !executing)),.OCE(1'b1),
+        .RESETA(1'b0),.RESETB(1'b0),.BLKSELA(3'b000),.BLKSELB(3'b000));
+    assign sum_read=sum_do[W-1:0];
+    wire [31:0] previous_do;
+    wire [13:0] previous_primitive_address=previous_address << $clog2(W);
+    SDPB #(.BIT_WIDTH_0(W),.BIT_WIDTH_1(W),.READ_MODE(1'b0),.RESET_MODE("SYNC")) previous_primitive (
+        .DO(previous_do),.DI({{(32-W){1'b0}},current_shift[W-1:0]}),
+        .ADA(previous_primitive_address),.ADB(previous_primitive_address),
+        .CLKA(clk),.CLKB(clk),.CEA(!reset && !session_clear && (active && executing && phase==2)),
+        .CEB(!reset && !session_clear && (active && !executing && phase==0)),.OCE(1'b1),
+        .RESETA(1'b0),.RESETB(1'b0),.BLKSELA(3'b000),.BLKSELB(3'b000));
+    assign previous_read=previous_do[W-1:0];
+    wire [31:0] history_do;
+    wire [13:0] history_primitive_address=history_address << $clog2(W);
+    SDPB #(.BIT_WIDTH_0(W),.BIT_WIDTH_1(W),.READ_MODE(1'b0),.RESET_MODE("SYNC")) history_primitive (
+        .DO(history_do),.DI({{(32-W){1'b0}},current_shift[W-1:0]}),
+        .ADA(history_primitive_address),.ADB(history_primitive_address),
+        .CLKA(clk),.CLKB(clk),.CEA(!reset && !session_clear && (active && executing && phase==2)),
+        .CEB(!reset && !session_clear && (active && !executing && phase==1)),.OCE(1'b1),
+        .RESETA(1'b0),.RESETB(1'b0),.BLKSELA(3'b000),.BLKSELB(3'b000));
+    assign history_read=history_do[W-1:0];
     // A write follows its read on a different cycle. Nothing relies on collision data.
     always @(posedge clk) begin
         if(!reset && !session_clear) begin
-            if(active && !executing)
-                sum_read<=sum_memory[sum_address];
-            if(active && !executing && phase==0) previous_read<=previous_memory[previous_address];
-            if(active && !executing && phase==1) history_read<=history_memory[history_address];
             if(active && executing && (phase==1 || phase==2)) sum_memory[sum_address]<=value;
             if(active && executing && phase==2) begin
                 history_memory[history_address]<=current_shift[W-1:0];

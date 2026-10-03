@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2AR-18C" pn="GW2AR-LV18QN88C8/I7">gw2ar18c-000</Device>
+    <FileList>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/src/packet_controller.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/src/top.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/src/trade_engine.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/src/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/src/uart_tx.v" type="file.verilog" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/constraints/19_tang_nano_20k.cst" type="file.cst" enable="1"/>
+        <File path="C:/Users/Duke/Documents/Codex/2026-10-03/files-pasted-by-the-user-handoff/work/experiments/digit_w1_compact_output_phase/gowin/uart.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

@@ -1,0 +1,290 @@
+{
+  "started_utc": "2026-10-03T23:47:20.813634+00:00",
+  "candidate": "digit_w1_compact_output_phase",
+  "bitstream_sha256": "cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2",
+  "source_sha256": {
+    "src/packet_controller.v": "c9011ef4ceedd2051160e1156bef12c37033ea35aa239bf2e5622c981a23c739",
+    "src/top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src/trade_engine.v": "68ff77270c9dce28189f2d65e65c0dd91cb8a19daff4e7ac50bb3f0554f875cf",
+    "src/uart_rx.v": "d51c13c567f9c50c1b49672dba9f13d54089ba336b7d4cff2f36e2a97830ce12",
+    "src/uart_tx.v": "b500af1a7ff1097356561eb5022c526d2fbbe50da2d374999568a88bfbc10928",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a"
+  },
+  "serial_inventory": [
+    {
+      "device": "COM3",
+      "description": "USB Serial Port (COM3)",
+      "hwid": "USB VID:PID=0403:6010 SER=2025030317A"
+    },
+    {
+      "device": "COM4",
+      "description": "USB Serial Port (COM4)",
+      "hwid": "USB VID:PID=0403:6010 SER=2025030317B"
+    }
+  ],
+  "board": "2025030317",
+  "port": "COM4",
+  "programming_command": [
+    "C:\\Gowin\\Gowin_V1.9.11.03_Education_x64\\Programmer\\bin\\programmer_cli.exe",
+    "--device",
+    "GW2AR-18C",
+    "--operation_index",
+    "2",
+    "--cable-index",
+    "4",
+    "--location",
+    "561",
+    "--frequency",
+    "2.5MHz",
+    "--fsFile",
+    "C:\\Users\\Duke\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-handoff\\work\\physical_candidate_236\\programmed.fs"
+  ],
+  "programming_mode": "volatile SRAM",
+  "no_reprogram_between_tests": true,
+  "manual_reset_between_tests": false,
+  "host_settings_changed": false,
+  "tests": [
+    {
+      "name": "quick",
+      "script_sha256": "40a871c5a0f4dba43156fbcacac5c93660dc2141488db8354f9d24191746b706",
+      "original_sha256": "4a9990ff06d90517f973b7e27bd2e8e59a844d7c4a7270c9591a0ab527a77fb5",
+      "port_only_change": true,
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "name": "normal_1",
+      "script_sha256": "24f5001aadc6ddd396069111db1daef125178fe9ab1a7e2e2b61705dd33539ea",
+      "original_sha256": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16796.798,
+        "max": 25688.8,
+        "all_rows_verified_including_warmup": true,
+        "median": 16759.6
+      },
+      "passed": true
+    },
+    {
+      "name": "fullrange_1",
+      "script_sha256": "d9660bbedeab2de43ac40bb4c0a0a2234c4618c37318b69ab8457f3e3e80d16b",
+      "original_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16569.202,
+        "max": 28664.8,
+        "all_rows_verified_including_warmup": true,
+        "median": 16750.85
+      },
+      "passed": true
+    },
+    {
+      "name": "normal_2",
+      "script_sha256": "24f5001aadc6ddd396069111db1daef125178fe9ab1a7e2e2b61705dd33539ea",
+      "original_sha256": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16695.051,
+        "max": 26440.5,
+        "all_rows_verified_including_warmup": true,
+        "median": 16753.300000000003
+      },
+      "passed": true
+    },
+    {
+      "name": "fullrange_2",
+      "script_sha256": "d9660bbedeab2de43ac40bb4c0a0a2234c4618c37318b69ab8457f3e3e80d16b",
+      "original_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16771.177,
+        "max": 18929.8,
+        "all_rows_verified_including_warmup": true,
+        "median": 16757.5
+      },
+      "passed": true
+    },
+    {
+      "name": "normal_3",
+      "script_sha256": "24f5001aadc6ddd396069111db1daef125178fe9ab1a7e2e2b61705dd33539ea",
+      "original_sha256": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16565.223,
+        "max": 18100.5,
+        "all_rows_verified_including_warmup": true,
+        "median": 16756.3
+      },
+      "passed": true
+    },
+    {
+      "name": "fullrange_3",
+      "script_sha256": "d9660bbedeab2de43ac40bb4c0a0a2234c4618c37318b69ab8457f3e3e80d16b",
+      "original_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16742.763,
+        "max": 20144.3,
+        "all_rows_verified_including_warmup": true,
+        "median": 16747.75
+      },
+      "passed": true
+    },
+    {
+      "name": "normal_4",
+      "script_sha256": "24f5001aadc6ddd396069111db1daef125178fe9ab1a7e2e2b61705dd33539ea",
+      "original_sha256": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16607.816000000003,
+        "max": 22418.7,
+        "all_rows_verified_including_warmup": true,
+        "median": 16749.7
+      },
+      "passed": true
+    },
+    {
+      "name": "fullrange_4",
+      "script_sha256": "d9660bbedeab2de43ac40bb4c0a0a2234c4618c37318b69ab8457f3e3e80d16b",
+      "original_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16749.977,
+        "max": 20765.6,
+        "all_rows_verified_including_warmup": true,
+        "median": 16759.2
+      },
+      "passed": true
+    },
+    {
+      "name": "normal_5",
+      "script_sha256": "24f5001aadc6ddd396069111db1daef125178fe9ab1a7e2e2b61705dd33539ea",
+      "original_sha256": "9aa45b8e51b698e2abf96c22ae1c493a79a5fd434bf55421f7e28048167a3f60",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16927.363,
+        "max": 32785.9,
+        "all_rows_verified_including_warmup": true,
+        "median": 16751.25
+      },
+      "passed": true
+    },
+    {
+      "name": "fullrange_5",
+      "script_sha256": "d9660bbedeab2de43ac40bb4c0a0a2234c4618c37318b69ab8457f3e3e80d16b",
+      "original_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "port_only_change": true,
+      "exit_code": 0,
+      "latency_us": {
+        "successful_packets": 100,
+        "mean": 16731.076,
+        "max": 19211.1,
+        "all_rows_verified_including_warmup": true,
+        "median": 16751.5
+      },
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "official_qualification": false,
+  "hidden_seed_tested": false,
+  "programming_passed": true,
+  "normal_latency_us": {
+    "mean": 16718.4502,
+    "median_of_five_run_means": 16695.051,
+    "median_of_five_run_medians": 16753.300000000003,
+    "max": 32785.9
+  },
+  "fullrange_latency_us": {
+    "mean": 16712.839,
+    "median_of_five_run_means": 16742.763,
+    "median_of_five_run_medians": 16751.5,
+    "max": 28664.8
+  },
+  "expanded_physical_suite": "Excluded from this run by user instruction",
+  "completed_utc": "2026-10-03T23:47:51.667435+00:00",
+  "capture_tool_sha256": "c5ec9121507928be3f85196f1ba6ca295e8c07ba07324524030be7beba1e809c",
+  "authorization": "User authorized this exact candidate and tests, explicitly excluding the expanded physical suite",
+  "python_version": "Python 3.14.7",
+  "programmer_exit_code": 0,
+  "raw_robust_packets_independently_verified": 1000,
+  "pyserial_version": "3.5",
+  "pyserial_wheel_sha256": "c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0",
+  "script_identity_audit": [
+    {
+      "name": "quick",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "normal_1",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "fullrange_1",
+      "only_port_changed": true,
+      "baseline_reference_diff": "identical"
+    },
+    {
+      "name": "normal_2",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "fullrange_2",
+      "only_port_changed": true,
+      "baseline_reference_diff": "identical"
+    },
+    {
+      "name": "normal_3",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "fullrange_3",
+      "only_port_changed": true,
+      "baseline_reference_diff": "identical"
+    },
+    {
+      "name": "normal_4",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "fullrange_4",
+      "only_port_changed": true,
+      "baseline_reference_diff": "identical"
+    },
+    {
+      "name": "normal_5",
+      "only_port_changed": true,
+      "baseline_reference_diff": "line endings only"
+    },
+    {
+      "name": "fullrange_5",
+      "only_port_changed": true,
+      "baseline_reference_diff": "identical"
+    }
+  ]
+}

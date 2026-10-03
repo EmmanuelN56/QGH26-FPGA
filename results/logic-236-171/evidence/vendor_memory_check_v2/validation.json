@@ -1,0 +1,11 @@
+{
+  "all_passed": true,
+  "primitive": "SDPB",
+  "BIT_WIDTH_0": 1,
+  "BIT_WIDTH_1": 1,
+  "READ_MODE": 0,
+  "collision_behavior_required": false,
+  "packets": 7276,
+  "vendor_library_sha256": "797e52271b149b650f4ed6ae0ef2794a853c6ef19973f957abc4f576fa48b7a1",
+  "scope": "Structural memory model substitution; behavioral shadow arrays only check history/state; not a decrypted synthesis netlist simulation"
+}

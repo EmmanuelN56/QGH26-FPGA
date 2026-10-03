@@ -1,0 +1,3 @@
+C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\icarus\bin\vvp.exe -M- -M C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\icarus\lib\ivl C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\experiments\digit_w1_compact_output_phase\unit_checks\top_tb.vvp
+PASS top_tb: three packets, slot order, partial packet reset, byte gaps
+C:\Users\Duke\Documents\Codex\2026-10-03\files-pasted-by-the-user-handoff\work\repository\testbench\top_tb.v:104: $finish called at 4685214019 (1ps)

@@ -18,7 +18,7 @@
   "target": "GW2AR-LV18QN88C8/I7",
   "device_version": "C",
   "clock_mhz": 27,
-  "physical_status": "PASS authorized SRAM quick + five normal/full-range pairs; 1000 robust replies independently checked; zero timeouts; expanded physical suite excluded",
+  "physical_status": "Not programmed; candidate-specific authorization required",
   "summary_rows": [
     "Register 171",
     "LUT2 27",
@@ -151,22 +151,5 @@
     "led0_n": 15,
     "led1_n": 16
   },
-  "physical_latency": {
-    "unit": "microseconds",
-    "normal": {
-      "mean": 16718.4502,
-      "median_of_five_run_means": 16695.051,
-      "median_of_five_run_medians": 16753.300000000003,
-      "max": 32785.9
-    },
-    "fullrange": {
-      "mean": 16712.839,
-      "median_of_five_run_means": 16742.763,
-      "median_of_five_run_medians": 16751.5,
-      "max": 28664.8
-    },
-    "bitstream_sha256": "cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2",
-    "official_qualification": false,
-    "expanded_physical_suite": "Excluded by user instruction"
-  }
+  "physical_latency": null
 }
