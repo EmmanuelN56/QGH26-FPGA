@@ -1,0 +1,141 @@
+// One item, one accepted sample per clock. Clear takes priority over sample_valid;
+// callers must clear on an earlier clock than the first sample of a session.
+module trade_engine (
+    input wire clk,
+    input wire reset,
+    input wire session_clear,
+    input wire sample_valid,
+    input wire [15:0] price,
+    input wire warmup,
+    output reg [7:0] action,
+    output reg action_valid
+);
+    // Logical clear: no old memory entry is read until all 16 are overwritten.
+    reg [15:0] prices [0:15];
+    reg [3:0] write_pointer;
+    reg [19:0] rolling_sum;
+    reg [15:0] previous_price;
+    reg [4:0] sample_count;
+    wire full = sample_count == 16;
+    wire [19:0] oldest = full ? {4'b0000, prices[write_pointer]} : 20'd0;
+    wire [19:0] new_sum = rolling_sum - oldest + {4'b0000, price};
+    wire [15:0] old_average = rolling_sum[19:4];
+    wire [15:0] new_average = new_sum[19:4];
+
+    always @(posedge clk) begin
+        if (reset || session_clear) begin
+            write_pointer <= 0;
+            rolling_sum <= 0;
+            previous_price <= 0;
+            sample_count <= 0;
+            action <= 0;
+            action_valid <= 0;
+        end else begin
+            action_valid <= 0;
+            if (sample_valid) begin
+                prices[write_pointer] <= price;
+                write_pointer <= write_pointer + 1'b1;
+                rolling_sum <= new_sum;
+                previous_price <= price;
+                if (!full)
+                    sample_count <= sample_count + 1'b1;
+                if (warmup || !full)
+                    action <= 8'h00;
+                else if (previous_price <= old_average && price > new_average)
+                    action <= 8'h02;
+                else if (previous_price >= old_average && price < new_average)
+                    action <= 8'h01;
+                // No crossing: retain action.
+                action_valid <= 1;
+            end
+        end
+    end
+endmodule
+
+// Histories, sums and previous prices reside in a single synchronous RAM address space.
+// Processing is serialized; request fields stay stable until action_valid.
+module trade_pair (
+    input wire clk,reset,session_clear,sample_valid,warmup,slot1_is_a,
+    input wire [15:0] price1,price2,
+    output reg [7:0] action1,action2,
+    output reg action_valid
+);
+    localparam [3:0] IDLE=0,READ_SUM=1,USE_SUM=2,READ_PREVIOUS=3,USE_PREVIOUS=4,
+        READ_OLDEST=5,SUBTRACT=6,ADD=7,WRITE_SUM=8,WRITE_PRICE=9,WRITE_PREVIOUS=10,FINISH=11;
+    reg [3:0] state;
+    reg [19:0] memory[0:63] /* synthesis syn_ramstyle="block_ram" */;
+    reg [19:0] memory_read,accumulator;
+    reg [3:0] write_pointer;
+    reg [4:0] sample_count;
+    reg slot,old_le,old_ge;
+    reg [1:0] held_actions[0:1];
+    wire item=slot ^ !slot1_is_a;
+    wire full=sample_count==16;
+    wire [15:0] price=slot ? price2 : price1;
+    wire subtract=state==SUBTRACT;
+    wire [15:0] operand16=subtract ? (full ? memory_read[15:0] : 16'd0) : price;
+    wire [19:0] operand={4'd0,operand16};
+    wire [19:0] arithmetic=accumulator+(operand ^ {20{subtract}})+subtract;
+    wire [15:0] compare_left=state==USE_PREVIOUS ? memory_read[15:0] : price;
+    wire [16:0] difference={1'b0,compare_left}-{1'b0,accumulator[19:4]};
+    wire equal=difference[15:0]==0;
+    wire [1:0] next_action=(warmup || !full) ? 2'd0 :
+        (old_le && !difference[16] && !equal) ? 2'd2 :
+        (old_ge && difference[16]) ? 2'd1 : held_actions[item];
+    reg [4:0] offset;
+    reg mem_read_enable,mem_write_enable;
+    always @* begin
+        offset={1'b0,write_pointer};mem_read_enable=0;mem_write_enable=0;
+        case(state)
+            READ_SUM:begin offset=16;mem_read_enable=1;end
+            READ_PREVIOUS:begin offset=17;mem_read_enable=1;end
+            READ_OLDEST:mem_read_enable=1;
+            WRITE_SUM:begin offset=16;mem_write_enable=1;end
+            WRITE_PRICE:mem_write_enable=1;
+            WRITE_PREVIOUS:begin offset=17;mem_write_enable=1;end
+            default:begin end
+        endcase
+    end
+    wire [5:0] address={item,offset};
+    wire [19:0] write_data=state==WRITE_SUM ? accumulator : {4'd0,price};
+    // Reads and writes never overlap. No stale RAM value is used in a new session.
+    always @(posedge clk) begin
+        if(!reset && !session_clear) begin
+            if(mem_write_enable) memory[address]<=write_data;
+            else if(mem_read_enable) memory_read<=memory[address];
+        end
+    end
+    always @(posedge clk) begin
+        if(reset || session_clear) begin
+            state<=IDLE;slot<=0;accumulator<=0;write_pointer<=0;sample_count<=0;
+            held_actions[0]<=0;held_actions[1]<=0;old_le<=0;old_ge<=0;
+            action1<=0;action2<=0;action_valid<=0;
+        end else begin
+            action_valid<=0;
+            case(state)
+                IDLE:if(sample_valid) begin state<=READ_SUM;slot<=0;end
+                READ_SUM:state<=USE_SUM;
+                USE_SUM:begin accumulator<=sample_count==0 ? 20'd0 : memory_read;state<=READ_PREVIOUS;end
+                READ_PREVIOUS:state<=USE_PREVIOUS;
+                USE_PREVIOUS:begin old_le<=difference[16] || equal;old_ge<=!difference[16];state<=READ_OLDEST;end
+                READ_OLDEST:state<=SUBTRACT;
+                SUBTRACT:begin accumulator<=arithmetic;state<=ADD;end
+                ADD:begin accumulator<=arithmetic;state<=WRITE_SUM;end
+                WRITE_SUM:begin
+                    held_actions[item]<=next_action;
+                    if(!slot) action1<={6'd0,next_action};else action2<={6'd0,next_action};
+                    state<=WRITE_PRICE;
+                end
+                WRITE_PRICE:state<=WRITE_PREVIOUS;
+                WRITE_PREVIOUS:state<=FINISH;
+                FINISH:if(!slot) begin slot<=1;state<=READ_SUM;end
+                    else begin
+                        write_pointer<=write_pointer+1'b1;
+                        if(!full) sample_count<=sample_count+1'b1;
+                        action_valid<=1;state<=IDLE;
+                    end
+                default:state<=IDLE;
+            endcase
+        end
+    end
+endmodule

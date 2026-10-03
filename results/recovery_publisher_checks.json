@@ -1,0 +1,9 @@
+{
+  "scope": "Windows PowerShell5.1 with mocked Git; no real Git history or remote actions",
+  "all_passed": true,
+  "newer_remote_base_used": true,
+  "candidates_are_siblings": true,
+  "source_and_bitstream_hashes_match": true,
+  "original_files_unchanged": true,
+  "attributes_included": true
+}

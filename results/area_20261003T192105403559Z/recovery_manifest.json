@@ -1,0 +1,40 @@
+{
+  "local_root": "C:\\Users\\Lenovo\\Downloads\\QuizletFPGA",
+  "native_cache": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\GatorFPGA",
+  "recovered_variants": 17,
+  "release_sha256": "bc7edc25e995168772989e199c9cd43252f6120bec68e21fba034c8a35d4313d",
+  "candidate_hashes": {
+    "carry_direct_equality": "f33a5f114d87616951c13435718ed73c124a23b2a02452ec93f26593e1278bf8",
+    "carry_flags_only": "aba999804982692881428ac10d69dc13972936ff22b69c1dc0acd04d9e95a831",
+    "carry_uart": "66d565af327cc7188c521f6d94655968c33974218f8384ac585ffca30e799438",
+    "carry_uart_pointer": "ea5279614794fc79c7f3632b429584b29a3cb7c0fdb80811f3e4b95ef2cb8d4a",
+    "compact_logical_v2": "2758a03a8dca24b973f43f30cd3c7d1f937008839f323271daf0875cef96393d",
+    "compact_packet_v2": "00f8511dfb1b49133421d5f573e806d8eab3f1c724035ec9edd291108afd6c2b",
+    "context_ram": "825bf4d70b30f3ed7f01a09e725d65304f37f7b26c551289ea06fd13b947ef8d",
+    "dual_sequential": "557b890853de28d66563a0c5018965ad505a87b02943a2584e4231288318c864",
+    "logical_clear": "dc92036a5835557632dd0566406aeb7e259a6478c407d545ac8061809250bebe",
+    "memory_previous": "b658d37953b63bc17dc10ae29fe2ff69d42f1eeea5552b2eaa90895fd49482f3",
+    "response_mux": "ca1a0e659e83977a764b54bcfc7239455f8a7093199f99199b54862ddce20afc",
+    "shared_block_ram": "3c11aa8bb3efedd85a891dd3f382bbc3a04eed4d48d1eb65c2a0b9a3eb3f0d00",
+    "shared_carry_compare": "d0fca3e143e0e7398f0bd64b47b0b5bc3c9327c6503fb494392bcee5dc881d9a",
+    "shared_parallel": "29eecd5f9b36bc367c5a6db6bd5326a9a23ff8faf5e47d1f1e7d3e3e5e4fb538",
+    "shared_response_mux": "6b7212e356eab6d1e78fcfb72d079b9719993cf13bfe9fe3cce3135e7ed7b2bf",
+    "shared_uart_shift": "c308682d3bd3a7ee757aef4e0237af95cec2ff999da2ed6bd3886ab0f0128a52",
+    "uart_shift": "7c6c3aea50efbf9dc2fe48487922095b86c486a47595205670cd37d8e581c657"
+  },
+  "published_snapshot": {
+    "commit": "b068c5ee6f8b80e26a4262c1fcce36e1e6063ed4",
+    "archive_url": "https://codeload.github.com/EmmanuelN56/QuizletFPGA/zip/b068c5ee6f8b80e26a4262c1fcce36e1e6063ed4",
+    "sha256": "07bc6c6f3bcd9d18ea6d68a86ce2f11da1e80a8f27780d45e00948241943dff3"
+  },
+  "missing_original_records": [
+    "latest board/stress CSVs and logs stored only in deleted Ubuntu results directory",
+    "area original per-candidate simulation console logs",
+    "some latest grading/latency aggregate JSON reports"
+  ],
+  "board_programmed_during_recovery": false,
+  "git_history_actions_during_recovery": false,
+  "fresh_baseline_regression_passed": true,
+  "fresh_candidate_validation_passed": true,
+  "fresh_actual_uart_timing_packets": 3
+}

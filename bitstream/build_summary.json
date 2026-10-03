@@ -1,0 +1,55 @@
+{
+  "tool": "Gowin V1.9.11.03 Education",
+  "tool_identity_source": "PnR report <Tool Version>",
+  "synthesis": {
+    "LUT": 365,
+    "LUT2": 42,
+    "LUT3": 119,
+    "LUT4": 204,
+    "registers": 296,
+    "BSRAM": 0,
+    "SSRAM": 8
+  },
+  "pnr": {
+    "fmax_mhz": 75.176,
+    "worst_setup_slack_ns": 23.735,
+    "worst_hold_slack_ns": 0.425,
+    "setup_violations": 0,
+    "hold_violations": 0
+  },
+  "pins": {
+    "sys_clk": 4,
+    "reset_btn": 87,
+    "uart_rx_i": 70,
+    "uart_tx_o": 69,
+    "led0_n": 15,
+    "led1_n": 16
+  },
+  "warnings": [
+    "WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew"
+  ],
+  "target": "GW2AR-LV18QN88C8/I7",
+  "device_version": "C",
+  "top": "top",
+  "gap_cycles": 0,
+  "native_root": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\GatorFPGA\\release_zero_20261003T180526778789Z",
+  "bitstream_sha256": "bc7edc25e995168772989e199c9cd43252f6120bec68e21fba034c8a35d4313d",
+  "source_sha256": {
+    "src/top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src/uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
+    "src/uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
+    "src/packet_controller.v": "578e25b58988e213bbb6a51150afa448e3d25297aeeba636f53caaf39d333805",
+    "src/trade_engine.v": "8f14d57bea13dd2b8ecf04a27290be191f7e226597bcd9460c9fc835c9934d36",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459"
+  },
+  "physical_validation": true,
+  "matches_reviewed_authorized_zero_gap_bitstream": false,
+  "bitstream_path": "results/release_zero_gap_20261003T180901633856Z/programmed.fs",
+  "release_metadata": "Exact original authorized/tested file retained. Clean rebuild differs only in Created Time comment; FPGA payload is byte-identical.",
+  "raw_rebuild_bitstream_sha256": "7ff8fdbbf8e9652bb71c14e7063d2e811ef8007079657fce97f2fd1129b18bdf",
+  "raw_rebuild_directory": "results/build_zero_gap_20261003T180526778789Z",
+  "tested_candidate_directory": "results/latency_sweep_20261003T072132Z/gap_0cycles",
+  "physical_evidence": "physical_validation.json"
+}

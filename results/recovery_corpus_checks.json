@@ -1,0 +1,9 @@
+{
+  "scope": "Native recovery correctness checks; no hardware",
+  "all_passed": true,
+  "expanded_packets": 13508,
+  "sessions": 31,
+  "full_manifest_matches": true,
+  "candidate_source_and_bitstream_hashes_match": true,
+  "baseline_source_and_bitstream_hashes_match": true
+}

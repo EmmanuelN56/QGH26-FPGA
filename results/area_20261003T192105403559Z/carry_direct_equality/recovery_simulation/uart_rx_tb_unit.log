@@ -1,0 +1,3 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_direct_equality\uart_rx_tb.vvp
+PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_direct_equality\verification_source\testbench\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)

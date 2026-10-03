@@ -1,0 +1,3 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_direct_equality\trade_pair_tb.vvp +COUNT=4096 +VECTORS=C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\expanded_vectors\batch_1_packets.mem +STATES=C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\expanded_vectors\batch_1_states.mem
+PASS trade_pair_tb: 4096 packets, both item states, clear priority, valid pulse
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_direct_equality\verification_source\testbench\trade_pair_tb.v:44: $finish called at 163950000 (1ps)

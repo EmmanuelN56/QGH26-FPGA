@@ -1,3 +1,5 @@
+Recovery note (2026-10-03): the active repository is `C:/Users/Lenovo/Downloads/QuizletFPGA`. Exact source/build files were restored, but some later physical logs and original simulation logs from Ubuntu are missing. Fresh recovery results are separate. See [recovery inventory](docs/repository_recovery.md).
+
 # Silicon Trade Core — Agent Project Brief
 
 ## Purpose
@@ -8,9 +10,9 @@ This file is the implementation contract for humans and coding agents. Do not ch
 
 ## Current repository state
 
-Organizer resources remain unchanged. The trading core now has independent per-item engines, an independent Python model, deterministic regression vectors, and packet integration. Icarus Verilog 12.0 simulations pass: RX/TX/top scaffold tests, 1,509 engine and full-system packets across 15 sessions, and 221 complete transactions at the actual 27 MHz / 115200-baud timing (quick plus two robust sessions). Software evidence is in `results/`.
+Organizer resources remain unchanged. The trading core now has independent per-item engines, an independent Python model, deterministic regression vectors, and packet integration. Icarus Verilog 12.0 simulations pass: RX/TX/top scaffold tests, 1,509 engine and full-system packets across 15 sessions, and 1,509 complete transactions at the actual 27 MHz / 115200-baud timing across all 15 expanded sessions. Software evidence is in `results/`.
 
-Trading-core synthesis and PnR now pass natively on Windows with Gowin V1.9.11.03 Education: 412 LUTs, 328 registers, zero B-SRAM, eight SSRAM blocks, routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns and zero reported setup/hold violations. All six routed pins match the unchanged CST. PR1014 remains. Build/source evidence is in `results/build_windows_20261003/`. Authorized SRAM programming and physical quick plus three robust sessions passed; each robust run received 100 packets with 84/84 scored packets, 168/168 actions and zero timeouts. Every CSV row was independently checked. Combined physical mean/max latency is 13.718/31.265 ms on the local PC. Evidence is in `results/board_20261003T064213338565Z/`; the matching tested file is `bitstream/trade_core.fs`. The previous UART-only Windows build at `edc3fae` reported 177 LUTs, 166 registers, zero B-SRAM, and PR1014; those measurements do not describe the new strategy. The current trading core has been programmed in volatile SRAM with saved evidence. See `docs/board_bringup.md` for environment detection and release blockers.
+The minimum configured response-gap release passed native Windows Gowin V1.9.11.03 Education synthesis and PnR: 365 LUTs, 296 registers, zero B-SRAM, eight SSRAM blocks, routed Fmax 75.176 MHz, setup/hold +23.735/+0.425 ns, and no reported setup/hold violations. All six pins match the unchanged CST; PR1014 remains. `top.TX_GAP_CYCLES=0` leaves three handshake idle clocks after each full UART stop bit. Seven candidate gaps passed authorized SRAM programming, organizer quick plus three robust runs, and 1,509 supplementary packets each. The selected release's final quick/three robust/stress capture passed with every returned field checked, including warm-up. Final organizer mean/max is 13.178/17.982 ms on the local PC; supplementary stress statistics are separate. The original COM4 receive timer was restored to 16 ms after authorized 2/1 ms experiments showed no repeatable benefit. Matching tested file: `bitstream/trade_core.fs`, SHA-256 `bc7edc25e995168772989e199c9cd43252f6120bec68e21fba034c8a35d4313d`. Evidence: `results/release_zero_gap_20261003T180901633856Z/`, `results/board_20261003T181026986060Z/`, `results/stress_20261003T181041984828Z/`, and `docs/latency_optimization.md`. The original 1 ms baseline (412 LUTs, 328 registers, 13.718/31.265 ms) remains archived under `results/build_windows_20261003/` and `results/board_20261003T064213338565Z/`. See `docs/board_bringup.md` for limitations and human release tasks.
 
 Preserved organizer copies are located at:
 
@@ -347,6 +349,10 @@ Published reference targets:
 
 Reducing below 542 LUTs does not produce more than 15 LUT points. The UART/USB path dominates measured latency, so a reliable transport usually matters more than saving a few internal clock cycles.
 
+## Optimization objective beyond the rubric
+
+The human team clarified on 2026-10-03 that the rubric is the minimum eligibility bar. The active objective is LUT usage substantially below 300, removal of avoidable state/control duplication, and larger deterministic data suites. The lowest measured isolated candidate is 230 LUTs / 222 registers / 104 ALUs / 0 B-SRAM / 8 SSRAM; the 234-LUT alternative uses 72 ALUs and less total logic. Both passed original and additional simulations, including all 1,509 original packets at actual UART timing. The extra corpus has 13,508 packets across 31 sessions. The live source and bc7 release bitstream remain the physically validated 365-LUT design; new candidates are unprogrammed. See docs/lut_optimization_study.md and results/area_20261003T192105403559Z/study_summary.json. There is no proof of a global LUT minimum.
+
 ## Two-person ownership plan
 
 ### Teammate A — transport and physical build
@@ -413,18 +419,21 @@ The project is complete only when all of the following are true:
 Update this section at the end of each meaningful work session:
 
 ```text
-Last known-good commit: edc3fae is the historical UART scaffold; current trading source is uncommitted and simulation-validated
-Last matching bitstream: bitstream/trade_core.fs; SHA-256 e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7; programmed in SRAM and passed physical tests; awaiting human Git/submission freeze
-Board detected: native Windows USB Debugger A; VID_0403/PID_6010 serial 2025030317; JTAG location 561 reads GW2AR-family ID 0x0000081B
-COM port: current COM3 (interface A) and COM4 (interface B); COM4 passed the physical quick test and three robust sessions
-Simulation status: native Windows Icarus 12.0 passes RX 260 bytes, TX 256 bytes, original top 3 packets, engine + accelerated top 1509 packets / 15 sessions, board-default top 221 packets
-Reference model: byte-exact agreement with both organizer classes; organizer files unchanged; transferred source hashes verified
-Synthesis/PnR status: PASS, Gowin V1.9.11.03 Education Windows; exact part/version; 412 LUTs (49 LUT2/123 LUT3/240 LUT4), 328 registers, 0 B-SRAM, 8 SSRAM; source snapshot matches workspace
-Quick UART test: physical PASS on COM4; saved console/programming evidence
-Robust UART test: physical PASS three consecutive practice-seed runs without reset/reprogram; 84/84 scored packets and 168/168 actions each; all 300 CSV rows independently verified
-Timing / physical latency: routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns, zero reported setup/hold violations; physical robust aggregate mean/max 13.718/31.265 ms on local Windows PC
-Known blockers: human team/asset/submission metadata, human Git review/commit/push and public repository/Devpost freeze; PR1014 remains documented, physical local tests passed
-Next smallest task: humans fill submission metadata, review/stage/commit/push the source, evidence and matching tested bitstream, then record full final SHA on Devpost
+Last known-good commit: edc3fae is the historical UART scaffold; current trading/latency changes are uncommitted, simulation- and physically validated
+Last matching bitstream: bitstream/trade_core.fs; SHA-256 bc7edc25e995168772989e199c9cd43252f6120bec68e21fba034c8a35d4313d; authorized SRAM and final physical tests passed
+Board detected: native Windows USB Debugger A, serial 2025030317, VID_0403/PID_6010; location 561, FPGA ID 0x0000081B
+COM port: COM4 (interface B); host receive timer restored to original 16 ms and final capture passed
+Simulation status: native Windows Icarus12 RX260/TX256/top3/engine1509/accelerated top1509/27MHz top1509 all PASS with release gap0; gap0/1/10 parameter boundary suite PASS
+Reference model: byte-exact agreement with both unchanged organizer classes across1509 packets /15 sessions
+Synthesis/PnR status: PASS, exact part/version;365 LUTs (42 LUT2/119 LUT3/204 LUT4),296 registers,0 B-SRAM,8 SSRAM; all pins match CST
+Quick UART test: final physical PASS; programming/console/source evidence saved
+Robust UART test: final3 runs PASS without reset/reprogram;84/84 scored packets and168/168 actions each; all300 CSV rows independently verified
+Supplementary physical test:1509 exact replies /15 sessions, no timeout/extra bytes; separate latency statistics
+Timing / physical latency: Fmax75.176 MHz; setup/hold+23.735/+0.425 ns; no reported violations; latest organizer mean/max14.105513/16.9418 ms on local PC; prior optimized capture13.177649/17.9824 ms
+Optimization: configured gap1000us ->0clocks; simulated transaction8.397770 ->1.397588ms; internal delay removed; fresh mean host latency is higher than prior run, and system latency is PC-dependent; cached-project input guard fixed
+Fresh organizer-rubric revalidation: quick + three robust runs PASS, all300 CSV rows verified, organizer mean/max14.105513/16.9418 ms; expanded physical1509/1509 across15 sessions PASS; COM4 timer16ms unchanged; local evidence supports85 points plus conditional0/8/15 latency points; see docs/grading_report.md and results/regrade_20261003T183908493740Z/
+Known blockers: human metadata/Git review/commit/push/public repository/Devpost freeze; PR1014 retained; official latency score depends on judging-PC reference
+Next smallest task: review 230-LUT versus 234-LUT area candidates and validate a selected identified bitstream physically before integration; continue LUT reduction experiments listed in docs/lut_optimization_study.md; human metadata/Git/submission freeze remains pending
 ```
 
 ## Common failure modes

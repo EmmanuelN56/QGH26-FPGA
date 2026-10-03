@@ -95,50 +95,50 @@
     {
       "test": "uart_rx_tb",
       "board_timing": true,
-      "result": "PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)"
+      "result": "PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)"
     },
     {
       "test": "uart_tx_tb",
       "board_timing": true,
-      "result": "PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)"
+      "result": "PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)"
     },
     {
       "test": "top_tb",
       "board_timing": true,
-      "result": "PASS top_tb: three packets, slot order, partial packet reset, byte gaps\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\top_tb.v:101: $finish called at 25653536959 (1ps)"
+      "result": "PASS top_tb: three packets, slot order, partial packet reset, byte gaps\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\top_tb.v:104: $finish called at 4652990959 (1ps)"
     },
     {
       "test": "trade_engine_tb",
       "board_timing": false,
-      "result": "PASS trade_engine_tb: 1509 packets, actions and internal state\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\trade_engine_tb.v:66: $finish called at 30360000 (1ps)"
+      "result": "PASS trade_engine_tb: 1509 packets, actions and internal state\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\trade_engine_tb.v:66: $finish called at 30360000 (1ps)"
     },
     {
       "test": "top_sessions_tb",
       "board_timing": false,
-      "result": "PASS top_sessions_tb: 1509 packets / 12072 bytes, gaps, no early/extra replies\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\top_sessions_tb.v:93: $finish called at 2624381500000 (1ps)"
+      "result": "LATENCY gap_cycles=0 turnaround_ns=5000.000..5000.000 roundtrip_ns=1639000.000..1639500.000\nPASS top_sessions_tb: 1509 packets / 12072 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\top_sessions_tb.v:125: $finish called at 2518751500000 (1ps)"
     },
     {
       "test": "top_sessions_tb",
       "board_timing": true,
-      "result": "PASS top_sessions_tb: 221 packets / 1768 bytes, gaps, no early/extra replies\n\\\\wsl.localhost\\Ubuntu-26.04\\home\\hao\\QuizletFPGA\\testbench\\top_sessions_tb.v:93: $finish called at 1861862017879 (1ps)"
+      "result": "LATENCY gap_cycles=0 turnaround_ns=185.190..185.190 roundtrip_ns=1397587.939..1397588.114\nPASS top_sessions_tb: 3 packets / 24 bytes, gaps, no early/extra replies\nC:\\Users\\Lenovo\\Downloads\\QuizletFPGA\\testbench\\top_sessions_tb.v:125: $finish called at 4470541771 (1ps)"
     }
   ],
   "source_sha256": {
     "src\\packet_controller.v": "578e25b58988e213bbb6a51150afa448e3d25297aeeba636f53caaf39d333805",
-    "src\\top.v": "57e8fe732e97f8391ecd2586c4a183fe760e1ab1026a2a2a9de10c1901ab73b1",
+    "src\\top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
     "src\\trade_engine.v": "8f14d57bea13dd2b8ecf04a27290be191f7e226597bcd9460c9fc835c9934d36",
     "src\\uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
     "src\\uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
-    "testbench\\top_sessions_tb.v": "92c8d5a984ed262b6e5207acf3502817ca33e234475e9ad6565f0b43e57b0c97",
-    "testbench\\top_tb.v": "6304a3f8ba614447feed4a9979e7d83f23be91057fd0f75375314242a08a62fe",
+    "testbench\\top_sessions_tb.v": "d6827558d968b1b3d3ddb2eb1e08744b791b8c05be228bfc2bc55f6f24818a98",
+    "testbench\\top_tb.v": "b6c38236be7ed4e4459dc179821a4a45e2562dc1bb9ac830368dc852e34f3112",
     "testbench\\trade_engine_tb.v": "c0df6608fc4937976f52f51faa6b909074251d97085ca8ec2e55f584b63b36dc",
     "testbench\\uart_rx_tb.v": "876193f88f4f0ef963deb85fc3646dd2d2661b6e826c424dd70fba1b0dfebab1",
     "testbench\\uart_tx_tb.v": "dc530fc0904853a93d5d90ae642d9b9faaf187e1f6f2b0260f84cfc55684b16c",
     "scripts/reference_model.py": "28c745513ad7d7229f147752283a72817c473d04034401a7d1b36390c8103019",
     "scripts/generate_vectors.py": "4df210d6a1f389159f062372c9124aedf6d7b2f1597d8221fb0ca1a79a9df12f",
-    "scripts/run_regression.py": "c737de68b76d86c8f0f1857cf47be953bd7048eb0ef882915b0052f7f49881fb",
+    "scripts/run_regression.py": "81a9222f00a286816260d135c41f3792237d985f9645151ba9f744e85e5eaec7",
     "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
-    "gowin/build_uart.tcl": "790173648b6b45f5ae025d17736068f83d35d6f7559b8ae0f327e14634a198c4",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459",
     "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a"
   }
 }

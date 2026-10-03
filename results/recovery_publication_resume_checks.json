@@ -1,0 +1,36 @@
+{
+  "scope": "Windows PowerShell 5.1 with mocked Git; no real history or remote mutations",
+  "checks": [
+    {
+      "case": "fresh",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "case": "resume",
+      "exit": 0,
+      "passed": true
+    },
+    {
+      "case": "badbranch",
+      "exit": 1,
+      "passed": true
+    },
+    {
+      "case": "badhead",
+      "exit": 1,
+      "passed": true
+    },
+    {
+      "case": "badindex",
+      "exit": 1,
+      "passed": true
+    },
+    {
+      "case": "foreign",
+      "exit": 1,
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

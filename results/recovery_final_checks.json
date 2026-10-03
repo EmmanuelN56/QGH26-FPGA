@@ -1,0 +1,14 @@
+{
+  "scope": "Completed recovery into native Windows repository",
+  "active_repository": "C:\\Users\\Lenovo\\Downloads\\QuizletFPGA",
+  "all_checks_passed": true,
+  "recovered_measured_builds": 17,
+  "candidate_bitstreams_match_original_hashes": true,
+  "baseline_source_and_bitstream_match_original_hashes": true,
+  "expanded_vectors_regenerated_identically": true,
+  "fresh_candidate_simulations_passed": true,
+  "publisher_mock_passed": true,
+  "git_history_actions_performed": false,
+  "board_programming_performed": false,
+  "missing_records_documented": "docs/repository_recovery.md"
+}

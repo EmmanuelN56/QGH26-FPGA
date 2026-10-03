@@ -1,0 +1,53 @@
+// Two independent item contexts, one shared arithmetic datapath.
+// Caller keeps the request inputs stable until action_valid and never pipelines requests.
+module trade_pair (
+    input wire clk, reset, session_clear, sample_valid, warmup,
+    input wire slot1_is_a,
+    input wire [15:0] price1, price2,
+    output reg [7:0] action1, action2,
+    output reg action_valid
+);
+    reg [15:0] prices [0:31];
+    reg [19:0] sums [0:1];
+    reg [15:0] previous_prices [0:1];
+    reg [1:0] held_actions [0:1];
+    reg [3:0] write_pointer;
+    reg [4:0] sample_count;
+    reg processing, slot;
+    wire item=slot ^ !slot1_is_a;
+    wire full=sample_count==16;
+    wire [15:0] price=slot ? price2 : price1;
+    wire [19:0] old_sum=sums[item];
+    wire [19:0] oldest=full ? {4'd0,prices[{item,write_pointer}]} : 20'd0;
+    wire [19:0] new_sum=old_sum-oldest+{4'd0,price};
+    wire [15:0] previous=previous_prices[item];
+    wire [15:0] old_average=old_sum[19:4], new_average=new_sum[19:4];
+    wire [1:0] next_action=(warmup || !full) ? 2'd0 :
+        (previous<=old_average && price>new_average) ? 2'd2 :
+        (previous>=old_average && price<new_average) ? 2'd1 : held_actions[item];
+    // Entries are logically invalid until all sixteen current-session prices are written.
+    always @(posedge clk) begin
+        if(processing && !reset && !session_clear)
+            prices[{item,write_pointer}]<=price;
+    end
+    always @(posedge clk) begin
+        if(reset || session_clear) begin
+            sums[0]<=0;sums[1]<=0;previous_prices[0]<=0;previous_prices[1]<=0;
+            held_actions[0]<=0;held_actions[1]<=0;write_pointer<=0;sample_count<=0;
+            processing<=0;slot<=0;action1<=0;action2<=0;action_valid<=0;
+        end else begin
+            action_valid<=0;
+            if(!processing) begin
+                if(sample_valid) begin processing<=1;slot<=0;end
+            end else begin
+                sums[item]<=new_sum;previous_prices[item]<=price;held_actions[item]<=next_action;
+                if(!slot) begin action1<={6'd0,next_action};slot<=1;end
+                else begin
+                    action2<={6'd0,next_action};action_valid<=1;processing<=0;
+                    write_pointer<=write_pointer+1'b1;
+                    if(!full) sample_count<=sample_count+1'b1;
+                end
+            end
+        end
+    end
+endmodule

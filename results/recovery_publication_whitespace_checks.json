@@ -1,0 +1,17 @@
+{
+  "tracked_diff_check_passed": true,
+  "new_source_documents_checked": 11,
+  "crlf_accepted": true,
+  "real_trailing_spaces_rejected": true,
+  "candidate_hashes": [
+    {
+      "candidate": "carry_direct_equality",
+      "source_and_bitstream_hashes_match": true
+    },
+    {
+      "candidate": "carry_uart_pointer",
+      "source_and_bitstream_hashes_match": true
+    }
+  ],
+  "archived_evidence_whitespace_preserved": true
+}

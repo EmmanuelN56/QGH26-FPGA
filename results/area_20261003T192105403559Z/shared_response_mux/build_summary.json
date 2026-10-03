@@ -1,0 +1,56 @@
+{
+  "name": "shared_response_mux",
+  "status": "recovered_exact_build_fresh_simulation_pending",
+  "native_root": "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\GatorFPGA\\area_20261003T192105403559Z\\shared_response_mux",
+  "physical_validation": false,
+  "physical_latency": null,
+  "simulation": [],
+  "tool": "Gowin V1.9.11.03 Education",
+  "tool_identity_source": "PnR report <Tool Version>",
+  "synthesis": {
+    "LUT": 311,
+    "LUT2": 35,
+    "LUT3": 103,
+    "LUT4": 173,
+    "registers": 227,
+    "BSRAM": 0,
+    "SSRAM": 8
+  },
+  "pnr": {
+    "fmax_mhz": 64.897,
+    "worst_setup_slack_ns": 21.628,
+    "worst_hold_slack_ns": 0.425,
+    "setup_violations": 0,
+    "hold_violations": 0
+  },
+  "pins": {
+    "sys_clk": 4,
+    "reset_btn": 87,
+    "uart_rx_i": 70,
+    "uart_tx_o": 69,
+    "led0_n": 15,
+    "led1_n": 16
+  },
+  "warnings": [
+    "WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew"
+  ],
+  "zero_ssram_source": null,
+  "target": "GW2AR-LV18QN88C8/I7",
+  "device_version": "C",
+  "top": "top",
+  "source_sha256": {
+    "src/top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src/uart_rx.v": "12a485d5a95fdc48d87a5d8f4c761777729c245d46b84879909593539ad9db49",
+    "src/uart_tx.v": "e5a0a81e1dba654e45d9ff6377c5fabc3bc9463761dc355dcfbe58b253576c92",
+    "src/packet_controller.v": "c30ea58d7c68dec53d1dc22b0a2628d8f6fdeab024ce1ef62777be0b6911ea3d",
+    "src/trade_engine.v": "58aaa46c5c758a99c580798d96d0b84787ab1c4849d93278c73114ea59d7d5ff",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459"
+  },
+  "bitstream_sha256": "6b7212e356eab6d1e78fcfb72d079b9719993cf13bfe9fe3cce3135e7ed7b2bf",
+  "recovery": {
+    "source": "surviving_native_build",
+    "original_simulation_log_files_recovered": false
+  }
+}

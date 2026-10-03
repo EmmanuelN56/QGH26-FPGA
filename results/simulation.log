@@ -17,9 +17,6 @@ Copyright (c) 2000-2021 Stephen Williams (steve@icarus.com)
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
 Icarus Verilog Preprocessor version 12.0 (devel) (s20150603-1539-g2693dd32b)
 
 Copyright (c) 1999-2021 Stephen Williams (steve@icarus.com)
@@ -37,9 +34,6 @@ Copyright (c) 1999-2021 Stephen Williams (steve@icarus.com)
   You should have received a copy of the GNU General Public License along
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
 
 Icarus Verilog Parser/Elaborator version 12.0 (devel) (s20150603-1539-g2693dd32b)
 
@@ -79,104 +73,88 @@ Copyright (c) 2001-2021 Stephen Williams (steve@icarus.com)
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s uart_rx_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\uart_rx_tb.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\uart_rx_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s uart_rx_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\uart_rx_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\uart_rx_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\uart_rx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\uart_rx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
 PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s uart_tx_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\uart_tx_tb.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\uart_tx_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s uart_tx_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\uart_tx_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\uart_tx_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\uart_tx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\uart_tx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
 PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s top_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_tb.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s top_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
 PASS top_tb: three packets, slot order, partial packet reset, byte gaps
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_tb.v:101: $finish called at 25653536959 (1ps)
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_tb.v:104: $finish called at 4652990959 (1ps)
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s trade_engine_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\trade_engine_tb.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\trade_engine_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s trade_engine_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\trade_engine_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\trade_engine_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\trade_engine_tb.vvp +COUNT=1509 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\trade_engine_tb.vvp +COUNT=1509 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
 PASS trade_engine_tb: 1509 packets, actions and internal state
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\trade_engine_tb.v:66: $finish called at 30360000 (1ps)
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\trade_engine_tb.v:66: $finish called at 30360000 (1ps)
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s top_sessions_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_sessions_tb.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_sessions_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -s top_sessions_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_sessions_tb.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_sessions_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_sessions_tb.vvp +COUNT=1509 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_sessions_tb.vvp +COUNT=1509 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+LATENCY gap_cycles=0 turnaround_ns=5000.000..5000.000 roundtrip_ns=1639000.000..1639500.000
 PASS top_sessions_tb: 1509 packets / 12072 bytes, gaps, no early/extra replies
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_sessions_tb.v:93: $finish called at 2624381500000 (1ps)
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_sessions_tb.v:125: $finish called at 2518751500000 (1ps)
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -DBOARD_TIMING -s top_sessions_tb -o \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_sessions_tb_board.vvp \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_sessions_tb.v
-'\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA'
-CMD.EXE was started with the above path as the current directory.
-UNC paths are not supported.  Defaulting to Windows directory.
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\iverilog.EXE -g2012 -Wall -DBOARD_TIMING -s top_sessions_tb -o C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_sessions_tb_board.vvp C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_sessions_tb.v
 warning: Some design elements have no explicit time unit and/or
        : time precision. This may cause confusing timing results.
        : Affected design elements are:
-       :   -- module packet_controller declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\packet_controller.v:1
-       :   -- module top declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\top.v:1
-       :   -- module trade_engine declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\trade_engine.v:3
-       :   -- module uart_rx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_rx.v:1
-       :   -- module uart_tx declared here: \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\src\uart_tx.v:1
+       :   -- module packet_controller declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\trade_engine.v:3
+       :   -- module uart_rx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Lenovo\Downloads\QuizletFPGA\src\uart_tx.v:1
 
-C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE \\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\.build\sim\top_sessions_tb_board.vvp +COUNT=221 +VECTORS=.build\sim\board_packets.mem +STATES=testbench/vectors/states.mem
-PASS top_sessions_tb: 221 packets / 1768 bytes, gaps, no early/extra replies
-\\wsl.localhost\Ubuntu-26.04\home\hao\QuizletFPGA\testbench\top_sessions_tb.v:93: $finish called at 1861862017879 (1ps)
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.EXE C:\Users\Lenovo\Downloads\QuizletFPGA\.build\sim\top_sessions_tb_board.vvp +COUNT=3 +VECTORS=.build\sim\board_packets.mem +STATES=testbench/vectors/states.mem
+LATENCY gap_cycles=0 turnaround_ns=185.190..185.190 roundtrip_ns=1397587.939..1397588.114
+PASS top_sessions_tb: 3 packets / 24 bytes, gaps, no early/extra replies
+C:\Users\Lenovo\Downloads\QuizletFPGA\testbench\top_sessions_tb.v:125: $finish called at 4470541771 (1ps)

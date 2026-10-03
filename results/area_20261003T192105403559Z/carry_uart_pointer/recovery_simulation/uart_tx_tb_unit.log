@@ -1,0 +1,3 @@
+C:\Users\Lenovo\AppData\Local\GatorFPGA\iverilog\bin\vvp.exe C:\Users\Lenovo\Downloads\QuizletFPGA\.build\recovered_candidate_sim\carry_uart_pointer\uart_tx_tb.vvp
+PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset
+C:\Users\Lenovo\Downloads\QuizletFPGA\results\area_20261003T192105403559Z\carry_uart_pointer\verification_source\testbench\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)

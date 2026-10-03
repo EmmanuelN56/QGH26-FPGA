@@ -1,3 +1,5 @@
+Recovery note (2026-10-03): the active repository is `C:/Users/Lenovo/Downloads/QuizletFPGA`. Exact source/build files were restored, but some later physical logs and original simulation logs from Ubuntu are missing. Fresh recovery results are separate. See [recovery inventory](docs/repository_recovery.md).
+
 # Silicon Trade Core
 
 Gator Quant Hacks 2026 Hardware Track trading core for the Tang Nano 20K,
