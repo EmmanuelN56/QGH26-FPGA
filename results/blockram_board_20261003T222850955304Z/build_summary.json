@@ -1,18 +1,9 @@
 {
     "name":  "context_ram",
-    "status":  "physical_practice_passed_awaiting_official_qualification",
+    "status":  "fullrange_simulations_passed_awaiting_physical_validation",
     "native_root":  "C:\\Users\\Lenovo\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\GatorFPGA\\area_20261003T192105403559Z\\context_ram",
-    "physical_validation":  true,
-    "physical_validation_scope": "quick_and_five_normal_fullrange_practice_pairs",
-    "physical_evidence": "results/blockram_board_20261003T222850955304Z/manifest.json",
-    "physical_latency": {
-        "unit": "ms",
-        "normal_mean": 16.7443136,
-        "normal_max": 32.4375,
-        "fullrange_mean": 16.7392452,
-        "fullrange_max": 28.3334,
-        "fullrange_median_of_five_run_medians": 16.85615
-    },
+    "physical_validation":  false,
+    "physical_latency":  null,
     "simulation":  [
                        {
                            "bench":  "trade_pair_tb",

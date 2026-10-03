@@ -3,8 +3,14 @@
 The frozen test candidate is context_ram: 312 synthesis Logic, 179 registers,
 271 LUT primitives (272 in the total resource summary), 40 ALUs and one B-SRAM.
 Its routed Logic is 316, Fmax 102.750 MHz, setup/hold slack +27.305/+0.425 ns.
-The active source will match the archived build exactly. Physical validation
-and qualification remain pending.
+The active HDL and build settings match the archived build. The active CST
+differs only in CRLF/LF line endings; physical evidence preserves the exact
+checksum-matching archived build inputs and both CST hashes.
+Physical practice validation passed on 2026-10-03: SRAM programming, quick test,
+and five normal/full-range pairs without reprogramming or manual reset. All
+1,000 robust response packets were independently verified, including warm-up.
+Official qualification and the hidden seed remain pending. See
+[physical results](../results/blockram_board_20261003T222850955304Z/REPORT.md).
 
 Bitstream SHA-256:
 825bf4d70b30f3ed7f01a09e725d65304f37f7b26c551289ea06fd13b947ef8d

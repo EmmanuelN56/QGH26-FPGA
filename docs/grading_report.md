@@ -15,6 +15,15 @@ counts below are provisional; only the judge rebuild determines placement.
 
 ## Corrected resource comparison
 
+Latest physical practice evidence: the context_ram bitstream was programmed
+successfully into board 2025030317 SRAM on COM4 on 2026-10-03. Quick and five
+normal/full-range pairs passed without reprogramming or manual reset. Every
+robust reply, including warm-up, was independently verified: 1,000/1,000 packets,
+840/840 scored packets, 1,680/1,680 scored actions, zero timeouts. Normal/full-range
+mean latency was 16.744314/16.739245 ms. This supports practice readiness; official
+and hidden-seed qualification remain pending. See the
+[physical report](../results/blockram_board_20261003T222850955304Z/REPORT.md).
+
 These values are the complete vendor summary rows, not sums of hierarchy cells.
 
 | Candidate | Primitive LUTs | Synthesis Logic | Registers | B-SRAM | Routed Logic |

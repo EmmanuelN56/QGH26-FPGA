@@ -1,4 +1,4 @@
-Experimental branch codex/logic-312-blockram: active source and bitstream are the block-RAM candidate, 312 synthesis Logic / 179 registers / one B-SRAM. Physical validation is pending. CANDIDATE.md identifies this build. Historical release measurements below describe the archived 365-LUT baseline.
+Experimental branch codex/logic-312-blockram: active source and bitstream are the block-RAM candidate, 312 synthesis Logic / 179 registers / one B-SRAM. Physical quick and five normal/full-range practice pairs passed on 2026-10-03. Official qualification remains pending. See CANDIDATE.md and results/blockram_board_20261003T222850955304Z/REPORT.md. Historical release measurements below describe the archived 365-LUT baseline.
 
 Recovery note (2026-10-03): the active repository is `C:/Users/Lenovo/Downloads/QuizletFPGA`. Exact source/build files were restored, but some later physical logs and original simulation logs from Ubuntu are missing. Fresh recovery results are separate. See [recovery inventory](docs/repository_recovery.md).
 
@@ -379,7 +379,8 @@ and must not be used for ranking. No global minimum is proved.
 
 The lowest measured total-logic design is the block-RAM context candidate;
 prioritize its correctness and physical qualification before selecting a release.
-All three remain unprogrammed as candidates. Earlier full-range simulation
+The block-RAM candidate now has physical practice validation (see the latest
+session below); the two carry candidates remain unprogrammed. Earlier full-range simulation
 corpora are supplementary evidence, not the organizer's new practice seed or
 hidden run. Use scripts/verify_fullrange_candidates.py to check the new exact
 practice sequence and expanded data; save each run in a fresh results directory.
@@ -453,6 +454,11 @@ The project is complete only when all of the following are true:
 Update this section at the end of each meaningful work session:
 
 ```text
+Latest block-RAM physical session: 2026-10-03, codex/logic-312-blockram at 6f13a956336e90cc5f7c4fb9dba0a6f9ca68881f; board2025030317/COM4; authorized SRAM programming PASS; bitstream SHA256 825bf4d70b30f3ed7f01a09e725d65304f37f7b26c551289ea06fd13b947ef8d
+Block-RAM practice correctness: quick PASS plus five normal->fullrange pairs without reprogramming/manual reset; all1000 robust packets independently verified including warmup; each run84/84 scored packets and168/168 actions; zero timeouts
+Block-RAM physical latency: normal500-packet mean16.744314ms/max32.4375ms; fullrange500-packet mean16.739245ms/max28.3334ms; median of five normal/fullrange run medians16.84555/16.85615ms; repeated fixed practice seeds, not official/hidden qualification
+Block-RAM evidence: results/blockram_board_20261003T222850955304Z/; exact archived build inputs preserved; checkout CST differs only by line endings, both hashes recorded; source/.fs unchanged
+Current next task: human review/commit/push of physical evidence; judge rebuild and hidden-seed qualification remain pending. Remaining entries below are historical baseline/recovery status.
 Last known-good commit: edc3fae is the historical UART scaffold; current trading/latency changes are uncommitted, simulation- and physically validated
 Last matching bitstream: bitstream/trade_core.fs; SHA-256 bc7edc25e995168772989e199c9cd43252f6120bec68e21fba034c8a35d4313d; authorized SRAM and final physical tests passed
 Board detected: native Windows USB Debugger A, serial 2025030317, VID_0403/PID_6010; location 561, FPGA ID 0x0000081B

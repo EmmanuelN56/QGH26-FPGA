@@ -1,4 +1,4 @@
-Experimental branch codex/logic-312-blockram: active source and bitstream are the block-RAM candidate, 312 synthesis Logic / 179 registers / one B-SRAM. Physical validation is pending. CANDIDATE.md identifies this build. Historical release measurements below describe the archived 365-LUT baseline.
+Experimental branch codex/logic-312-blockram: active source and bitstream are the block-RAM candidate, 312 synthesis Logic / 179 registers / one B-SRAM. Physical quick and five normal/full-range practice pairs passed on 2026-10-03. Official qualification remains pending. See CANDIDATE.md and results/blockram_board_20261003T222850955304Z/REPORT.md. Historical release measurements below describe the archived 365-LUT baseline.
 
 Recovery note (2026-10-03): the active repository is `C:/Users/Lenovo/Downloads/QuizletFPGA`. Exact source/build files were restored, but some later physical logs and original simulation logs from Ubuntu are missing. Fresh recovery results are separate. See [recovery inventory](docs/repository_recovery.md).
 
