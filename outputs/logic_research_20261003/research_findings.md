@@ -80,4 +80,4 @@ The official device table lists 46 blocks/828 Kbits for GW2A-18; our exact-targe
 5. Sweep FSM encodings on the surviving architecture. Revisit UART only if its mapped report identifies a specific cost.
 6. Keep only complete-design improvements that pass the expanded reference/UART suite; physical qualification remains mandatory before release.
 
-The separate handoff prompt gives the exact semantic, measurement, and validation requirements.
+The current [README](../../README.md) documents the selected design, build steps, and validation results.
