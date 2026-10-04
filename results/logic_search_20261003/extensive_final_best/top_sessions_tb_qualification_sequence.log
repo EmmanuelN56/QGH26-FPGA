@@ -1,0 +1,4 @@
+"C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.exe" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\results\logic_search_20261003\extensive_final_best\top_sessions_tb.vvp" +COUNT=400 "+VECTORS=C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\vectors\extensive\qualification_sequence_packets.mem" "+STATES=C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\vectors\extensive\qualification_sequence_states.mem"
+LATENCY gap_cycles=0 turnaround_ns=294000.000..294000.000 roundtrip_ns=1928000.000..1928500.000
+PASS top_sessions_tb: 400 packets / 3200 bytes, gaps, no early/extra replies
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_sessions_tb.v:125: $finish called at 783430500000 (1ps)

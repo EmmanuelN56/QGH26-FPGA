@@ -1,0 +1,79 @@
+{
+  "independent_model_agrees": true,
+  "organizer_model_agrees": true,
+  "counts": {
+    "index_zero_restarts": 101,
+    "action_0": 4136,
+    "packets": 8785,
+    "ordinary_slots": 4439,
+    "boundary_index_15": 97,
+    "action_2": 6608,
+    "swapped_slots": 4346,
+    "boundary_index_16": 96,
+    "boundary_index_17": 95,
+    "action_1": 6826
+  },
+  "corpora": {
+    "qualification_sequence": {
+      "packets": 400,
+      "packets_sha256": "5dc8d0c9edb1db509c74900763bcb00d64d18c59bf95e4de9b0238a9d75ca4d3",
+      "states_sha256": "db48068ca42220c5ddfd6a574025d8efdc8dbebb53f30a90bf9969116a438d79"
+    },
+    "fullrange_edges": {
+      "packets": 3776,
+      "packets_sha256": "71dc9b732b6d430c6199b7da4b677e465c310b33e4e9e56bd3291bce724c64c1",
+      "states_sha256": "d9cfa17fc135bf57e2c227f507bc7df0b73d2ac913a80dfa30bc527c62efc3c1"
+    },
+    "original": {
+      "packets": 1509,
+      "packets_sha256": "1a8b92244fad536e7846282875eb7777b95f68c76b636ea96e3d45877d6ca3ef",
+      "states_sha256": "3f5688fd3bec56d42458f8d9b687f0a51c63b3772957fa8fca21f33feb3bc8fd"
+    },
+    "expanded": {
+      "packets": 3100,
+      "packets_sha256": "6ff24a15a9f440ee2b9a3aaa152689fd7dad9d7b2e15d79133fb536cc3f63b73",
+      "states_sha256": "b44d526a7adb2aa8513265f283ee4ee33fd06ef9542cb7bcc23b543aaa1bc3bd"
+    }
+  },
+  "maximum_rolling_sum": 1048560,
+  "floor_residues": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "pointers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "request_byte_values": 256,
+  "distinct_prices": 9302,
+  "minimum_price": 0,
+  "maximum_price": 65535
+}

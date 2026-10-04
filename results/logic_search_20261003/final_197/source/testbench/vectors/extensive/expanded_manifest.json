@@ -1,0 +1,228 @@
+{
+  "name": "expanded",
+  "packets": 3100,
+  "sessions": [
+    {
+      "name": "long_wraps",
+      "start": 0,
+      "packets": 800
+    },
+    {
+      "name": "ramp_up_down",
+      "start": 800,
+      "packets": 258
+    },
+    {
+      "name": "sawtooth",
+      "start": 1058,
+      "packets": 256
+    },
+    {
+      "name": "impulses",
+      "start": 1314,
+      "packets": 256
+    },
+    {
+      "name": "repeated_equal",
+      "start": 1570,
+      "packets": 192
+    },
+    {
+      "name": "carry_borrow_0",
+      "start": 1762,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_1",
+      "start": 1802,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_2",
+      "start": 1842,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_3",
+      "start": 1882,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_4",
+      "start": 1922,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_5",
+      "start": 1962,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_6",
+      "start": 2002,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_7",
+      "start": 2042,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_8",
+      "start": 2082,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_9",
+      "start": 2122,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_10",
+      "start": 2162,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_11",
+      "start": 2202,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_12",
+      "start": 2242,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_13",
+      "start": 2282,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_14",
+      "start": 2322,
+      "packets": 40
+    },
+    {
+      "name": "carry_borrow_15",
+      "start": 2362,
+      "packets": 40
+    },
+    {
+      "name": "floor_residue_0",
+      "start": 2402,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_1",
+      "start": 2436,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_2",
+      "start": 2470,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_3",
+      "start": 2504,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_4",
+      "start": 2538,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_5",
+      "start": 2572,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_6",
+      "start": 2606,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_7",
+      "start": 2640,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_8",
+      "start": 2674,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_9",
+      "start": 2708,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_10",
+      "start": 2742,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_11",
+      "start": 2776,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_12",
+      "start": 2810,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_13",
+      "start": 2844,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_14",
+      "start": 2878,
+      "packets": 34
+    },
+    {
+      "name": "floor_residue_15",
+      "start": 2912,
+      "packets": 34
+    },
+    {
+      "name": "partial_warmup_restart_1",
+      "start": 2946,
+      "packets": 1
+    },
+    {
+      "name": "partial_warmup_restart_2",
+      "start": 2947,
+      "packets": 2
+    },
+    {
+      "name": "partial_warmup_restart_7",
+      "start": 2949,
+      "packets": 7
+    },
+    {
+      "name": "partial_warmup_restart_15",
+      "start": 2956,
+      "packets": 15
+    },
+    {
+      "name": "partial_warmup_restart_16",
+      "start": 2971,
+      "packets": 16
+    },
+    {
+      "name": "partial_warmup_restart_17",
+      "start": 2987,
+      "packets": 17
+    },
+    {
+      "name": "after_partial_restart",
+      "start": 3004,
+      "packets": 96
+    }
+  ],
+  "packets_sha256": "6ff24a15a9f440ee2b9a3aaa152689fd7dad9d7b2e15d79133fb536cc3f63b73",
+  "states_sha256": "b44d526a7adb2aa8513265f283ee4ee33fd06ef9542cb7bcc23b543aaa1bc3bd"
+}

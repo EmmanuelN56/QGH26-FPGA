@@ -1,0 +1,21 @@
+{
+  "all_passed": true,
+  "current_source_matches_final_build": true,
+  "gated_resources": true,
+  "six_routed_pins_match": {
+    "sys_clk": "4",
+    "reset_btn": "87",
+    "uart_tx_o": "69",
+    "uart_rx_i": "70",
+    "led0_n": "15",
+    "led1_n": "16"
+  },
+  "tool_and_part_verified": true,
+  "normal_fullrange_csv_rows_rechecked": 1000,
+  "extensive_board_rows_rechecked": 8785,
+  "tested_bitstream_sha256": "6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23",
+  "submission_bitstream_sha256": "cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2",
+  "human_promotion_pending": true,
+  "official_judge_score_unverified": true,
+  "hidden_seed_unverified": true
+}

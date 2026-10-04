@@ -1,0 +1,20 @@
+time,label,logic,lut,alu,ram16,registers,bsram,pnr_logic,gate,verdict,src_hash
+2026-10-03T22:46:47,baseline_20261003,236,232,,0,171,3,237,fail,INVALID (gate fail),f90016e33d1c
+2026-10-03T22:51:34,baseline_20261003,236,232,,0,171,3,237,pass,FIRST,f90016e33d1c
+2026-10-03T22:53:38,strategy_digit_width_2,248,244,,0,170,3,249,pass,WORSE vs best (baseline_20261003: 236/171),a7064fbdd657
+2026-10-03T23:21:15,pointer_full_flag,233,233,,0,167,3,233,pass,BETTER vs best (baseline_20261003: 236/171),5c9781ffc299
+2026-10-03T23:27:27,explicit_bit_carry,235,235,,0,167,3,235,pass,WORSE vs best (pointer_full_flag: 233/167),9fdba531c45a
+2026-10-03T23:30:00,held_action_outputs,230,230,,0,163,3,230,pass,BETTER vs best (pointer_full_flag: 233/167),f19f5025f6f2
+2026-10-03T23:36:46,price_shift_16,229,229,,0,159,3,229,pass,BETTER vs best (held_action_outputs: 230/163),994fce9a4a7e
+2026-10-03T23:41:37,shared_ram_read_enable,231,231,,0,159,3,231,pass,WORSE vs best (price_shift_16: 229/159),d6bae8ceb093
+2026-10-03T23:47:11,rx_single_byte_register,230,230,,0,151,3,230,pass,WORSE vs best (price_shift_16: 229/159),b8d654f965bd
+2026-10-03T23:49:45,tx_stop_marker,224,224,,0,156,3,224,pass,BETTER vs best (price_shift_16: 229/159),e1878913fd8c
+2026-10-03T23:55:48,shared_packet_byte_count,221,221,0,0,153,3,221,pass,BETTER vs best (tx_stop_marker: 224/156),6a69cec44fb7
+2026-10-04T00:05:56,packet_handoff_fsm,217,217,0,0,153,3,217,pass,BETTER vs best (shared_packet_byte_count: 221/153),c2a17b696ccf
+2026-10-04T00:12:21,request_price_bsram,206,206,0,0,129,4,206,pass,BETTER vs best (packet_handoff_fsm: 217/153),f31efc0b9d5f
+2026-10-04T00:20:09,phase_bit_decode,205,205,0,0,129,4,205,pass,BETTER vs best (request_price_bsram: 206/129),511fdc772a85
+2026-10-04T00:24:40,shared_uart_baud_timer,199,199,0,0,121,4,199,pass,BETTER vs best (phase_bit_decode: 205/129),9f94feb614ab
+2026-10-04T00:30:24,index_in_request_ram,197,197,0,0,108,4,197,pass,BETTER vs best (shared_uart_baud_timer: 199/121),da7976211f21
+2026-10-04T00:33:18,strategy_onehot,197,197,0,0,108,4,197,pass,SAME vs best (index_in_request_ram: 197/108),966d4df7fc48
+2026-10-04T00:37:26,held_byte_uart_tx,200,200,0,0,104,4,200,pass,WORSE vs best (index_in_request_ram: 197/108),368bca05b5ac
+2026-10-04T00:39:37,final_197,197,197,0,0,108,4,197,pass,SAME vs best (index_in_request_ram: 197/108),da7976211f21

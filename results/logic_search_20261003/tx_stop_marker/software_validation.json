@@ -1,0 +1,156 @@
+{
+  "scope": "software simulation only",
+  "physical_validation": false,
+  "all_passed": true,
+  "status": "passed",
+  "simulator": "Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "vectors": {
+    "packet_count": 1609,
+    "sessions": [
+      {
+        "name": "quick",
+        "start": 0,
+        "packets": 21
+      },
+      {
+        "name": "robust_practice",
+        "start": 21,
+        "packets": 100
+      },
+      {
+        "name": "robust_fullrange_practice",
+        "start": 121,
+        "packets": 100
+      },
+      {
+        "name": "robust_repeat_without_reset",
+        "start": 221,
+        "packets": 100
+      },
+      {
+        "name": "equal_old_and_new",
+        "start": 321,
+        "packets": 72
+      },
+      {
+        "name": "floor_boundary",
+        "start": 393,
+        "packets": 80
+      },
+      {
+        "name": "maximum_sum",
+        "start": 473,
+        "packets": 96
+      },
+      {
+        "name": "all_zero_after_maximum",
+        "start": 569,
+        "packets": 40
+      },
+      {
+        "name": "random_u16_0",
+        "start": 609,
+        "packets": 300
+      },
+      {
+        "name": "random_u16_1",
+        "start": 909,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_2",
+        "start": 1009,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_3",
+        "start": 1109,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_4",
+        "start": 1209,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_5",
+        "start": 1309,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_6",
+        "start": 1409,
+        "packets": 100
+      },
+      {
+        "name": "random_u16_7",
+        "start": 1509,
+        "packets": 100
+      }
+    ],
+    "organizer_sha256": {
+      "21_quick_uart_test.py": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+      "22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+      "22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c"
+    },
+    "packets_sha256": "509a2448e092d1ea025cd3f4b60f51dd62e57d666d817ac9073df65ca275ecee",
+    "states_sha256": "ccccc82ed9fe94c42251dc08992e94c146df6b7fdfe1e0323f5277ed3d984e5a"
+  },
+  "checks": [
+    {
+      "test": "uart_rx_tb",
+      "board_timing": true,
+      "result": "PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)"
+    },
+    {
+      "test": "uart_tx_tb",
+      "board_timing": true,
+      "result": "PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)"
+    },
+    {
+      "test": "top_tb",
+      "board_timing": true,
+      "result": "PASS top_tb: three packets, slot order, partial packet reset, byte gaps\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\top_tb.v:104: $finish called at 4685214019 (1ps)"
+    },
+    {
+      "test": "trade_engine_tb",
+      "board_timing": false,
+      "result": "PASS trade_engine_tb: 1609 packets, actions and internal state\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\trade_engine_tb.v:66: $finish called at 32370000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "board_timing": false,
+      "result": "LATENCY gap_cycles=0 turnaround_ns=295000.000..295000.000 roundtrip_ns=1929000.000..1929500.000\nPASS top_sessions_tb: 1609 packets / 12872 bytes, gaps, no early/extra replies\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\top_sessions_tb.v:125: $finish called at 3152261500000 (1ps)"
+    },
+    {
+      "test": "top_sessions_tb",
+      "board_timing": true,
+      "result": "LATENCY gap_cycles=0 turnaround_ns=10926.210..10926.210 roundtrip_ns=1408328.959..1408329.134\nPASS top_sessions_tb: 221 packets / 1768 bytes, gaps, no early/extra replies\nC:\\Users\\Duke\\Documents\\ChatGPT\\GatorHacks FPGA\\testbench\\top_sessions_tb.v:125: $finish called at 317195561299 (1ps)"
+    }
+  ],
+  "source_sha256": {
+    "src\\packet_controller.v": "c9011ef4ceedd2051160e1156bef12c37033ea35aa239bf2e5622c981a23c739",
+    "src\\top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src\\trade_engine.v": "f945251e809a5f980df515ada538238864ca9b1d7805c4594cd90ed51fb17d7b",
+    "src\\uart_rx.v": "d51c13c567f9c50c1b49672dba9f13d54089ba336b7d4cff2f36e2a97830ce12",
+    "src\\uart_tx.v": "d465c2f75225f9977bf4939b2a543b7dc86195ac422e6ff3c83db1bef39a0e47",
+    "testbench\\top_sessions_tb.v": "d6827558d968b1b3d3ddb2eb1e08744b791b8c05be228bfc2bc55f6f24818a98",
+    "testbench\\top_tb.v": "b6c38236be7ed4e4459dc179821a4a45e2562dc1bb9ac830368dc852e34f3112",
+    "testbench\\trade_engine_tb.v": "07fd581b3661b3555e0a606b39a75e3e73cd8d995130a2b505911418333f46f2",
+    "testbench\\uart_rx_tb.v": "876193f88f4f0ef963deb85fc3646dd2d2661b6e826c424dd70fba1b0dfebab1",
+    "testbench\\uart_tx_tb.v": "dc530fc0904853a93d5d90ae642d9b9faaf187e1f6f2b0260f84cfc55684b16c",
+    "scripts/reference_model.py": "d70afe204cdd4ab414d860db907ab71c5f04b1391bc4363d2be77e059410557a",
+    "scripts/generate_vectors.py": "ba2c111a8fab37f2751662c80aa3cc7e93ccb1dc33c4d6466f05349a80ceeedf",
+    "scripts/run_regression.py": "5355cdaf6181d1c75ee655fc9b23bda47481c42822f1925cc9e3650530ebf4af",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "scripts/21_quick_uart_test.py": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+    "scripts/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "scripts/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "testbench/vectors/packets.mem": "509a2448e092d1ea025cd3f4b60f51dd62e57d666d817ac9073df65ca275ecee",
+    "testbench/vectors/states.mem": "ccccc82ed9fe94c42251dc08992e94c146df6b7fdfe1e0323f5277ed3d984e5a",
+    "testbench/vectors/vectors.json": "c84e6fd8484ff0bd986a762113cc5c82ac87af8885d3f557ebdf6e417812241b"
+  }
+}

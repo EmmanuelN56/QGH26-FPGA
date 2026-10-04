@@ -1,0 +1,172 @@
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -V
+Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)
+
+Copyright (c) 2000-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Icarus Verilog Preprocessor version 12.0 (devel) (s20150603-1539-g2693dd32b)
+
+Copyright (c) 1999-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Icarus Verilog Parser/Elaborator version 12.0 (devel) (s20150603-1539-g2693dd32b)
+
+Copyright (c) 1998-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+ FLAGS DLL vvp.tgt
+vvp.tgt: Icarus Verilog VVP Code Generator 12.0 (devel) (s20150603-1539-g2693dd32b)
+
+Copyright (c) 2001-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -s uart_rx_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\uart_rx_tb.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\uart_rx_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\uart_rx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+PASS uart_rx_tb: 260 bytes, glitch rejection, bad stop, break, reset
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\uart_rx_tb.v:116: $finish called at 22971320710 (1ps)
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -s uart_tx_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\uart_tx_tb.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\uart_tx_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\uart_tx_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+PASS uart_tx_tb: 256 bytes, exact frame length, busy rejection, reset
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\uart_tx_tb.v:111: $finish called at 22345617557 (1ps)
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -s top_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_tb.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_tb.vvp +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+PASS top_tb: three packets, slot order, partial packet reset, byte gaps
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_tb.v:104: $finish called at 4685214019 (1ps)
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -s trade_engine_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\trade_engine_tb.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\trade_engine_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\trade_engine_tb.vvp +COUNT=1609 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+PASS trade_engine_tb: 1609 packets, actions and internal state
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\trade_engine_tb.v:66: $finish called at 32370000 (1ps)
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -s top_sessions_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_sessions_tb.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_sessions_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_sessions_tb.vvp +COUNT=1609 +VECTORS=testbench/vectors/packets.mem +STATES=testbench/vectors/states.mem
+LATENCY gap_cycles=0 turnaround_ns=295000.000..295000.000 roundtrip_ns=1929000.000..1929500.000
+PASS top_sessions_tb: 1609 packets / 12872 bytes, gaps, no early/extra replies
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_sessions_tb.v:125: $finish called at 3152261500000 (1ps)
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.EXE -g2012 -Wall -DBOARD_TIMING -s top_sessions_tb -o C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_sessions_tb_board.vvp C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_sessions_tb.v
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1
+
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\vvp.EXE C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\sim\top_sessions_tb_board.vvp +COUNT=221 +VECTORS=.build\sim\board_packets.mem +STATES=testbench/vectors/states.mem
+LATENCY gap_cycles=0 turnaround_ns=10926.210..10926.210 roundtrip_ns=1408328.959..1408329.134
+PASS top_sessions_tb: 221 packets / 1768 bytes, gaps, no early/extra replies
+C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\top_sessions_tb.v:125: $finish called at 317195561299 (1ps)

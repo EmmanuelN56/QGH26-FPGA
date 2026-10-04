@@ -1,0 +1,101 @@
+{
+  "label": "digit_width_2",
+  "digit_width": 2,
+  "gate": true,
+  "packet_count": 1509,
+  "logic": 248,
+  "lut": 244,
+  "alu": 4,
+  "ram16": 0,
+  "registers": 170,
+  "bsram": 3,
+  "pnr_logic": 249,
+  "fmax_mhz": 120.636,
+  "setup_slack_ns": 28.748,
+  "hold_slack_ns": 0.341,
+  "setup_violations": 0,
+  "hold_violations": 0,
+  "latency_simulation": [
+    "LATENCY gap_cycles=0 turnaround_ns=151000.000..151000.000 roundtrip_ns=1785000.000..1785500.000",
+    "LATENCY gap_cycles=0 turnaround_ns=5592.738..5592.738 roundtrip_ns=1402995.487..1402995.662"
+  ],
+  "physical_latency_ms": null,
+  "physical_validation": false,
+  "modules_own_cells": [
+    {
+      "module": "top",
+      "lut": 0,
+      "alu": 0,
+      "registers": 2,
+      "ssram": 0,
+      "bsram": 0
+    },
+    {
+      "module": "top/receiver",
+      "lut": 31,
+      "alu": 0,
+      "registers": 35,
+      "ssram": 0,
+      "bsram": 0
+    },
+    {
+      "module": "top/packets",
+      "lut": 34,
+      "alu": 0,
+      "registers": 59,
+      "ssram": 0,
+      "bsram": 0
+    },
+    {
+      "module": "top/packets/strategy",
+      "lut": 114,
+      "alu": 4,
+      "registers": 51,
+      "ssram": 0,
+      "bsram": 3
+    },
+    {
+      "module": "top/packets/strategy/arithmetic",
+      "lut": 18,
+      "alu": 0,
+      "registers": 0,
+      "ssram": 0,
+      "bsram": 0
+    },
+    {
+      "module": "top/transmitter",
+      "lut": 47,
+      "alu": 0,
+      "registers": 23,
+      "ssram": 0,
+      "bsram": 0
+    }
+  ],
+  "source_sha256": {
+    "SKILL.md": "f2b634474b8665905af1e88419cbade62302109fed7353bc51cd61970a4c86b6",
+    "constraints/19_tang_nano_20k.cst": "2ac1e8bc9e282f8000a94c79f766123333b67a2cd29910ad2cba90a7554d6f5e",
+    "gowin/build_uart.tcl": "90b6ca1f0f69666b64294885ed05489d124d3b8df0f8fbc38794bed665f96459",
+    "gowin/README.md": "8a2b8a0f7fe21f21587a2e24fce759acab5cb114d43431a208f39b968ffd8fcf",
+    "gowin/uart.sdc": "42f806d2cfc24b2b610cc5691619f91242f748e038e539f33a3194400a8b710a",
+    "scripts/fpgaopt.py": "aeab59a785ac47980e12a702c066831e1aff2506305a421068b5b0a92b34934c",
+    "scripts/generate_vectors.py": "4eb5e131b28fc7c474abb2a4736265d4114a8d7b4c5a9686158e1470a22afda8",
+    "scripts/reference_model.py": "d70afe204cdd4ab414d860db907ab71c5f04b1391bc4363d2be77e059410557a",
+    "scripts/run_regression.py": "861ead065ffc4bbb9603ecf9ff7068a39451777cd367eac76449978df1f373a8",
+    "src/packet_controller.v": "c9011ef4ceedd2051160e1156bef12c37033ea35aa239bf2e5622c981a23c739",
+    "src/top.v": "21f48e4b35617dc43ee1a7e69e65b9f68d9aea63fbe630a308a56eaba24b64e6",
+    "src/trade_engine.v": "8cdd66ed007b2a7c4e1b890396c5540982b93b888fb2bf05da8e6ae96a226b06",
+    "src/uart_rx.v": "d51c13c567f9c50c1b49672dba9f13d54089ba336b7d4cff2f36e2a97830ce12",
+    "src/uart_tx.v": "b500af1a7ff1097356561eb5022c526d2fbbe50da2d374999568a88bfbc10928",
+    "testbench/top_sessions_tb.v": "d6827558d968b1b3d3ddb2eb1e08744b791b8c05be228bfc2bc55f6f24818a98",
+    "testbench/top_tb.v": "b6c38236be7ed4e4459dc179821a4a45e2562dc1bb9ac830368dc852e34f3112",
+    "testbench/trade_engine_tb.v": "07fd581b3661b3555e0a606b39a75e3e73cd8d995130a2b505911418333f46f2",
+    "testbench/uart_rx_tb.v": "876193f88f4f0ef963deb85fc3646dd2d2661b6e826c424dd70fba1b0dfebab1",
+    "testbench/uart_tx_tb.v": "dc530fc0904853a93d5d90ae642d9b9faaf187e1f6f2b0260f84cfc55684b16c",
+    "testbench/vectors/packets.mem": "1a8b92244fad536e7846282875eb7777b95f68c76b636ea96e3d45877d6ca3ef",
+    "testbench/vectors/states.mem": "3f5688fd3bec56d42458f8d9b687f0a51c63b3772957fa8fca21f33feb3bc8fd",
+    "testbench/vectors/vectors.json": "68b4228b73d3002106e0a3eb1bb7b9bfc6c6ebdacc83b1bb43165d8c0cfdf0d7"
+  },
+  "bitstream_sha256": {
+    "build/impl/pnr/trade_core.fs": "6014e3871ed493c8e4504ac66cacafa18505f92c0bb9a8a185d919ba0c2774e3"
+  }
+}

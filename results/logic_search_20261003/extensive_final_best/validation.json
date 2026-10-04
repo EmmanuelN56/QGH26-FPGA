@@ -1,0 +1,167 @@
+{
+  "all_passed": true,
+  "physical_validation": false,
+  "coverage": {
+    "independent_model_agrees": true,
+    "organizer_model_agrees": true,
+    "counts": {
+      "index_zero_restarts": 101,
+      "action_0": 4136,
+      "packets": 8785,
+      "ordinary_slots": 4439,
+      "boundary_index_15": 97,
+      "transition_to_2": 2819,
+      "action_2": 6608,
+      "swapped_slots": 4346,
+      "boundary_index_16": 96,
+      "held_2": 3789,
+      "boundary_index_17": 95,
+      "transition_to_1": 2783,
+      "action_1": 6826,
+      "current_new_average_1": 634,
+      "previous_old_average_1": 600,
+      "held_1": 4043,
+      "full_history_wraps": 854,
+      "current_new_average_0": 2101,
+      "previous_old_average_0": 2126,
+      "current_new_average_-1": 180,
+      "previous_old_average_-1": 180
+    },
+    "corpora": {
+      "qualification_sequence": {
+        "packets": 400,
+        "packets_sha256": "5dc8d0c9edb1db509c74900763bcb00d64d18c59bf95e4de9b0238a9d75ca4d3",
+        "states_sha256": "db48068ca42220c5ddfd6a574025d8efdc8dbebb53f30a90bf9969116a438d79"
+      },
+      "fullrange_edges": {
+        "packets": 3776,
+        "packets_sha256": "71dc9b732b6d430c6199b7da4b677e465c310b33e4e9e56bd3291bce724c64c1",
+        "states_sha256": "d9cfa17fc135bf57e2c227f507bc7df0b73d2ac913a80dfa30bc527c62efc3c1"
+      },
+      "original": {
+        "packets": 1509,
+        "packets_sha256": "1a8b92244fad536e7846282875eb7777b95f68c76b636ea96e3d45877d6ca3ef",
+        "states_sha256": "3f5688fd3bec56d42458f8d9b687f0a51c63b3772957fa8fca21f33feb3bc8fd"
+      },
+      "expanded": {
+        "packets": 3100,
+        "packets_sha256": "6ff24a15a9f440ee2b9a3aaa152689fd7dad9d7b2e15d79133fb536cc3f63b73",
+        "states_sha256": "b44d526a7adb2aa8513265f283ee4ee33fd06ef9542cb7bcc23b543aaa1bc3bd"
+      }
+    },
+    "maximum_rolling_sum": 1048560,
+    "floor_residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "old_floor_residues": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "pointers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "request_byte_values": 256,
+    "distinct_prices": 9302,
+    "minimum_price": 0,
+    "maximum_price": 65535
+  },
+  "source_sha256": {
+    "src\\packet_controller.v": "556610a127b39d5f2e717b67465087f84be49c4f4ce69c9da54332733a99c5fe",
+    "src\\top.v": "dab3a2674e61cb7a53a803ae20251d30976ff48eb19e3f46a1d098e0f3dd5fae",
+    "src\\trade_engine.v": "46a76354064305780497e8ad6bdef076ddb78cb8a02a464ced053e4764288a23",
+    "src\\uart_rx.v": "59c1057a77ed7a22cdc8530a6c3727fdb0374051a6acd611f6da85d7e6187ff0",
+    "src\\uart_tx.v": "d694d3088cdce7966438a58e8d30b816fbe026a38443bacebbab83a23b701519",
+    "testbench\\trade_engine_tb.v": "07fd581b3661b3555e0a606b39a75e3e73cd8d995130a2b505911418333f46f2",
+    "testbench\\top_sessions_tb.v": "d6827558d968b1b3d3ddb2eb1e08744b791b8c05be228bfc2bc55f6f24818a98",
+    "scripts\\run_extensive_regression.py": "26d319868956ae44a73b1f692a6ac9c887e2630c0b971e5170056d886bb130e5",
+    "scripts\\reference_model.py": "d70afe204cdd4ab414d860db907ab71c5f04b1391bc4363d2be77e059410557a",
+    "scripts\\generate_vectors.py": "ba2c111a8fab37f2751662c80aa3cc7e93ccb1dc33c4d6466f05349a80ceeedf",
+    "scripts\\22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c"
+  },
+  "checks": [
+    {
+      "bench": "trade_engine_tb",
+      "corpus": "qualification_sequence",
+      "passed": true
+    },
+    {
+      "bench": "trade_engine_tb",
+      "corpus": "fullrange_edges",
+      "passed": true
+    },
+    {
+      "bench": "trade_engine_tb",
+      "corpus": "original",
+      "passed": true
+    },
+    {
+      "bench": "trade_engine_tb",
+      "corpus": "expanded",
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "qualification_sequence",
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "fullrange_edges",
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "original",
+      "passed": true
+    },
+    {
+      "bench": "top_sessions_tb",
+      "corpus": "expanded",
+      "passed": true
+    }
+  ]
+}

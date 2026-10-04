@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top" Register="10" Lut="21" T_Register="92(10)" T_Lut="186(21)" T_Bsram="4(0)">
+ <SubModule name="receiver" Register="27" Lut="17" T_Register="27(27)" T_Lut="17(17)"/>
+ <SubModule name="packets" Register="19" Lut="32" Bsram="1" T_Register="43(19)" T_Lut="109(32)" T_Bsram="4(1)">
+  <SubModule name="strategy" Register="24" Lut="67" Bsram="3" T_Register="24(24)" T_Lut="77(67)" T_Bsram="3(3)">
+   <SubModule name="arithmetic" Lut="10" T_Lut="10(10)"/>
+  </SubModule>
+ </SubModule>
+ <SubModule name="transmitter" Register="12" Lut="39" T_Register="12(12)" T_Lut="39(39)"/>
+</Module>

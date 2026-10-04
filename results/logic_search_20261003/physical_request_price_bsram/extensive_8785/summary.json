@@ -1,0 +1,11 @@
+{
+  "bitstream_sha256": "9bb6f1725eb91ebc23b909150b410a039c4eecdbbf79252d54499416fa030335",
+  "port": "COM4",
+  "vectors_sha256": "ed4289520077f3b116abb89ee4f97ca72ac57a1dc662f6b03cd1e9e21f10e205",
+  "reprogrammed": false,
+  "all_passed": true,
+  "packets_checked": 8785,
+  "mean_us": 17111.617370517928,
+  "median_us": 16946.3,
+  "max_us": 150394.8
+}

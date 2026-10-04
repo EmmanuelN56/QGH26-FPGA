@@ -1,0 +1,11 @@
+"C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\.build\tools\icarus\app\bin\iverilog.exe" -g2012 -Wall -s trade_engine_tb -o "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\results\logic_search_20261003\extensive_final_197\trade_engine_tb.vvp" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v" "C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\testbench\trade_engine_tb.v"
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module digit_cell declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:56
+       :   -- module packet_controller declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\packet_controller.v:1
+       :   -- module top declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\top.v:1
+       :   -- module trade_engine declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:3
+       :   -- module trade_pair declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\trade_engine.v:80
+       :   -- module uart_rx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_rx.v:1
+       :   -- module uart_tx declared here: C:\Users\Duke\Documents\ChatGPT\GatorHacks FPGA\src\uart_tx.v:1

@@ -1,0 +1,4 @@
+PASS baseline: gated resources, evidence hashes and six routed pins
+PASS digit_width_2: gated resources, evidence hashes and six routed pins
+PASS restored source equals freeze; current regression hashes match; release bitstream unchanged
+PASS git diff --check
