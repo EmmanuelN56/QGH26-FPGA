@@ -42,6 +42,12 @@ def sessions():
     slots = random.Random(0x57214720 ^ 0xA5A5A5A5)
     swaps = [i >= 16 and slots.random() < 0.5 for i in range(100)]
     yield "robust_practice", a, b, swaps
+    full_rng = random.Random(0x1F00D16B)
+    full_a = [full_rng.randint(0, 65535) for _ in range(100)]
+    full_b = [full_rng.randint(0, 65535) for _ in range(100)]
+    full_slots = random.Random(0x1F00D16B ^ 0xA5A5A5A5)
+    full_swaps = [i >= 16 and full_slots.random() < 0.5 for i in range(100)]
+    yield "robust_fullrange_practice", full_a, full_b, full_swaps
     yield "robust_repeat_without_reset", a, b, swaps
     yield "equal_old_and_new", [10] * 16 + [10, 11, 10, 0, 0, 10, 10] * 8, [10] * 16 + [9, 10, 10, 11, 11, 0, 10] * 8, [bool(i % 2) for i in range(72)]
     yield "floor_boundary", [1] * 15 + [0] + [1, 0, 1, 2] * 16, [0] * 15 + [15] + [1, 0, 15, 16] * 16, [True] * 80
@@ -69,7 +75,7 @@ def hand_checks():
 
 def generate(output):
     hand_checks()
-    references = [organizer_reference("21_quick_uart_test.py", "Reference"), organizer_reference("22_robust_uart_test.py", "MovingAverageReference")]
+    references = [organizer_reference("21_quick_uart_test.py", "Reference"), organizer_reference("22_robust_uart_test.py", "MovingAverageReference"), organizer_reference("22_robust_uart_test_fullrange.py", "MovingAverageReference")]
     model = ReferenceModel()  # Retained across sessions to exercise index-zero clearing.
     packets, states, ranges = [], [], []
     for name, pa, pb, swaps in sessions():
@@ -92,9 +98,9 @@ def generate(output):
     output.mkdir(parents=True, exist_ok=True)
     (output / "packets.mem").write_text("\n".join(packets) + "\n")
     (output / "states.mem").write_text("\n".join(states) + "\n")
-    manifest = {"packet_count": len(packets), "sessions": ranges, "organizer_sha256": {f: hashlib.sha256((ROOT / "scripts" / f).read_bytes()).hexdigest() for f in ("21_quick_uart_test.py", "22_robust_uart_test.py")}, "packets_sha256": hashlib.sha256((output / "packets.mem").read_bytes()).hexdigest(), "states_sha256": hashlib.sha256((output / "states.mem").read_bytes()).hexdigest()}
+    manifest = {"packet_count": len(packets), "sessions": ranges, "organizer_sha256": {f: hashlib.sha256((ROOT / "scripts" / f).read_bytes()).hexdigest() for f in ("21_quick_uart_test.py", "22_robust_uart_test.py", "22_robust_uart_test_fullrange.py")}, "packets_sha256": hashlib.sha256((output / "packets.mem").read_bytes()).hexdigest(), "states_sha256": hashlib.sha256((output / "states.mem").read_bytes()).hexdigest()}
     (output / "vectors.json").write_text(json.dumps(manifest, indent=2) + "\n")
-    print(f"PASS reference model: {len(packets)} packets / {len(ranges)} sessions agree byte-for-byte with both organizer classes; hand calculations pass")
+    print(f"PASS reference model: {len(packets)} packets / {len(ranges)} sessions agree byte-for-byte with all three organizer classes; hand calculations pass")
     return manifest
 
 

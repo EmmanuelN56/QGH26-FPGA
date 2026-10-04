@@ -1,49 +1,28 @@
 # Submission bitstream
 
-[`trade_core.fs`](trade_core.fs) is the selected **236 synthesis Logic / 171
-register / 3 B-SRAM** candidate's exact, physically tested programming file.
+`trade_core.fs` is the physically tested **186 Logic / 92 registers / 4 B-SRAM**
+candidate for Tang Nano 20K, `GW2AR-LV18QN88C8/I7` version C, top `top`, 27 MHz.
+Toolchain: Gowin EDA V1.9.11.03 Education; programming: volatile SRAM.
 
-| Build setting | Value |
-| --- | --- |
-| Board / FPGA | Tang Nano 20K / `GW2AR-LV18QN88C8/I7`, device version C |
-| Tool | Gowin EDA V1.9.11.03 Education |
-| Top module / clock | `top` / 27 MHz |
-| Programming mode | Volatile SRAM |
-| Synthesis summary | Logic 236 (232 LUT, 4 ALU); registers 171; B-SRAM 3 |
-
-SHA-256:
-
-```text
-cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2
-```
-
-Verify from the repository root:
+SHA-256: `6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23`.
 
 ```powershell
 Get-FileHash .\bitstream\trade_core.fs -Algorithm SHA256
 ```
 
-The matching build inputs are the five files under `src/`, the unchanged
-organizer `constraints/19_tang_nano_20k.cst`, `gowin/build_uart.tcl`, and
-`gowin/uart.sdc`. The build generates
-`.build/gowin_trade/trade_core/impl/pnr/trade_core.fs`. See the
-[root README](../README.md) for build and SRAM programming instructions.
+Fresh October 4, 2026 physical validation: quick PASS; five normal/full-range
+pairs (1,000 packets); modified full-range (2,492 packets); attached variants
+(1,500 packets). Every robust packet and all 9,984 actions, including warm-up,
+matched the independent model, with zero timeouts or mismatches. The board was
+programmed once, with no manual reset or reprogramming between sessions.
+All five normal runs estimate 100/100 locally; median of their run means is
+16.739 ms. Official judge and hidden-seed qualification remain pending.
 
-This exact file passed physical validation on October 3, 2026:
+The fresh source rebuild reproduces 186 Logic, 92 registers, and 4 B-SRAM.
+Its configuration data is identical to this file; its creation-time comment
+differs. Exact inputs: the five `src/` HDL files, organizer CST, build Tcl, and
+clock SDC. EX3791 and PR1014 remain disclosed. See the
+[root README](../README.md) for reproduction and limitations.
 
-- Organizer quick test: PASS.
-- Five normal → full-range practice pairs: all 1,000 replies correct, including
-  warm-up; each run 84/84 scored packets and 168/168 scored actions; zero timeouts.
-- Fresh edge-case test: 2,492/2,492 packets and 4,984/4,984 actions correct across
-  41 sessions; zero timeouts, mismatches, or extra bytes. Mean/maximum physical
-  round-trip latency: 16.734/32.346 ms on the local Windows PC.
-
-There was no reset or reprogramming between sessions within each capture.
-These are local practice results; official judge and hidden-seed qualification
-remain pending. EX3791 address truncation and PR1014 generic clock-routing
-warnings are documented in the root README.
-
-Do not replace this file with an older candidate or an untested rebuild. After
-source changes, rebuild and physically validate the replacement file, then
-update the SHA-256 in both README files. Test captures are optional submission
-material and are not needed to program this bitstream.
+After source changes, rebuild and physically test the replacement programming
+file before updating its hash. Saved test logs and CSVs are optional material.

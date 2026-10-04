@@ -1,7 +1,7 @@
 # Silicon Trade Core
 
 Gator Quant Hacks 2026 Hardware Track trading core for the Sipeed Tang Nano 20K.
-The selected design uses **236 synthesis Logic, 171 registers, and 3 B-SRAM
+The selected design uses **186 synthesis Logic, 92 registers, and 4 B-SRAM
 blocks**. The matching, physically tested programming file is
 [`bitstream/trade_core.fs`](bitstream/trade_core.fs).
 
@@ -19,8 +19,11 @@ The packet controller uses one shared `trade_pair` strategy engine with a
 one-bit arithmetic cell (`W=1`). It processes both request slots sequentially
 while keeping independent price histories, rolling sums, previous prices, and
 held actions for item IDs `0x11` and `0x22`. Three narrow synchronous block RAMs
-store the rolling sums, previous prices, and sixteen-price histories. The
-circular pointer and sample count advance once per complete pair of prices.
+store the rolling sums, previous prices, and sixteen-price histories.
+A fourth B-SRAM stores request prices and the echoed index. The strategy
+selects price bits directly from this RAM. The circular pointer and window-full
+flag advance once per complete pair of prices. RX and TX share one baud counter
+for the stop-and-wait protocol; standalone UART modules retain local timers.
 
 Prices are unsigned 16-bit values; rolling sums are unsigned 20-bit values.
 Index zero logically clears both items before its prices are ingested. Old RAM
@@ -78,6 +81,7 @@ the physical constraints. Do not recreate pin assignments in FloorPlanner.
 | `testbench/top_tb.v` | Board-timing UART smoke test, reset and byte-gap checks |
 | `testbench/top_sessions_tb.v` | Complete-session UART simulation |
 | `scripts/run_regression.py` | Local model and HDL regression runner |
+| `scripts/23_robust_uart_test_variants.py` | Additional local UART stimulus modes |
 
 These are the selected design's build inputs and programming file. Historical
 experiments, test scripts, and reports elsewhere in the repository are not
@@ -120,7 +124,7 @@ Review the synthesis resource summary and routed timing. The submitted `.fs`
 has the following SHA-256:
 
 ```text
-cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2
+6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23
 ```
 
 Check it with `Get-FileHash .\bitstream\trade_core.fs -Algorithm SHA256`.
@@ -180,65 +184,79 @@ uses `TX_GAP_CYCLES=0`; it does not add a millisecond delay between bytes.
 
 ## Verification and measured results
 
-For software verification, install Python 3 and Icarus Verilog, with `iverilog`
-and `vvp` available on PATH. From the repository root, run:
+The exact selected programming file was rechecked on October 4, 2026 using
+board USB serial `2025030317`, COM4, 115200 baud, and volatile SRAM programming.
+It was programmed once before the complete sequence below. No manual reset,
+reprogramming, or host USB/UART setting change occurred between sessions.
 
-```powershell
-python scripts/run_regression.py
-```
-
-The runner checks the independent model against the organizer's reference
-classes, regenerates simulation vectors, and runs UART, strategy, and complete
-session tests. It never opens a serial port or programs the board. Its generated
-logs and summaries are local outputs. The selected UART testbenches use the
-final design's zero additional response-gap setting.
-
-Local validation on October 3, 2026 used the exact submitted bitstream:
-
-| Check | Result |
+| Physical check | Result |
 | --- | --- |
-| Organizer quick UART test | PASS |
-| Five consecutive normal → full-range practice pairs | 1,000/1,000 responses correct, including warm-up; zero timeouts |
-| Each 100-packet practice run | 84/84 scored packets and 168/168 scored actions |
-| Fresh full-range edge-case board test, 41 sessions | 2,492/2,492 packets and 4,984/4,984 actions correct; zero timeouts, mismatches, or extra bytes |
-| Matching edge-case RTL/UART simulation, accelerated UART | 2,492 packets / 19,936 response bytes, PASS |
-| Earlier selected-candidate strategy / UART regressions | 4,176 packets each, PASS; 200 packets at actual UART timing, PASS |
+| Organizer quick test | PASS |
+| Normal test, five runs | 500/500 packets; each run 84/84 scored packets and 168/168 scored actions |
+| Full-range test, five runs | 500/500 packets; each run 84/84 scored packets and 168/168 scored actions |
+| Modified full-range edge-case test | 2,492/2,492 packets and 4,984/4,984 actions across 41 sessions |
+| Attached variant test, all 13 modes plus two additional random seeds | 1,500/1,500 packets and 3,000/3,000 actions |
+| Total robust responses | **4,992/4,992 packets; 9,984/9,984 actions; zero timeouts or mismatches** |
 
-The fresh edge-case test uses new values and seed `0x236171EC`. Expected
-responses agree between the organizer's extracted strategy model and an
-independent model that recomputes history sums. It checks zero/max prices,
-20-bit sum limits, unsigned and byte-order boundaries, carry/borrow, equality,
-held BUY/SELL, all sixteen floor-division remainders, independent item state,
-slot swaps, window wraparound, and repeated/early index-zero resets. The board
-was programmed once before those 41 sessions, with no manual reset or
-reprogramming between them.
+Every saved response was independently rechecked, including warm-up. The normal
+and full-range organizer scripts were unchanged except PORT in executed copies.
+The attached variant script was unchanged and configured through its command-line
+options. Its reset-between-runs note was not followed: index zero must clear
+session state automatically under the organizer protocol.
+
+The modified corpus retains the earlier seed `0x236171EC` and covers zero/max
+prices, 20-bit sum limits, unsigned and byte boundaries, carry/borrow, all floor
+remainders, equality, held actions, independent item state, slot swaps, window
+wraparound, and early/repeated session resets. Variant modes include random,
+low, high, narrow, const, zeros, max, alternate, ramp, sawtooth, extremes, boundary,
+and swing. Additional random seeds are `0x18600092` and `0xDEADBEEF`.
+
+Source-matched UART simulation passed 200 normal/full-range packets, 2,492
+modified packets, and 1,500 variant packets with accelerated UART timing. It
+also passed 200 consecutive normal/full-range packets at 27 MHz / 115200 baud.
+The monitors checked response bytes, complete stop bits, byte gaps, and the
+absence of early or extra responses.
 
 | Resource / timing metric | Selected candidate |
 | --- | --- |
-| Synthesis total Logic | **236 (232 LUT, 4 ALU)** |
-| LUT2 / LUT3 / LUT4 primitives | 27 / 98 / 106 |
-| LUT primitive total | 231; the synthesis LUT summary also includes one INV |
-| Registers | **171** |
-| B-SRAM / distributed SSRAM | **3 / 0** |
-| Routed total Logic | 237 |
-| Routed Fmax | 118.135 MHz |
-| Worst setup / hold slack | +28.572 / +0.425 ns |
-| Setup / hold violations | 0 / 0 |
+| Synthesis total Logic | **186 (186 LUT, 0 ALU, 0 RAM16)** |
+| Registers | **92** |
+| B-SRAM / distributed SSRAM | **4 / 0** |
+| Routed total Logic | 186 |
+| Routed Fmax | 108.334 MHz |
+| Worst setup / hold slack | +27.806 / +0.074 ns |
+| Setup / hold violations in measured build | 0 / 0 |
 
-Use the complete synthesis Resource Usage Summary for the organizer's total
-Logic ranking. The routed count and LUT primitive count are separate metrics.
+A fresh Gowin V1.9.11.03 Education synthesis/Place & Route reproduced the
+186/92/4 resource counts. Its `.fs` configuration is identical to the selected
+tested file; only the creation-time comment differs. The submitted hash
+identifies the exact file programmed for the physical results above.
+Compared with 236 Logic / 171 registers, this saves 50 Logic (21.2%) and 79
+registers (46.2%), using one additional B-SRAM block.
 
 | Physical latency on the local Windows PC | Result |
 | --- | --- |
-| Five normal practice runs, 500 packets: mean / maximum | 16.718 / 32.786 ms |
-| Median of the five normal run means | 16.695 ms |
-| Five full-range practice runs, 500 packets: mean / maximum | 16.713 / 28.665 ms |
-| Fresh edge-case test, 2,492 packets: mean / median / maximum | 16.734 / 16.731 / 32.346 ms |
+| Five normal runs: mean / maximum | 16.739 / 29.604 ms |
+| Median of five normal run means | 16.739 ms |
+| Five full-range runs: mean / maximum | 16.844 / 36.685 ms |
+| Modified full-range: mean / maximum | 17.202 / 123.281 ms |
+| All attached variant runs: mean / maximum | 17.106 / 68.124 ms |
 
-These are local practice measurements. Official judge-run and hidden-seed
-qualification remain pending; the judging PC and USB/UART path can change
-round-trip latency. Saved local captures were checked against expected replies;
-they are not required to build or program the design.
+Each normal run estimates 100/100 locally: correctness 70, latency 15, and LUTs
+15. Official judge-run and hidden-seed qualification remain pending; the judging
+PC can change measured latency. No global minimum is claimed.
+
+For local model and HDL checks, install Python 3 and Icarus Verilog with
+`iverilog` and `vvp` on PATH, then run `python scripts/run_regression.py`.
+Local test code and simulation vectors are included; generated logs/CSVs are
+optional submission material. The attached test can be run, for example, with:
+
+```powershell
+python scripts/23_robust_uart_test_variants.py --port COM4 --mode boundary --seed 0x1F00D16B
+```
+
+Change COM4 to the detected port on your computer. Tests send index zero at the
+start of each session. All strategy and protocol logic runs on the FPGA.
 
 ## External resources
 
@@ -265,8 +283,8 @@ Power loss clears the SRAM configuration and requires reprogramming.
 
 These instructions follow Part 3 of the
 [organizer participant guide](https://www.gqhacks.com/hardware/GQH_Hardware_Track_Participant_Guide.pdf#page=13).
-Complete the team member names above, make the repository public, and keep it
-available through judging. Commit and push the selected source, constraints,
+Make the repository public and keep it available through judging. Commit and
+push the selected source, constraints,
 build inputs, README files, local test code, and matching `.fs`. Obtain the full final commit SHA
 with `git rev-parse HEAD` and enter it with the repository URL on Devpost. Do not
 put the Git commit SHA in this README.

@@ -14,7 +14,7 @@ from generate_vectors import ROOT, generate
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--board-packets", type=int, default=221,
-                        help="Board-default UART timing: quick + two robust sessions")
+                        help="Board-default UART timing: quick + normal + full-range sessions")
     args = parser.parse_args()
     result_dir = ROOT / "results"
     result_dir.mkdir(exist_ok=True)
@@ -53,6 +53,7 @@ def main():
     version = run([compiler, *base, "-V"]).splitlines()[0]
     sources = [str(p.relative_to(ROOT)) for p in sorted((ROOT / "src").glob("*.v"))]
     tests = [("uart_rx_tb", [], []), ("uart_tx_tb", [], []), ("top_tb", [], []),
+             ("top_recovery_tb", [], []),
              ("trade_engine_tb", [], [f"+COUNT={manifest['packet_count']}"]),
              ("top_sessions_tb", [], [f"+COUNT={manifest['packet_count']}"])]
     if args.board_packets:
@@ -75,7 +76,10 @@ def main():
         checks.append({"test": name, "board_timing": bool(defines) or name in ("uart_rx_tb", "uart_tx_tb", "top_tb"), "result": transcript.strip()})
     files = [*sources, *[str(p.relative_to(ROOT)) for p in sorted((ROOT / "testbench").glob("*.v"))],
              "scripts/reference_model.py", "scripts/generate_vectors.py", "scripts/run_regression.py",
-             "constraints/19_tang_nano_20k.cst", "gowin/build_uart.tcl", "gowin/uart.sdc"]
+             "constraints/19_tang_nano_20k.cst", "gowin/build_uart.tcl", "gowin/uart.sdc",
+             "scripts/21_quick_uart_test.py", "scripts/22_robust_uart_test.py",
+             "scripts/22_robust_uart_test_fullrange.py", "testbench/vectors/packets.mem",
+             "testbench/vectors/states.mem", "testbench/vectors/vectors.json"]
     report = {"scope": "software simulation only", "physical_validation": False,
               "all_passed": True, "status": "passed",
               "simulator": version, "python": sys.version, "vectors": manifest, "checks": checks,

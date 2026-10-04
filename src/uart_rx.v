@@ -1,13 +1,19 @@
 module uart_rx #(
     parameter integer CLOCK_FREQ = 27000000,
-    parameter integer BAUD_RATE = 115200
+    parameter integer BAUD_RATE = 115200,
+    parameter integer SHARE_TIMER = 0,
+    parameter integer TIMER_WIDTH = $clog2((CLOCK_FREQ + BAUD_RATE / 2) / BAUD_RATE) > 0 ? $clog2((CLOCK_FREQ + BAUD_RATE / 2) / BAUD_RATE) : 1
 ) (
     input wire clk,
     input wire reset,
     input wire uart_rx_i,
     output reg [7:0] rx_byte,
     output reg rx_valid,
-    output reg framing_error
+    output reg framing_error,
+    input wire [TIMER_WIDTH-1:0] shared_timer,
+    input wire timer_pause,
+    output wire timer_reload,
+    output wire [TIMER_WIDTH-1:0] timer_reload_value
 );
     localparam integer CLKS_PER_BIT = (CLOCK_FREQ + BAUD_RATE / 2) / BAUD_RATE;
     localparam integer HALF_BIT = CLKS_PER_BIT / 2;
@@ -16,9 +22,16 @@ module uart_rx #(
 
     reg rx_meta, rx_sync, rx_previous;
     reg [2:0] state;
-    reg [COUNT_WIDTH-1:0] bit_timer;
+    reg [COUNT_WIDTH-1:0] local_bit_timer;
+    wire [COUNT_WIDTH-1:0] bit_timer=SHARE_TIMER ? shared_timer : local_bit_timer;
     reg [2:0] bit_index;
     reg [7:0] data_bits;
+    wire receive_enabled=!SHARE_TIMER || !timer_pause;
+    assign timer_reload=!reset && receive_enabled &&
+        ((state==IDLE && rx_previous && !rx_sync) ||
+         (state==START && bit_timer==0 && !rx_sync) ||
+         (state==DATA && bit_timer==0));
+    assign timer_reload_value=state==IDLE ? HALF_BIT-1 : CLKS_PER_BIT-1;
 
     // The pin is asynchronous to clk; only rx_sync reaches the state machine.
     always @(posedge clk) begin
@@ -36,7 +49,7 @@ module uart_rx #(
     always @(posedge clk) begin
         if (reset) begin
             state <= IDLE;
-            bit_timer <= 0;
+            local_bit_timer <= 0;
             bit_index <= 0;
             data_bits <= 0;
             rx_byte <= 0;
@@ -47,17 +60,17 @@ module uart_rx #(
             framing_error <= 1'b0;
             case (state)
                 IDLE: begin
-                    if (rx_previous && !rx_sync) begin
-                        bit_timer <= HALF_BIT - 1;
+                    if (receive_enabled && rx_previous && !rx_sync) begin
+                        local_bit_timer <= HALF_BIT - 1;
                         state <= START;
                     end
                 end
                 START: begin
                     if (bit_timer != 0)
-                        bit_timer <= bit_timer - 1'b1;
+                        local_bit_timer <= bit_timer - 1'b1;
                     else if (!rx_sync) begin
                         // Confirm the start bit halfway through, then sample bit centers.
-                        bit_timer <= CLKS_PER_BIT - 1;
+                        local_bit_timer <= CLKS_PER_BIT - 1;
                         bit_index <= 0;
                         state <= DATA;
                     end else
@@ -65,10 +78,10 @@ module uart_rx #(
                 end
                 DATA: begin
                     if (bit_timer != 0)
-                        bit_timer <= bit_timer - 1'b1;
+                        local_bit_timer <= bit_timer - 1'b1;
                     else begin
                         data_bits <= {rx_sync, data_bits[7:1]};
-                        bit_timer <= CLKS_PER_BIT - 1;
+                        local_bit_timer <= CLKS_PER_BIT - 1;
                         if (bit_index == 7)
                             state <= STOP;
                         else
@@ -77,7 +90,7 @@ module uart_rx #(
                 end
                 STOP: begin
                     if (bit_timer != 0)
-                        bit_timer <= bit_timer - 1'b1;
+                        local_bit_timer <= bit_timer - 1'b1;
                     else if (rx_sync) begin
                         rx_byte <= data_bits;
                         rx_valid <= 1'b1;

@@ -52,7 +52,7 @@ module trade_engine (
     end
 endmodule
 
-// Fixed-distance word shifters, a single compile-time W-bit arithmetic cell.
+// A single compile-time W-bit arithmetic cell.
 module digit_cell #(parameter integer W=4)(
     input wire [W-1:0] a,b,
     input wire subtract,carry_in,partial,
@@ -79,8 +79,9 @@ endmodule
 // W=1,2,4 align a sixteen-bit price with sum bit four using a constant address offset.
 module trade_pair #(parameter integer W=1)(
     input wire clk,reset,session_clear,sample_valid,warmup,slot1_is_a,
-    input wire [15:0] price1,price2,
-    output reg [7:0] action1,action2,
+    input wire [15:0] price_word,
+    output wire price_read_slot,
+    output wire [7:0] action1,action2,
     output reg action_valid
 );
     localparam integer SD=20/W,PD=16/W,DW=$clog2(SD),DEPTH=1<<DW,OFF=4/W;
@@ -91,31 +92,38 @@ module trade_pair #(parameter integer W=1)(
     reg [W-1:0] previous_memory[0:2*DEPTH-1] /* synthesis syn_ramstyle="block_ram" */;
     reg [W-1:0] history_memory[0:32*DEPTH-1] /* synthesis syn_ramstyle="block_ram" */;
     reg [W-1:0] sum_read,previous_read,history_read;
-    reg [19:0] current_shift;
     reg [3:0] write_pointer;
-    reg [4:0] sample_count;
+    reg window_full;
     reg [DW-1:0] digit;
     reg slot,carry,equality,old_le,old_ge;
+    assign price_read_slot=state==IDLE ? 1'b0 : (slot || state==FINISH);
     reg [1:0] held_actions[0:1];
+    // Outputs follow the packet slot mapping; the controller samples only after action_valid.
+    assign action1={6'd0,held_actions[!slot1_is_a]};
+    assign action2={6'd0,held_actions[slot1_is_a]};
     wire item=slot ^ !slot1_is_a;
-    wire full=sample_count==16;
-    wire empty=sample_count==0;
+    wire full=window_full;
+    wire empty=!window_full && write_pointer==0;
     wire active=!state[3];
     wire executing=state[0];
     wire [1:0] phase=state[2:1];
-    wire comparing=active && (phase==0 || phase==3);
-    wire [DW-1:0] sum_digit=(active && !executing && (phase==0 || phase==3)) ? digit+OFF : digit;
+    // Arithmetic outputs are consumed only during active execution cycles.
+    // Decode the operation from phase bits rather than each complete state.
+    wire comparing=phase==0 || phase==3;
+    wire [DW-1:0] sum_digit=comparing ? digit+OFF : digit;
     wire [DW:0] sum_address={item,sum_digit};
     wire [DW:0] previous_address={item,digit};
     wire [DW+4:0] history_address={item,write_pointer,digit};
     wire [W-1:0] old_price=full ? history_read : {W{1'b0}};
     wire [W-1:0] old_sum=empty ? {W{1'b0}} : sum_read;
-    wire [W-1:0] a=comparing ? (state==CMP_OLD ? (empty ? {W{1'b0}} : previous_read) : current_shift[W-1:0]) :
-        (state==DO_SUB ? old_sum : sum_read);
-    wire [W-1:0] b=comparing ? old_sum : (state==DO_SUB ? old_price : current_shift[W-1:0]);
+    // The request RAM holds the current slot price throughout its operation.
+    wire [W-1:0] current_digit=digit>=PD ? {W{1'b0}} : price_word[digit*W +: W];
+    wire [W-1:0] a=comparing ? (phase==0 ? (empty ? {W{1'b0}} : previous_read) : current_digit) :
+        (phase==1 ? old_sum : sum_read);
+    wire [W-1:0] b=comparing ? old_sum : (phase==1 ? old_price : current_digit);
     wire [W-1:0] value;
     wire carry_next,digit_equal;
-    digit_cell #(.W(W)) arithmetic(.a(a),.b(b),.subtract(state!=DO_ADD),.carry_in(carry),
+    digit_cell #(.W(W)) arithmetic(.a(a),.b(b),.subtract(phase!=2),.carry_in(carry),
         .partial(1'b0),.value(value),.carry_out(carry_next),.equal(digit_equal));
     wire equal_next=equality && digit_equal;
     wire [1:0] next_action=(warmup || !full) ? 2'd0 :
@@ -130,21 +138,21 @@ module trade_pair #(parameter integer W=1)(
             if(active && !executing && phase==1) history_read<=history_memory[history_address];
             if(active && executing && (phase==1 || phase==2)) sum_memory[sum_address]<=value;
             if(active && executing && phase==2) begin
-                history_memory[history_address]<=current_shift[W-1:0];
-                previous_memory[previous_address]<=current_shift[W-1:0];
+                history_memory[history_address]<=current_digit;
+                previous_memory[previous_address]<=current_digit;
             end
         end
     end
     always @(posedge clk) begin
         if(reset || session_clear) begin
-            state<=IDLE;slot<=0;write_pointer<=0;sample_count<=0;
+            state<=IDLE;slot<=0;write_pointer<=0;window_full<=0;
             held_actions[0]<=0;held_actions[1]<=0;
-            action1<=0;action2<=0;action_valid<=0;
+            action_valid<=0;
         end else begin
             action_valid<=0;
             case(state)
                 IDLE:if(sample_valid) begin
-                    slot<=0;current_shift<={4'd0,price1};digit<=0;carry<=1;equality<=1;state<=READ_OLD;
+                    slot<=0;digit<=0;carry<=1;equality<=1;state<=READ_OLD;
                 end
                 READ_OLD:state<=CMP_OLD;
                 READ_SUB:state<=DO_SUB;
@@ -152,8 +160,6 @@ module trade_pair #(parameter integer W=1)(
                 READ_NEW:state<=CMP_NEW;
                 CMP_OLD,DO_SUB,DO_ADD,CMP_NEW:begin
                     digit<=digit+1'b1;carry<=carry_next;equality<=equal_next;
-                    if(active && executing && phase==2) current_shift<={current_shift[W-1:0],current_shift[19:W]};
-                    if(state==CMP_NEW) current_shift<=current_shift>>W;
                     case(state)
                         CMP_OLD:begin
                             state<=READ_OLD;
@@ -168,17 +174,16 @@ module trade_pair #(parameter integer W=1)(
                             state<=READ_NEW;
                             if(digit==PD-1) begin
                                 held_actions[item]<=next_action;
-                                if(!slot) action1<={6'd0,next_action};else action2<={6'd0,next_action};
                                 state<=FINISH;
                             end
                         end
                     endcase
                 end
                 FINISH:if(!slot) begin
-                    slot<=1;current_shift<={4'd0,price2};digit<=0;carry<=1;equality<=1;state<=READ_OLD;
+                    slot<=1;digit<=0;carry<=1;equality<=1;state<=READ_OLD;
                 end else begin
                     write_pointer<=write_pointer+1'b1;
-                    if(!full) sample_count<=sample_count+1'b1;
+                    if(write_pointer==15) window_full<=1;
                     action_valid<=1;state<=IDLE;
                 end
                 default:state<=IDLE;

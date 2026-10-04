@@ -8,15 +8,58 @@ This file is the implementation contract for humans and coding agents. Do not ch
 
 ## Current repository state
 
-Organizer resources remain unchanged. The trading core now has independent per-item engines, an independent Python model, deterministic regression vectors, and packet integration. Icarus Verilog 12.0 simulations pass: RX/TX/top scaffold tests, 1,509 engine and full-system packets across 15 sessions, and 221 complete transactions at the actual 27 MHz / 115200-baud timing (quick plus two robust sessions). Software evidence is in `results/`.
+Organizer tests and constraints remain unchanged. Current source fingerprint
+`cc8a88c20782` measures **186 synthesis Logic (186 LUT, 0 ALU, 0 RAM16),
+92 registers, 4 B-SRAM and 186 routed Logic**. A fresh Gowin V1.9.11.03 Education
+build reproduced the result at the unchanged 27 MHz target. Routed Fmax is
+108.334 MHz, setup/hold slack +27.806/+0.074 ns, with zero reported violations.
 
-Trading-core synthesis and PnR now pass natively on Windows with Gowin V1.9.11.03 Education: 412 LUTs, 328 registers, zero B-SRAM, eight SSRAM blocks, routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns and zero reported setup/hold violations. All six routed pins match the unchanged CST. PR1014 remains. Build/source evidence is in `results/build_windows_20261003/`. Authorized SRAM programming and physical quick plus three robust sessions passed; each robust run received 100 packets with 84/84 scored packets, 168/168 actions and zero timeouts. Every CSV row was independently checked. Combined physical mean/max latency is 13.718/31.265 ms on the local PC. Evidence is in `results/board_20261003T064213338565Z/`; the matching tested file is `bitstream/trade_core.fs`. The previous UART-only Windows build at `edc3fae` reported 177 LUTs, 166 registers, zero B-SRAM, and PR1014; those measurements do not describe the new strategy. The current trading core has been programmed in volatile SRAM with saved evidence. See `docs/board_bringup.md` for environment detection and release blockers.
+The current top uses the shared one-bit digit-serial trade_pair, direct price-bit
+selection from request B-SRAM, held item actions, a pointer/window-full flag,
+shared packet byte count and a shared UART baud timer. The independent parallel
+trade_engine remains separately testable. The seven-check standard regression
+passes 1,609 session packets and 221 transactions at 27 MHz / 115200 baud.
+The extensive suite passes 8,785 packets in both isolated-engine and full UART
+simulation, with agreement between the independent model and organizer class.
+
+The connected board was programmed with the exact final rebuilt file in SRAM.
+Quick, five normal → full-range practice pairs (1,000 correct responses), and
+8,785 extensive physical packets all passed without manual reset or reprogramming
+between sessions. All five normal runs estimate 100/100 locally. Their mean
+latencies span 16.527–18.948 ms; aggregate mean/max is 17.152/145.233 ms and median
+of five run means is 16.740 ms. The extensive board run checked 17,570 item
+actions, with no timeouts, mismatches or extra bytes; mean/median/max is
+16.967/16.938/204.767 ms. Logs, every CSV row, hashes, source and per-module
+breakdowns are in `results/logic_search_20261003/README.md`.
+
+The lowest locally qualifying candidate tested removes 50 Logic and 79 registers
+from the 236/171 baseline, using one extra B-SRAM. No accepted change lost the
+local rubric; no global minimum or qualification-failure boundary is established.
+Official judge and hidden-seed qualification remain pending. The tested file is
+`results/logic_search_20261003/physical_final_best_five_runs/programmed.fs`, SHA-256
+`6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23`.
+The selected submission copy `bitstream/trade_core.fs` contains this exact
+186-Logic release. Fresh October 4 verification passed five normal runs (500
+packets), five full-range runs (500), the modified full-range corpus (2,492),
+and all 13 attached variant modes plus two additional random seeds (1,500).
+Every one of the 4,992 robust packets and 9,984 actions, including warm-up,
+matched the independent reference model, with zero timeouts or mismatches.
+The board was programmed once and was not manually reset between these runs.
+All five normal runs estimate 100/100 locally; the median of their means is
+16.739245 ms. Source-matched simulation also passed these stimuli, including
+200 normal/full-range packets at actual 27 MHz / 115200 baud timing.
+Local verification artifacts are in `outputs/logic186_verification_20261004/`;
+they are intentionally excluded from the selected submission commit.
+
+Historical trading-core synthesis/PnR passed natively on Windows with Gowin V1.9.11.03 Education: 412 LUTs, 328 registers, zero B-SRAM, eight SSRAM blocks, routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns and zero reported setup/hold violations. All six routed pins matched the unchanged CST; PR1014 remained. Build/source evidence is in `results/build_windows_20261003/`. That preserved design passed authorized SRAM programming, physical quick and three robust sessions; each robust run received 100 packets with 84/84 scored packets, 168/168 actions and zero timeouts. Every CSV row was independently checked. Combined physical mean/max latency was 13.718/31.265 ms on the local PC. Evidence and the matching tested `programmed.fs` are in `results/board_20261003T064213338565Z/`; these results do not validate the current source or current `bitstream/trade_core.fs`. The earlier UART-only Windows build at `edc3fae` reported 177 LUTs, 166 registers, zero B-SRAM, and PR1014. See `docs/board_bringup.md` for historical environment detection and release blockers.
 
 Preserved organizer copies are located at:
 
 - `constraints/19_tang_nano_20k.cst`
 - `scripts/21_quick_uart_test.py`
 - `scripts/22_robust_uart_test.py`
+- `scripts/22_robust_uart_test_fullrange.py`
+- `docs/official/SCORING_AND_RANKING_CLARIFICATION.md`
 - `docs/official/GQH_Hardware_Track_Participant_Guide.pdf`
 - `docs/official/21_quick_uart_test_REFERENCE.md`
 - `docs/official/22_robust_uart_test_REFERENCE.md`
@@ -227,6 +270,37 @@ Outputs: action[7:0], action_valid
 
 Document any change to these interfaces before two teammates implement dependent modules.
 
+The request-price RAM experiment replaces `trade_pair.price1/price2` with
+`price_word[15:0]` and `price_read_slot`. The controller stores each completed
+price in synchronous B-SRAM. The pair prefetches slot zero while idle and requests
+slot one during its first FINISH cycle. Direct bit selection eliminates the
+additional price register and its FETCH_SLOT cycle. Reads and writes never share a cycle; session clear still precedes the
+one-clock sample pulse. This interface passed measured builds and board tests.
+
+The shared UART timer adds optional `SHARE_TIMER`, `shared_timer`,
+`timer_reload`, and `timer_reload_value` connections to RX and TX. RX also takes
+`timer_pause`, preventing a new receive start while TX owns the timer. Standalone
+modules default to their local timers. The top shares a counter for the protocol's
+receive-then-respond transactions, with TX reload taking priority. UART framing,
+start confirmation, synchronizers and full stop periods remain required.
+
+The request RAM stores the complete 16-bit index in word two
+of the existing request RAM. Index-zero and warm-up flags are latched while its
+low byte arrives. During response transmission the RAM read address selects the
+index; before sample acceptance it selects slot zero. The SEND handshake provides
+the synchronous read cycle before the transmitter accepts the first index byte.
+
+Direct price bit selection keeps the request RAM price stable throughout
+each strategy operation and selects its arithmetic digit using `digit*W`. Digits
+above the 16-bit price width return zero; the rolling sum retains all 20 bits.
+Slot-one prefetch remains separate from computation, and response RAM indexing
+begins only after pair completion.
+
+The controller holds `tx_byte` stable throughout WAIT_DONE; the integrated
+recovery bench checks this as well as one-clock handshake pulses. A held-input
+transmitter experiment grew Logic and was rejected; TX retains its stop-marker
+shift register and captures the complete input byte on its start pulse.
+
 ## Realistic implementation sequence
 
 ### Phase 0 — establish ground truth
@@ -345,7 +419,9 @@ Published reference targets:
 - Reference size: 542 LUTs
 - LUT score: `15 * min(1, 542 / implementation_LUTs)`
 
-Reducing below 542 LUTs does not produce more than 15 LUT points. The UART/USB path dominates measured latency, so a reliable transport usually matters more than saving a few internal clock cycles.
+The supplied organizer scoring/ranking clarification adds qualification and placement rules. Qualification requires 100/100 on the official run, followed immediately without reprogramming by a hidden full-range unsigned 16-bit run with every packet/action correct and no timeouts. Qualified teams rank by lowest total synthesis Logic (LUT, ALU and other logic types combined), then fewest registers, then lower median latency over five runs; latency within 5% ties. B-SRAM is allowed and excluded from Logic. Judges rebuild committed source using Gowin V1.9.11.03 and the submitted project settings, and check that rebuilt behavior matches the submitted .fs.
+
+Reducing below 542 LUTs does not improve the capped rubric score, but reducing total Logic does improve qualified placement. Optimize total Logic while retaining the 100-point rubric and perfect full-range correctness. Local practice results can estimate qualification; they cannot certify the official run or hidden seed on the judging PC. The UART/USB path dominates physical latency, so measure it on the board for accepted candidates.
 
 ## Two-person ownership plan
 
@@ -408,23 +484,27 @@ The project is complete only when all of the following are true:
 - Source, project files, constraints, tests, results, README, and matching `.fs` are committed.
 - The final commit SHA is recorded for submission.
 
+## Historical optimization measurement — 2026-10-03
+
+Frozen source fingerprint: `f90016e33d1c`; snapshot `.build/opt/baseline_20261003`, with durable source, hashes, reports and matching bitstream in `results/optimization_20261003/baseline/`. Fresh Gowin V1.9.11.03 Education synthesis/PnR passes for the exact part: 236 synthesis Logic, 237 routed Logic, 232 LUT, 4 ALU, 171 registers, 0 SSRAM, 3 B-SRAM; routed Fmax 118.135 MHz, setup/hold +28.572/+0.425 ns, zero reported violations. PR1014 remains.
+
+The sole experiment in that earlier session changed `trade_pair` default `W=1` to `W=2`. It passed all six regression checks and routing, but measured 248 synthesis Logic, 249 routed Logic, 244 LUT, 4 ALU, 170 registers, 0 SSRAM, 3 B-SRAM; routed Fmax 120.636 MHz, setup/hold +28.748/+0.341 ns, zero reported violations. It was rejected under Logic-first ranking. Exact frozen `src/`, `gowin/`, and `constraints/` were restored for that session, along with matching baseline software evidence. Saved experiment files remain available locally for comparison; generated `.build/` caches are not submitted build inputs.
+
+Simulated final-byte-to-response turnaround was 10.926210 Âµs before and 5.592738 Âµs during the experiment. Physical mean/max latency is **unmeasured for both source snapshots**. The historical physical test evidence below describes its preserved source and `results/board_20261003T064213338565Z/programmed.fs`, not the current baseline. The current untouched `bitstream/trade_core.fs` hashes to `cd708e137d143bdf52ca2ea6fe5ede4e09f18ba7849cd643ac7a7b0d5641c6e2`, which differs from that historical programmed file. At the end of that initial measurement session, zero-gap physical validation and the full-range script were still pending. The October 4 search described above supersedes that status and supplies both the recovered unchanged full-range test and current physical evidence.
+
 ## Current status
 
-Update this section at the end of each meaningful work session:
-
 ```text
-Last known-good commit: edc3fae is the historical UART scaffold; current trading source is uncommitted and simulation-validated
-Last matching bitstream: bitstream/trade_core.fs; SHA-256 e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7; programmed in SRAM and passed physical tests; awaiting human Git/submission freeze
-Board detected: native Windows USB Debugger A; VID_0403/PID_6010 serial 2025030317; JTAG location 561 reads GW2AR-family ID 0x0000081B
-COM port: current COM3 (interface A) and COM4 (interface B); COM4 passed the physical quick test and three robust sessions
-Simulation status: native Windows Icarus 12.0 passes RX 260 bytes, TX 256 bytes, original top 3 packets, engine + accelerated top 1509 packets / 15 sessions, board-default top 221 packets
-Reference model: byte-exact agreement with both organizer classes; organizer files unchanged; transferred source hashes verified
-Synthesis/PnR status: PASS, Gowin V1.9.11.03 Education Windows; exact part/version; 412 LUTs (49 LUT2/123 LUT3/240 LUT4), 328 registers, 0 B-SRAM, 8 SSRAM; source snapshot matches workspace
-Quick UART test: physical PASS on COM4; saved console/programming evidence
-Robust UART test: physical PASS three consecutive practice-seed runs without reset/reprogram; 84/84 scored packets and 168/168 actions each; all 300 CSV rows independently verified
-Timing / physical latency: routed Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns, zero reported setup/hold violations; physical robust aggregate mean/max 13.718/31.265 ms on local Windows PC
-Known blockers: human team/asset/submission metadata, human Git review/commit/push and public repository/Devpost freeze; PR1014 remains documented, physical local tests passed
-Next smallest task: humans fill submission metadata, review/stage/commit/push the source, evidence and matching tested bitstream, then record full final SHA on Devpost
+Verified candidate branch/commit: codex/logic-186 at 343217213e21871eab12bd07e7c4edc024e0df0d; eight synthesis/build inputs match the measured source
+Matching tested bitstream: SHA-256 6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23; outputs/logic186_verification_20261004/candidate.fs
+Fresh build: Gowin V1.9.11.03 Education; 186 synthesis/routed Logic, 186 LUT, 0 ALU/RAM16, 92 registers, 4 B-SRAM; configuration equals archived candidate except creation-time comment
+Fresh physical validation: quick PASS; normal500/500; fullrange500/500; modified2492/2492; attached variants1500/1500; all9984 robust actions correct including warmup; zero timeouts/mismatches
+Fresh simulation: accelerated normal/fullrange200, modified2492, variants1500 PASS; actual27MHz/115200 normal/fullrange200 PASS
+Board: USB serial2025030317, COM4, volatile SRAM; programmed once for entire sequence; no manual reset/reprogramming between sessions
+Normal local rubric: all five runs estimate100/100; median of five means16.739245ms; official judge/hidden-seed qualification pending
+Publication: selected release files are the186 candidate; README and bitstream README identify its tested hash; human Git/submission freeze remains required
+Existing capture_board_tests.py modifications, SKILL.md, and zip review outputs remain separate; no Git history/remote actions performed by verification
+Next step: human promotes selected source/tests and exact186 .fs to main, verifies public repository, pushes, and submits final commit SHA on Devpost
 ```
 
 ## Common failure modes
