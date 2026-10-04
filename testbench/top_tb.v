@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module top_tb;
+module top_tb #(parameter integer GAP_CYCLES = 0);
     localparam real CLOCK_PERIOD = 1000000000.0 / 27000000.0;
     localparam real BIT_PERIOD = 1000000000.0 / 115200.0;
     localparam real TX_FRAME_PERIOD = CLOCK_PERIOD * 234 * 10;
@@ -10,7 +10,7 @@ module top_tb;
     real last_start = -1000000000.0;
 
     always #(CLOCK_PERIOD / 2) sys_clk = ~sys_clk;
-    top dut (.sys_clk(sys_clk), .reset_btn(reset_btn), .uart_rx_i(uart_rx_i),
+    top #(.TX_GAP_CYCLES(GAP_CYCLES)) dut (.sys_clk(sys_clk), .reset_btn(reset_btn), .uart_rx_i(uart_rx_i),
              .uart_tx_o(uart_tx_o), .led0_n(led0_n), .led1_n(led1_n));
 
     task send_byte;
@@ -62,8 +62,11 @@ module top_tb;
             if (received_count >= expected_count)
                 $fatal(1, "Unsolicited response byte");
             if ((received_count % 8) != 0 &&
-                $realtime - last_start < TX_FRAME_PERIOD + 1000000)
-                $fatal(1, "Missing one-millisecond response byte gap");
+                $realtime - last_start < TX_FRAME_PERIOD + GAP_CYCLES * CLOCK_PERIOD)
+                $fatal(1, "Response byte gap below configured minimum");
+            if ((received_count % 8) != 0 &&
+                $realtime - last_start > TX_FRAME_PERIOD + (GAP_CYCLES + 4) * CLOCK_PERIOD + 100)
+                $fatal(1, "Response byte gap exceeds configured gap plus handshake");
             last_start = $realtime;
             #(BIT_PERIOD / 2);
             if (uart_tx_o !== 1'b0)

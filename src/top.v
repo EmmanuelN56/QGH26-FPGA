@@ -1,7 +1,7 @@
 module top #(
     parameter integer CLOCK_FREQ = 27000000,
     parameter integer BAUD_RATE = 115200,
-    parameter integer TX_GAP_CYCLES = CLOCK_FREQ / 1000
+    parameter integer TX_GAP_CYCLES = 0
 ) (
     input wire sys_clk,
     input wire reset_btn,

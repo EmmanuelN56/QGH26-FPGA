@@ -67,7 +67,7 @@ module uart_rx #(
                     if (bit_timer != 0)
                         bit_timer <= bit_timer - 1'b1;
                     else begin
-                        data_bits[bit_index] <= rx_sync;
+                        data_bits <= {rx_sync, data_bits[7:1]};
                         bit_timer <= CLKS_PER_BIT - 1;
                         if (bit_index == 7)
                             state <= STOP;
