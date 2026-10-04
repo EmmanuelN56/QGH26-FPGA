@@ -1,31 +1,30 @@
-# Gowin trading-core build
+# Gowin build for the 186-Logic release
 
-Target `GW2AR-LV18QN88C8/I7`, device version C, top `top`; organizer reference
-toolchain Gowin EDA `V1.9.11.03 Education`. This version built the historical
-UART scaffold on Windows. **The trading-core synthesis and PnR passed natively on Windows.**
+The selected trading core uses **186 total Logic (186 LUT, 0 ALU, 0 RAM16),
+92 registers, and 4 B-SRAM blocks**. Target: `GW2AR-LV18QN88C8/I7`, device
+version C, top `top`, 27 MHz. Toolchain: Gowin EDA V1.9.11.03 Education.
 
-From the repository root on Windows with Gowin already installed:
+## Build from the submitted source
+
+From the repository root in PowerShell, using the installed Gowin shell:
 
 ```powershell
 $gowinShell = 'C:\Gowin\Gowin_V1.9.11.03_Education_x64\IDE\bin\gw_sh.exe'
+$buildScript = (Resolve-Path '.\gowin\build_uart.tcl').Path
 $env:UART_BUILD_FLOW = 'all'
-try { & $gowinShell .\gowin\build_uart.tcl }
+try {
+    & $gowinShell $buildScript
+    if ($LASTEXITCODE -ne 0) { throw 'Gowin build failed.' }
+}
 finally { Remove-Item Env:UART_BUILD_FLOW }
 ```
 
-Use the actual executable path on your machine. On Linux, with an installed
-Gowin shell, use `UART_BUILD_FLOW=all /path/to/gw_sh gowin/build_uart.tcl`.
-The script never invokes a programmer. It defaults to synthesis; `syn`, `pnr`,
-and `all` are accepted. Always use `all` after changing HDL.
+Change the executable path if needed. The script defaults to synthesis only;
+`UART_BUILD_FLOW=all` runs synthesis and Place & Route. It does not program
+the board. On Linux, set `UART_BUILD_FLOW=all` when invoking the installed
+Gowin shell with `gowin/build_uart.tcl`.
 
-The script creates a separate trading-core project, so an old UART milestone
-project cannot silently omit the new engine. It creates/reopens
-`.build/gowin_trade/trade_core/trade_core.gprj`, and generates
-`.build/gowin_trade/trade_core/impl/pnr/trade_core.fs`. Generated caches are
-ignored. Do not submit a stale UART milestone `.fs`.
-
-GUI equivalent: create an FPGA Design Project named `trade_core`, select
-GW2AR-18 version C / QFN88 / the exact part above, set Top Module to `top`, and add:
+The project contains exactly these seven inputs:
 
 ```text
 src/top.v
@@ -37,57 +36,56 @@ constraints/19_tang_nano_20k.cst
 gowin/uart.sdc
 ```
 
-Use the organizer CST unchanged. The SDC supplies a 37.037037 ns clock period.
-Do not add simulation files. If the source list changes later, update existing
-generated projects as well as this Tcl script.
+Keep the organizer CST unchanged. The SDC defines a 37.037037 ns clock period.
+The script selects the exact part/version, `top`, and 27 MHz. Do not add
+testbenches to synthesis. The GUI equivalent uses those same settings and inputs.
 
-After synthesis and PnR, save the synthesis log/resource report and PnR log,
-resource, pin, and timing reports from `impl/gwsynthesis/` and `impl/pnr/`.
-Record Total LUT, LUT2/3/4, registers, B-SRAM, Fmax, worst setup/hold slack and
-violations. Check all six pins against the CST. Review PR1014 on the actual
-trading build: historical internal timing did pass, but generic clock routing
-can introduce delay/skew. Do not alter the organizer clock pin to silence it.
-The routed report shows Fmax 77.985 MHz, setup/hold +24.214/+0.425 ns and
-zero reported setup/hold violations; PR1014 remains. Authorized SRAM programming
-and physical quick plus three robust sessions subsequently passed.
+Generated project: `.build/gowin_trade/trade_core/trade_core.gprj`.
+Generated programming file: `.build/gowin_trade/trade_core/impl/pnr/trade_core.fs`.
+Generated caches are ignored and are not submission inputs. A cached project
+that points to another checkout is rejected; build in a fresh native Windows
+directory containing `src/`, `constraints/`, and `gowin/`, without copied caches.
 
-Software regression (Python 3 and already installed Icarus Verilog):
+## Verified resources, timing, and programming file
 
-```powershell
-python scripts/run_regression.py
+| Metric | Selected release |
+| --- | --- |
+| Synthesis / routed total Logic | 186 / 186 |
+| LUT / ALU / RAM16 | 186 / 0 / 0 |
+| Registers | 92 |
+| B-SRAM / distributed SSRAM | 4 / 0 |
+| Routed Fmax | 108.334 MHz |
+| Worst setup / hold slack | +27.806 / +0.074 ns |
+| Reported setup / hold violations | 0 / 0 |
+
+A fresh build reproduced these metrics. The submitted file is
+[`bitstream/trade_core.fs`](../bitstream/trade_core.fs), SHA-256:
+
+```text
+6fbefe4697c714b18f78830088c826b2f7cc1e2823de0070a688c84f3f6a6e23
 ```
 
-The runner compares the Python model against extracted organizer reference
-classes without executing their serial test bodies, generates vectors, compiles
-five testbenches, and runs six simulation configurations. It saves transcripts
-and source SHA-256 identities in `results/`. Board-default UART timing includes
-quick and two robust sessions; accelerated timing covers every boundary and
-random session. See the root README and bring-up notes for results and limits.
+That exact file passed the October 4 physical quick, normal, full-range,
+modified full-range, and attached variant tests. The fresh rebuild contains
+identical configuration data; its creation-time comment differs.
+EX3791 (address-expression truncation) and PR1014 (generic clock routing)
+remain disclosed. Preserve the organizer clock pin and review the generated
+resource, pin, and timing reports after rebuilding.
 
-Programming requires explicit authorization. After a reviewed build, use the
-participant guide's Gowin Programmer **SRAM Mode / SRAM Program** procedure.
-Re-detect the cable/location and UART port; do not assume the old location 561
-or COM4 applies. Save programming evidence, then run the physical capture script.
-Only a matching physically tested `.fs` should become the final submission file.
+## Local tests and SRAM programming
 
-## Verified Windows build in the WSL-hosted workspace
+Run `python scripts/run_regression.py` with Python and Icarus Verilog installed.
+The runner checks the independent model against all three organizer reference
+classes and runs seven configurations across six testbenches. Board timing
+covers quick, normal, and full-range sessions; accelerated timing covers the
+complete vector set. Generated logs are local verification material.
 
-The successful build used a native copy at
-`C:/Users/Lenovo/AppData/Local/GatorFPGA/trade_build_20261003`, because launching
-Gowin from the UNC workspace stalled before Tcl execution. Copy `src/`,
-`constraints/` and `gowin/` to a native Windows directory, set that directory as
-the working directory, then run the same Tcl with `UART_BUILD_FLOW=all`.
-Verify source hashes before using the result. Generated project paths refer to
-this local snapshot; rebuild from Tcl rather than reopening copied projects.
+Program `bitstream/trade_core.fs` with Gowin Programmer **SRAM Mode / SRAM
+Program**, selecting `GW2AR-18C`. Detect the debugger and UART port on the
+connected computer. Then run the organizer quick, normal, and full-range tests;
+change only their PORT setting. Run normal and full-range consecutively without
+manual reset or reprogramming. Only a physically tested file should replace
+the submitted `.fs`.
 
-The tools were extracted at
-`C:/Users/Lenovo/AppData/Local/GatorFPGA/gowin/extracted/Gowin_V1.9.11.03_Education_x64/`.
-No bundled driver installer was run. Build reports/source snapshots are archived
-in `results/build_windows_20261003/`; outputs are copied to `.build/gowin_trade/`.
-Candidate SHA-256:
-`e0b5bdc80f568ba7e7036693b6aa08fe2e0708843aa295db5cc83fca105afce7`.
-The same file was subsequently programmed in authorized volatile SRAM, passed
-quick plus three robust sessions, and copied to `bitstream/trade_core.fs`.
-Evidence: `results/board_20261003T064213338565Z/`. Human Git/submission freeze is pending.
-The CLI programmer rejected a UNC `.fs` path; use a hash-verified native Windows
-copy when reproducing SRAM programming.
+See the [root README](../README.md), [bitstream description](../bitstream/README.md),
+and [board verification](../docs/board_bringup.md) for the selected release.

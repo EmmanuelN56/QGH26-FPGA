@@ -1,5 +1,10 @@
 # Handoff: minimize total Logic while preserving qualification
 
+> Historical research from October 3. These archived experiment
+> descriptions and baseline counts do not identify the active submission.
+> The selected release is **186 total Logic / 92 registers / 4 B-SRAM**;
+> see the [current README](../../README.md).
+
 Work on the native Windows Tang Nano 20K trading-core repository. Read AGENTS.md and PROJECT_BRIEF.md completely, then the organizer guide, scoring clarification, normal test, and full-range test. Organizer artifacts override conflicting repository prose. Inspect the actual checkout and teammate's latest evidence before choosing a baseline; some older status paragraphs describe superseded implementations.
 
 Implement and measure the optimization experiments below. The objective is the best competition-ready design we can demonstrate, not the smallest standalone LUT number. Do not claim a global minimum or guaranteed win. Preserve the best known-good candidate throughout.

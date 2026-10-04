@@ -231,8 +231,6 @@ A fresh Gowin V1.9.11.03 Education synthesis/Place & Route reproduced the
 186/92/4 resource counts. Its `.fs` configuration is identical to the selected
 tested file; only the creation-time comment differs. The submitted hash
 identifies the exact file programmed for the physical results above.
-Compared with 236 Logic / 171 registers, this saves 50 Logic (21.2%) and 79
-registers (46.2%), using one additional B-SRAM block.
 
 | Physical latency on the local Windows PC | Result |
 | --- | --- |
@@ -284,8 +282,8 @@ Power loss clears the SRAM configuration and requires reprogramming.
 These instructions follow Part 3 of the
 [organizer participant guide](https://www.gqhacks.com/hardware/GQH_Hardware_Track_Participant_Guide.pdf#page=13).
 Make the repository public and keep it available through judging. Commit and
-push the selected source, constraints,
-build inputs, README files, local test code, and matching `.fs`. Obtain the full final commit SHA
+push the selected source, constraints, build inputs, README files, local test
+code, and matching `.fs`. Obtain the full final commit SHA
 with `git rev-parse HEAD` and enter it with the repository URL on Devpost. Do not
 put the Git commit SHA in this README.
 

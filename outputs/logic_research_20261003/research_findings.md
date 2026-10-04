@@ -1,5 +1,10 @@
 # Research for reducing total FPGA logic
 
+> Historical research from October 3. These archived experiment
+> descriptions and baseline counts do not identify the active submission.
+> The selected release is **186 total Logic / 92 registers / 4 B-SRAM**;
+> see the [current README](../../README.md).
+
 Research date: 2026-10-03. Scope: literature and existing source/report inspection only. No project RTL, tests, constraints, settings, or bitstreams changed; no synthesis or physical test was run for this research.
 
 ## Recommendation

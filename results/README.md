@@ -1,28 +1,27 @@
-# Verification evidence
+# Verification records and the selected 186-Logic release
 
-`software_validation.json` records the simulator/Python versions, test results,
-source SHA-256 identities and vector manifest. `simulation.log` is the actual
-compiler/runtime transcript. These are **software simulation evidence only**.
+The active submission is **186 total Logic / 92 registers / 4 B-SRAM**,
+with [`bitstream/trade_core.fs`](../bitstream/trade_core.fs). The
+[root README](../README.md) contains its source/build identity, tested bitstream
+hash, resource/timing measurements, and October 4 physical test results.
 
-Validated: independent model agrees byte-for-byte with both organizer classes
-for 1,509 packets / 15 sessions; RX (260 bytes), TX (256), original top (3),
-engines (1,509), accelerated full sessions (1,509), board-default full sessions
-(221: quick and two robust runs without reset). Golden request/response and
-internal-state vectors are in `testbench/vectors/` and can be regenerated with
-`python scripts/generate_vectors.py`. No serial port is opened by software checks.
+The existing tracked files in this directory are **historical verification
+snapshots**. Their source hashes and recorded configuration define their scope;
+they should not be reported as results for the current source. Preserve their
+original contents rather than rewriting recorded measurements to match a release.
 
-Icarus reports unspecified RTL time-unit warnings; the RTL has no delays, and
-the benches specify their time units. These do not affect the checked cycle
-counts or serial stimulus. All pass/failure messages are retained.
+The selected file passed quick, five normal runs, five full-range runs, the
+modified full-range test, and all attached variant modes plus two additional
+random seeds: 4,992 correct robust packets and 9,984 correct actions including
+warm-up, with zero timeouts or mismatches. Detailed logs/CSVs were saved during
+verification and retained with local work; they are optional submission material.
 
-No current trading-core synthesis, PnR, bitstream, programming logs, physical
-CSV/summary, or latency measurement is available. Historical UART-only metrics
-in the bring-up notes must not be reported as trading-core measurements.
+For current software-only checks, run `python scripts/run_regression.py`.
+The runner regenerates vectors and writes `software_validation.json` and
+`simulation.log` here with the tested source identities. These files describe
+simulation only; the runner does not program the board or open a serial port.
 
-After explicit SRAM-programming authorization and successful programming, use
-`scripts/capture_board_tests.py` to preserve quick output and repeated robust
-CSVs/summaries with source/bitstream identities under `results/board_<UTC>/`.
-Archive the matching Gowin synthesis/resource/pin/timing reports and programming
-console log there, and record physical correctness and mean/max latency.
-Its manifest identifies programming mode as operator-reported; retain actual
-programming evidence separately. Never label software simulation as a board pass.
+For physical checks, program the selected `.fs` in SRAM mode and preserve
+programming logs and each UART test's CSV/summary, including source and bitstream
+hashes. Do not substitute software simulation for physical-board results.
+See the [board instructions](../docs/board_bringup.md) for this release.

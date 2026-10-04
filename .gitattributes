@@ -1,3 +1,4 @@
+# Text-handling rules for the selected 186-Logic release.
 # Accept Windows line endings while checking actual trailing spaces and tabs.
 * whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
